@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="Nyong&#39;s Blog">
 <meta property="og:description" content="오늘 한 것구조적&#x2F; 의미론적으로 탄탄하게 설계할 것 HTML 문서를 막연히 디자인에만 치중하는 것이 아닌 구조적으로 탄탄하게 설계해야한다.  &lt;header&gt;&lt;&#x2F;header&gt; , &lt;nav&gt;&lt;&#x2F;nav&gt; &lt;section&gt;&lt;&#x2F;section&gt;, &lt;aside&gt;&lt;&#x2F;aside&gt;, &amp;lt">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yhun940731.github.io/2020/10/19/20-10-19-TIL-Start-HTML-CSS/img/201019_naver_login.PNG">
+<meta property="og:image" content="http://yhun940731.github.io/2020/10/19/20-10-19-TIL-Start-HTML-CSS/image/201019_naver_login.png">
 <meta property="article:published_time" content="2020-10-19T09:33:54.000Z">
-<meta property="article:modified_time" content="2020-10-19T11:41:47.007Z">
+<meta property="article:modified_time" content="2020-10-19T11:45:06.734Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yhun940731.github.io/2020/10/19/20-10-19-TIL-Start-HTML-CSS/img/201019_naver_login.PNG">
+<meta name="twitter:image" content="http://yhun940731.github.io/2020/10/19/20-10-19-TIL-Start-HTML-CSS/image/201019_naver_login.png">
 
 <link rel="canonical" href="http://yhun940731.github.io/2020/10/19/20-10-19-TIL-Start-HTML-CSS/">
 
@@ -178,7 +178,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-19 18:33:54 / Modified: 20:41:47" itemprop="dateCreated datePublished" datetime="2020-10-19T18:33:54+09:00">2020-10-19</time>
+              <time title="Created: 2020-10-19 18:33:54 / Modified: 20:45:06" itemprop="dateCreated datePublished" datetime="2020-10-19T18:33:54+09:00">2020-10-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
 <li><p>Layout을 배치할 시 논리적, 의미론적으로 문서를 작성하여야 한다.</p>
 </li>
 </ul>
-<p><img src="img/201019_naver_login.PNG" title="네이버 로그인 페이지"></p>
+<p><img src="image/201019_naver_login.png" title="네이버 로그인 페이지"></p>
 <ul>
 <li><p>배치를 아이디, 비밀번호, 로그인, 로그인 유지 순으로 배치하였다. 로그인 유지는 로그인 전에 하는 것이지만 논리적 구성은 로그인 뒤로 배치돼있으며 <kbd>Tab</kbd> 키를 활용하여 이동시에도 순차적이지 못하다. (개인적으로 디자인 적으로는 깔끔하지만 논리적으로는 좋지 못 하다 생각한다.)</p>
 </li>
@@ -228,9 +228,9 @@
 <li><p>네이밍 관련해서는 CSS의 class, id(고유한 Id보다는 재사용 가능한 Class로 네이밍하는 것이 좋다고 생각) 등도 중요하게 이름 지어야한다.</p>
 <ul>
 <li>BEM(CSS 설계 방법론)을 참고하자.<ul>
-<li>.header__logo -&gt; logo가 header의 하위</li>
-<li>.header__menu-item -&gt; header 내부의 menu-item</li>
-<li>.header__menu-item-active -&gt; header 내부의menu-item active 등등<br>참고: <a target="_blank" rel="noopener" href="http://getbem.com/naming/">BEM</a></li>
+<li><code>.header__logo</code> -&gt; logo가 header의 하위</li>
+<li><code>.header__menu-item</code> -&gt; header 내부의 menu-item</li>
+<li><code>.header__menu-item-active</code> -&gt; header 내부의menu-item active 등등<br>참고: <a target="_blank" rel="noopener" href="http://getbem.com/naming/">BEM</a></li>
 </ul>
 </li>
 <li>표기방법<ul>
