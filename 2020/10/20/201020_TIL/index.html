@@ -28,7 +28,7 @@
 <meta property="og:description" content="오늘 한 것가운데 정렬 margin 값을 양쪽에 auto를 줘서 정해진 width값을 가운데로 몰아 넣기(해당 요소에 적용) 12345main&amp;#123;    width: 940px;    padding: 10px;    margin: 0 auto;&amp;#125;  flex를 활용한 콘텐츠 가운데 정렬(부모 요소에 적용) 123456body&amp;#123;    d">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-20T09:50:54.000Z">
-<meta property="article:modified_time" content="2020-10-20T12:35:35.165Z">
+<meta property="article:modified_time" content="2020-10-20T14:01:07.160Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-20 18:50:54 / Modified: 21:35:35" itemprop="dateCreated datePublished" datetime="2020-10-20T18:50:54+09:00">2020-10-20</time>
+              <time title="Created: 2020-10-20 18:50:54 / Modified: 23:01:07" itemprop="dateCreated datePublished" datetime="2020-10-20T18:50:54+09:00">2020-10-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,6 +208,14 @@
 
 </li>
 </ul>
+<h2 id="BFC-block-Format-context"><a href="#BFC-block-Format-context" class="headerlink" title="BFC(block Format context)"></a>BFC(block Format context)</h2><ul>
+<li><code>BFC</code>: 블록 박스의 레이아웃이 발생하는 지점과 플로팅 요소의 상호작용 범위를 결정하는 범위.</li>
+<li>BFC는 레이아웃 안의 작은 레이아웃이다.</li>
+<li><code>position: absolute</code>, <code>position: fixed</code>, float 등은 BFC를 발생시킨다.</li>
+<li>float으로 인해 요소가 부유하거나 자식 요소가 부모 박스 영역을 벗어날 때가 발생한다.</li>
+<li>이떄, 보통 부모 요소가 자식 요소를 잃고 규격이 변하며 자식 요소는 다른 범위로 침범할 경우가 있는데, 이때 당황하지 않고 부모 요소 등를 BFC를 통해 float 해제를 해야 한다. </li>
+<li>개인적으로 BFC는 float이나 position 속성 값으로 부유하거나 위치를 옮기려는 박스 요소의 상태, 재배치하는 과정 정도로 이해하였다.</li>
+</ul>
 <h2 id="float-해제-방법"><a href="#float-해제-방법" class="headerlink" title="float 해제 방법"></a>float 해제 방법</h2><h3 id="부모-요소에-height를-부여한다"><a href="#부모-요소에-height를-부여한다" class="headerlink" title="부모 요소에 height를 부여한다."></a>부모 요소에 height를 부여한다.</h3><ul>
 <li>부모 요소에 height를 부여하면 float이 해제된 것 같은 효과를 보인다.</li>
 <li>하지만 자식요소의 높이가 더 높을 경우 자식 요소가 넘치는 현상이 그대로 발생한다.</li>
@@ -238,8 +246,6 @@
 <ul>
 <li><p><code>Aria-hidden=”true”</code> 속성 검색결과에 영향 X / 스크린리더에서 인식 X</p>
 </li>
-<li><p><code>Position: absolute</code>, float는 BFC를 발생시킴.</p>
-</li>
 <li><p>Position에 의한 Layout은 합리적이지 않다. 좌표값을 UI가 변하면 항상 변경해야함.</p>
 </li>
 </ul>
@@ -267,8 +273,6 @@
 <li><p>고정형 레이아웃 예제를 이용하여 콘텐츠 배치와 정렬 등을 연습하고 있다.(gitHub참조)</p>
 </li>
 <li><p>position, float, flex 등 생각보다 쉽지 않다. 아직까지 완벽히 개념이 잡히지 않는 기분이다. 좀 더 여러 상황을 만들어 보며 연습할 예정이다.</p>
-</li>
-<li><p>BFC에 대한 개념이 잘 잡히지 않는다. 좀 더 공부하고 정리를 해봐야겠다.</p>
 </li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
@@ -353,7 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%9A%B4%EB%8D%B0-%EC%A0%95%EB%A0%AC"><span class="nav-number">1.1.</span> <span class="nav-text">가운데 정렬</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float-%ED%95%B4%EC%A0%9C-%EB%B0%A9%EB%B2%95"><span class="nav-number">1.2.</span> <span class="nav-text">float 해제 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%B6%80%EB%AA%A8-%EC%9A%94%EC%86%8C%EC%97%90-height%EB%A5%BC-%EB%B6%80%EC%97%AC%ED%95%9C%EB%8B%A4"><span class="nav-number">1.2.1.</span> <span class="nav-text">부모 요소에 height를 부여한다.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%B6%80%EB%AA%A8-%EC%9A%94%EC%86%8C%EC%97%90-float-%EC%86%8D%EC%84%B1-%EB%B6%80%EC%97%AC"><span class="nav-number">1.2.2.</span> <span class="nav-text">부모 요소에 float 속성 부여</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overview-%EC%86%8D%EC%84%B1%EC%9D%84-%EC%9D%B4%EC%9A%A9"><span class="nav-number">1.2.3.</span> <span class="nav-text">overview 속성을 이용</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear-%EC%86%8D%EC%84%B1-%EC%9D%B4%EC%9A%A9"><span class="nav-number">1.2.4.</span> <span class="nav-text">clear 속성 이용</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B0%80%EC%83%81%EC%9A%94%EC%86%8C%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-clear-%EC%86%8D%EC%84%B1%EC%9C%BC%EB%A1%9C-float-%ED%95%B4%EC%A0%9C"><span class="nav-number">1.2.5.</span> <span class="nav-text">가상요소를 이용한 clear 속성으로 float 해제</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9B%B9%EB%AC%B8%EC%84%9C%EC%9D%98-%EC%A4%91%EC%9A%94%ED%95%9C-%EA%B2%83"><span class="nav-number">1.3.</span> <span class="nav-text">웹문서의 중요한 것</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%83%80"><span class="nav-number">1.4.</span> <span class="nav-text">기타</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B0%B8%EA%B3%A0"><span class="nav-number">1.5.</span> <span class="nav-text">참고</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%8A%90%EB%82%80-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">오늘 느낀 것</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%9A%B4%EB%8D%B0-%EC%A0%95%EB%A0%AC"><span class="nav-number">1.1.</span> <span class="nav-text">가운데 정렬</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-block-Format-context"><span class="nav-number">1.2.</span> <span class="nav-text">BFC(block Format context)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float-%ED%95%B4%EC%A0%9C-%EB%B0%A9%EB%B2%95"><span class="nav-number">1.3.</span> <span class="nav-text">float 해제 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%B6%80%EB%AA%A8-%EC%9A%94%EC%86%8C%EC%97%90-height%EB%A5%BC-%EB%B6%80%EC%97%AC%ED%95%9C%EB%8B%A4"><span class="nav-number">1.3.1.</span> <span class="nav-text">부모 요소에 height를 부여한다.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%B6%80%EB%AA%A8-%EC%9A%94%EC%86%8C%EC%97%90-float-%EC%86%8D%EC%84%B1-%EB%B6%80%EC%97%AC"><span class="nav-number">1.3.2.</span> <span class="nav-text">부모 요소에 float 속성 부여</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overview-%EC%86%8D%EC%84%B1%EC%9D%84-%EC%9D%B4%EC%9A%A9"><span class="nav-number">1.3.3.</span> <span class="nav-text">overview 속성을 이용</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear-%EC%86%8D%EC%84%B1-%EC%9D%B4%EC%9A%A9"><span class="nav-number">1.3.4.</span> <span class="nav-text">clear 속성 이용</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B0%80%EC%83%81%EC%9A%94%EC%86%8C%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-clear-%EC%86%8D%EC%84%B1%EC%9C%BC%EB%A1%9C-float-%ED%95%B4%EC%A0%9C"><span class="nav-number">1.3.5.</span> <span class="nav-text">가상요소를 이용한 clear 속성으로 float 해제</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9B%B9%EB%AC%B8%EC%84%9C%EC%9D%98-%EC%A4%91%EC%9A%94%ED%95%9C-%EA%B2%83"><span class="nav-number">1.4.</span> <span class="nav-text">웹문서의 중요한 것</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%83%80"><span class="nav-number">1.5.</span> <span class="nav-text">기타</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B0%B8%EA%B3%A0"><span class="nav-number">1.6.</span> <span class="nav-text">참고</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%8A%90%EB%82%80-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">오늘 느낀 것</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
