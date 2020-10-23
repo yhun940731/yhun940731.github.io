@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/56425514/96996431-d178be80-156a-11eb-9a60-ba5d31dd18f1.PNG">
 <meta property="og:image" content="https://user-images.githubusercontent.com/56425514/96997004-e0ac3c00-156b-11eb-8490-bbc299b5582a.png">
 <meta property="article:published_time" content="2020-10-23T09:15:46.000Z">
-<meta property="article:modified_time" content="2020-10-23T11:28:33.243Z">
+<meta property="article:modified_time" content="2020-10-23T11:32:08.763Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-23 18:15:46 / Modified: 20:28:33" itemprop="dateCreated datePublished" datetime="2020-10-23T18:15:46+09:00">2020-10-23</time>
+              <time title="Created: 2020-10-23 18:15:46 / Modified: 20:32:08" itemprop="dateCreated datePublished" datetime="2020-10-23T18:15:46+09:00">2020-10-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,14 +248,14 @@
 </li>
 </ul>
 <h2 id="article-vs-section"><a href="#article-vs-section" class="headerlink" title="article vs section"></a>article vs section</h2><ul>
-<li><p>article은 완전 독립된, 홀러 서는 콘텐츠를 뜻한다. 문맥상 독립적이고 홀로 완전한 것을 말한다.</p>
+<li><p>article은 완전 독립된, 홀로 서는 콘텐츠를 뜻한다. 문맥상 독립적이고 홀로 완전한 것을 말한다.</p>
 </li>
 <li><p>section은 ‘1장 1절, 2절’ 같은 대주제의 안에서 나눠지는 부분들을 나눌 때 쓰인다.</p>
 </li>
 <li><p>하지만 둘 다 콘텐츠를 묶는 요소로써 쓰이기 때문에 이것에 대한 의견이 많이 갈리는 편임이다. 개인의 기준을 갖고 사용하면 된다.</p>
 </li>
 </ul>
-<h2 id=""><a href="#" class="headerlink" title="  "></a><dl> <dt> <dd></h2><ul>
+<h2 id="dl-dt-dd"><a href="#dl-dt-dd" class="headerlink" title="dl, dt, dd"></a>dl, dt, dd</h2><ul>
 <li><p>Heading(h1~6)이 아니라 <code>&lt;dl&gt;</code>을 사용하는 이유는 용어 정의 정도로 제목을 낭비해서는 안되기 때문이다.</p>
 </li>
 <li><p><code>&lt;dt&gt;</code> <code>&lt;dd&gt;</code> 는 일대일 대응으로 작성하는 것을 권장한다.</p>
@@ -264,19 +264,19 @@
 </li>
 </ul>
 <h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
-<li>Css의 답답함 때문에 전처리기인 SASS, LESS, STLY 등이 쓰인다. 특징으로는 변수 생성 기능, float해제 등에 대한 믹스인 기능, placeholder 기능, 내장 함수 로직 기능, 모듈화 제공 등과 더 발전하면 BEM표기법과 결합하여 모듈화 시킬 수 있는 특징이 있다. (CSS에 익숙해지면 꼭 익혀봐야지!)</li>
-</ul>
+<li><p>Css의 답답함 때문에 전처리기인 SASS, LESS, STLY 등이 쓰인다. 특징으로는 변수 생성 기능, float해제 등에 대한 믹스인 기능, placeholder 기능, 내장 함수 로직 기능, 모듈화 제공 등과 더 발전하면 BEM표기법과 결합하여 모듈화 시킬 수 있는 특징이 있다. (CSS에 익숙해지면 꼭 익혀봐야지!)</p>
+</li>
+<li><p>아래와 같이 <code>&lt;span&gt;</code>태그를 이용하여 아이콘을 넣어준다.<br><img src="https://user-images.githubusercontent.com/56425514/96997004-e0ac3c00-156b-11eb-8490-bbc299b5582a.png" alt="image"></p>
 <pre><code>&lt;li class=&quot;signup&quot;&gt;
 &lt;span class=&quot;icon-right-open&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 &lt;a href=&quot;#&quot;&gt;회원가입&lt;/a&gt;
 &lt;/li&gt;</code></pre>
-<p>아래와 같이 <code>&lt;span&gt;</code>태그를 이용하여 아이콘을 넣어준다.<br><img src="https://user-images.githubusercontent.com/56425514/96997004-e0ac3c00-156b-11eb-8490-bbc299b5582a.png" alt="image"></p>
-<ul>
-<li><p>그 이유는 ::before를 사용하면 JS로 제어하지 못 하며, 브라우저마다 다르지만 스크린리더가 콘텐츠를 읽어버리는 경우가 발생한다.</p>
+</li>
+<li><p>이유는 ::before를 사용하면 JS로 제어하지 못 하며, 브라우저마다 다르지만 스크린리더가 콘텐츠를 읽어버리는 경우가 발생한다.</p>
 </li>
 <li><p>크로스 브라우징의 필요성에 대해 다시 한번 절실히 느낀다.</p>
 </li>
-<li><p><code>button</code>은 브라우저마다 여백이 다르다. 재정의해줄 필요가 있다.</p>
+<li><p><code>&lt;button&gt;</code>은 브라우저마다 여백이 다르다. 재정의해줄 필요가 있다.</p>
 </li>
 </ul>
 <h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
@@ -375,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient"><span class="nav-number">1.1.</span> <span class="nav-text">gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#align"><span class="nav-number">1.2.</span> <span class="nav-text">align</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%91%EA%B7%BC%EC%84%B1"><span class="nav-number">1.3.</span> <span class="nav-text">접근성</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">1.4.</span> <span class="nav-text">background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#article-vs-section"><span class="nav-number">1.5.</span> <span class="nav-text">article vs section</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">  </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%83%80"><span class="nav-number">1.7.</span> <span class="nav-text">기타</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%8A%90%EB%82%80-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">오늘 느낀 것</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient"><span class="nav-number">1.1.</span> <span class="nav-text">gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#align"><span class="nav-number">1.2.</span> <span class="nav-text">align</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%91%EA%B7%BC%EC%84%B1"><span class="nav-number">1.3.</span> <span class="nav-text">접근성</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">1.4.</span> <span class="nav-text">background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#article-vs-section"><span class="nav-number">1.5.</span> <span class="nav-text">article vs section</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dl-dt-dd"><span class="nav-number">1.6.</span> <span class="nav-text">dl, dt, dd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%83%80"><span class="nav-number">1.7.</span> <span class="nav-text">기타</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%8A%90%EB%82%80-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">오늘 느낀 것</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
