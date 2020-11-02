@@ -176,7 +176,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-02 11:23:30" itemprop="dateModified" datetime="2020-11-02T11:23:30+09:00">2020-11-02</time>
+                <time title="Modified: 2020-11-02 11:30:29" itemprop="dateModified" datetime="2020-11-02T11:30:29+09:00">2020-11-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,7 +228,7 @@
 <li>가상요소를 활용한 기법<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*text처리된 요소 뒤에 가상요소로 배경을 넣어준다.*&#x2F;</span><br><span class="line">.slogan-heading::after&#123;</span><br><span class="line">content: &quot;&quot;;</span><br><span class="line">position: absolute;</span><br><span class="line">width: 100%;</span><br><span class="line">height: 100%;</span><br><span class="line">top: 0;</span><br><span class="line">left: 0;</span><br><span class="line">background: url(.&#x2F;images&#x2F;coffee.png) no-repeat 0 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><code>&lt;h2&gt;</code>내부 <code>&lt;span&gt;</code> 두개를 만들고 <code>&lt;span&gt;</code> 하나에 text, 하나에는 배경 이미지를 만들어 <code>position: absolute</code>로 겹쳐 배경만 표시하는 방법도 있다.</li>
 </ol>
-<p>![IR이미지]](<a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/56425514/97823739-294abe80-1cfd-11eb-9fe3-1df43f0eca9d.png">https://user-images.githubusercontent.com/56425514/97823739-294abe80-1cfd-11eb-9fe3-1df43f0eca9d.png</a>)</p>
+<p>![CoffeeSlogan]](<a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/56425514/97823739-294abe80-1cfd-11eb-9fe3-1df43f0eca9d.png">https://user-images.githubusercontent.com/56425514/97823739-294abe80-1cfd-11eb-9fe3-1df43f0eca9d.png</a>)</p>
 <h2 id="counter-reset-속성"><a href="#counter-reset-속성" class="headerlink" title="counter-reset 속성"></a>counter-reset 속성</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.favorite-list li&#123;</span><br><span class="line">    counter-reset : numbering;</span><br><span class="line">    list-style-type:none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.favorite-list li:before&#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    counter-increment : numbering; </span><br><span class="line">    content : counter(numbering);</span><br><span class="line">    color: white;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding:5px;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">    background: #999;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>위와 같이 counter-reset 속성을 이용하면 아래처럼 요소 앞에 가상요소 선택자를 통해 정렬된 숫자를 표기할 수 있다.</li>
@@ -244,7 +244,7 @@
 <li>좌표값만을 통해 한장의 이미지로 각각 다른 배경을 연출한다.</li>
 <li>클라이언트 입장에서도 적은 데이터 사용이 가능하여 비용을 절감한다.</li>
 </ul>
-<p>![네이버버튼이미지]](<a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/56425514/97823160-79288600-1cfb-11eb-90b3-bbdaab8e2e55.png">https://user-images.githubusercontent.com/56425514/97823160-79288600-1cfb-11eb-90b3-bbdaab8e2e55.png</a>)</p>
+<p>![naverImage]](<a target="_blank" rel="noopener" href="https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png">https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png</a>)</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
 
       
