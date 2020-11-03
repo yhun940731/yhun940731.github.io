@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="오늘 한 것padding을 이용한  삽입. 반응형 웹에서 iframe을 이용하여 영상을 삽입할 경우, viewport의 너비에 따라 영상 비율을 유지 시켜줄 필요가 있다.123456&lt;figure class&#x3D;&quot;ediya-youtube-wrapper&quot;&gt;    &lt;iframe style&#x3D;&quot;backgrou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="201103_TIL">
+<meta property="og:url" content="http://yhun940731.github.io/2020/11/03/201103-TIL/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="오늘 한 것padding을 이용한  삽입. 반응형 웹에서 iframe을 이용하여 영상을 삽입할 경우, viewport의 너비에 따라 영상 비율을 유지 시켜줄 필요가 있다.123456&lt;figure class&#x3D;&quot;ediya-youtube-wrapper&quot;&gt;    &lt;iframe style&#x3D;&quot;backgrou">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/97975599-b892c780-1e0c-11eb-8a03-883930515955.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/97975646-cb0d0100-1e0c-11eb-8323-923235dec26b.png">
+<meta property="article:published_time" content="2020-11-03T10:34:51.000Z">
+<meta property="article:modified_time" content="2020-11-03T11:14:03.475Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/56425514/97975599-b892c780-1e0c-11eb-8a03-883930515955.png">
+
+<link rel="canonical" href="http://yhun940731.github.io/2020/11/03/201103-TIL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>201103_TIL | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/03/201103-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          201103_TIL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-03 19:34:51 / Modified: 20:14:03" itemprop="dateCreated datePublished" datetime="2020-11-03T19:34:51+09:00">2020-11-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="padding을-이용한-삽입"><a href="#padding을-이용한-삽입" class="headerlink" title="padding을 이용한  삽입."></a>padding을 이용한 <iframe> 삽입.</h2><ul>
+<li>반응형 웹에서 <code>iframe</code>을 이용하여 영상을 삽입할 경우, viewport의 너비에 따라 영상 비율을 유지 시켜줄 필요가 있다.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;figure class&#x3D;&quot;ediya-youtube-wrapper&quot;&gt;</span><br><span class="line">    &lt;iframe style&#x3D;&quot;background: url(.&#x2F;images&#x2F;youtube-cover.jpg) no-repeat  center center cover&quot;</span><br><span class="line">    src&#x3D;&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;UGPo0RqhbKU&quot; frameborder&#x3D;&quot;0&quot; allowfullscreen</span><br><span class="line">    aria-labelledby&#x3D;&quot;ediyaYoutube&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">    &lt;figcaption class&#x3D;&quot;a11y-hidden&quot; id&#x3D;&quot;ediyaYoutube&quot;&gt;[이디야커피] 고객감사 영상&lt;&#x2F;figcaption&gt;</span><br><span class="line">&lt;&#x2F;figure&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/56425514/97975599-b892c780-1e0c-11eb-8a03-883930515955.png" alt="일반 iframe"></p>
+<ul>
+<li>위와 같은 경우 화면에 여백이 남아있지만 영상 크기는 변하지 않는다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*CSS*&#x2F;</span><br><span class="line">.iframe-wrapper &#123;</span><br><span class="line">    width: 100%; &#x2F;*너비는 최대로 준다.*&#x2F;</span><br><span class="line">    height: 0 !important; &#x2F;*높이 값에 영향을 받지 않게 한다.*&#x2F;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.iframe4-3 &#123; &#x2F;*4:3비율 영상의 높이 백분율*&#x2F;</span><br><span class="line">    padding-top: 75%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.iframe16-9 &#123; &#x2F;*16:9비율 영상의 높이 백분율*&#x2F;</span><br><span class="line">    padding-top: 56.25%</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.iframe-wrapper iframe &#123; &#x2F;*반응형 블럭 컨테이너에 영상을 넣는다.*&#x2F;</span><br><span class="line">    position: absolute; </span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--HTML--&gt;</span><br><span class="line">&lt;figure class&#x3D;&quot;ediya-youtube-wrapper iframe-wrapper iframe16-9&quot;&gt;</span><br><span class="line">    &lt;iframe style&#x3D;&quot;background: url(.&#x2F;images&#x2F;youtube-cover.jpg) no-repeat  center center &#x2F; cover&quot;</span><br><span class="line">    src&#x3D;&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;UGPo0RqhbKU&quot; frameborder&#x3D;&quot;0&quot; allowfullscreen</span><br><span class="line">    aria-labelledby&#x3D;&quot;ediyaYoutube&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">    &lt;figcaption class&#x3D;&quot;a11y-hidden&quot; id&#x3D;&quot;ediyaYoutube&quot;&gt;[이디야커피] 고객감사 영상&lt;&#x2F;figcaption&gt;</span><br><span class="line">&lt;&#x2F;figure&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.iframe4-3, .iframe16-9 등을 넣어 알맞은 비율의 컨테이너를 만든다.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/56425514/97975646-cb0d0100-1e0c-11eb-8323-923235dec26b.png" alt="반응형 영상"></p>
+<ul>
+<li>위와 같이 <code>padding</code>을 이용한 반응형 블록 컨테이너를 만들 수 있다.</li>
+<li>참고로 <code>padding</code>, <code>margin</code>의 % 값은 상위 컨테이너 블록의 <code>width</code> 기준이다!</li>
+</ul>
+<h2 id="CSS변수-지정"><a href="#CSS변수-지정" class="headerlink" title="CSS변수 지정"></a>CSS변수 지정</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*CSS 색상변수*&#x2F;</span><br><span class="line">:root&#123;</span><br><span class="line">    --theme-bright: #fff;</span><br><span class="line">    --theme-default: #14182c;</span><br><span class="line">    --theme-primary: #24388d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.text &#123;</span><br><span class="line">    color: var(--theme-default);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>--</code>를 입력 후 변수명과 지정 속성을 넣어 선언한다.</li>
+<li><code>var()</code>를 통해서 사용할 수 있다.</li>
+</ol>
+<ul>
+<li>테마를 사용할 경우 모든 CSS의 색상을 변경하지 않고 변수에 할당된 값만 변경할 수 있기 때문에 유용하다. </li>
+</ul>
+<h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="1-같은-숫자는-싫어"><a href="#1-같은-숫자는-싫어" class="headerlink" title="1.같은 숫자는 싫어"></a>1.같은 숫자는 싫어</h3><pre>
+문제 설명
+배열 arr가 주어집니다. 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다. 이때, 배열 arr에서 연속적으로 나타나는 숫자는 하나만 남기고 전부 제거하려고 합니다. 단, 제거된 후 남은 수들을 반환할 때는 배열 arr의 원소들의 순서를 유지해야 합니다. 예를 들면,
+
+arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return 합니다.
+arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
+배열 arr에서 연속적으로 나타나는 숫자는 제거하고 남은 수들을 return 하는 solution 함수를 완성해 주세요.
+
+제한사항
+배열 arr의 크기 : 1,000,000 이하의 자연수
+배열 arr의 원소의 크기 : 0보다 크거나 같고 9보다 작거나 같은 정수
+</pre>
+
+<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function solution(arr)</span><br><span class="line">&#123;</span><br><span class="line">    var answer &#x3D; [];</span><br><span class="line">    var j &#x3D;0;</span><br><span class="line">    answer[0]&#x3D;arr[0];</span><br><span class="line"></span><br><span class="line">    for(var i&#x3D;1; i &lt;arr.length; i++)&#123;</span><br><span class="line">        if(answer[j]!&#x3D;arr[i])&#123;</span><br><span class="line">            j++;</span><br><span class="line">            answer[j] &#x3D; arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="감탄한-타인의-답안"><a href="#감탄한-타인의-답안" class="headerlink" title="감탄한 타인의 답안"></a>감탄한 타인의 답안</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function solution(arr)</span><br><span class="line">&#123;</span><br><span class="line">    return arr.filter((val,index) &#x3D;&gt; val !&#x3D; arr[index+1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>filter()함수는 생각도 못 했다. 사실 아직도 정확히 왜 되는지 모르겠다.</li>
+</ul>
+<h3 id="2-두-정수-사이의-합"><a href="#2-두-정수-사이의-합" class="headerlink" title="2.두 정수 사이의 합"></a>2.두 정수 사이의 합</h3><pre>
+문제 설명
+두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.
+예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
+
+제한 조건
+a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.
+a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.
+a와 b의 대소관계는 정해져있지 않습니다.
+
+입출력 예
+a    b    return
+3    5    12
+3    3    3
+5    3    12
+</pre>
+
+<h4 id="나의-답-1"><a href="#나의-답-1" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function solution(a, b) &#123;</span><br><span class="line">    var answer &#x3D; 0;</span><br><span class="line">    </span><br><span class="line">    if(a&lt;b)&#123;</span><br><span class="line">        for(var i&#x3D;a; i&lt;&#x3D;b; i++)&#123;</span><br><span class="line">            answer+&#x3D;a;</span><br><span class="line">            a++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            for(var i&#x3D;b; b&lt;&#x3D;a; i++)&#123;</span><br><span class="line">            answer+&#x3D;b;</span><br><span class="line">            b++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    return answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="감탄한-타인의-답안-1"><a href="#감탄한-타인의-답안-1" class="headerlink" title="감탄한 타인의 답안"></a>감탄한 타인의 답안</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function adder(a, b)&#123;</span><br><span class="line">    var result &#x3D; 0</span><br><span class="line">    return (a+b)*(Math.abs(b-a)+1)&#x2F;2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>수학 공부를 열심히 하자.. 댓글 중 ‘가우스의 재림’ 이라는 댓글이 있었는데 웃겼다.</li>
+</ul>
+<h3 id="3-문자열-내-p와-y의-개수"><a href="#3-문자열-내-p와-y의-개수" class="headerlink" title="3.문자열 내 p와 y의 개수"></a>3.문자열 내 p와 y의 개수</h3><pre>
+문제 설명
+대문자와 소문자가 섞여있는 문자열 s가 주어집니다. s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True, 다르면 False를 return 하는 solution를 완성하세요. 'p', 'y' 모두 하나도 없는 경우는 항상 True를 리턴합니다. 단, 개수를 비교할 때 대문자와 소문자는 구별하지 않습니다.
+
+예를 들어 s가 pPoooyY면 true를 return하고 Pyy라면 false를 return합니다.
+
+제한사항
+문자열 s의 길이 : 50 이하의 자연수
+문자열 s는 알파벳으로만 이루어져 있습니다.
+
+입출력 예
+s    answer
+pPoooyY    true
+Pyy    false
+
+입출력 예 설명
+입출력 예 #1
+'p'의 개수 2개, 'y'의 개수 2개로 같으므로 true를 return 합니다.
+
+입출력 예 #2
+'p'의 개수 1개, 'y'의 개수 2개로 다르므로 false를 return 합니다.
+</pre>
+
+<h4 id="나의-답-2"><a href="#나의-답-2" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function solution(s)&#123;</span><br><span class="line">    var answer &#x3D; true;</span><br><span class="line">    var result &#x3D; [];</span><br><span class="line">    result &#x3D; s;</span><br><span class="line">    var p &#x3D;0;</span><br><span class="line">    var y &#x3D;0;</span><br><span class="line"></span><br><span class="line">    for(var i&#x3D;0; i&lt;result.length; i++)&#123;</span><br><span class="line">        if(result[i]&#x3D;&#x3D;&#39;p&#39;|| result[i]&#x3D;&#x3D;&#39;P&#39;)p++;</span><br><span class="line">           else if(result[i]&#x3D;&#x3D;&#39;y&#39;|| result[i]&#x3D;&#x3D;&#39;Y&#39;) y++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(p&#x3D;&#x3D;y) answer&#x3D;true;</span><br><span class="line">    else answer&#x3D;false;</span><br><span class="line"></span><br><span class="line">    return answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="감탄한-타인의-답안-2"><a href="#감탄한-타인의-답안-2" class="headerlink" title="감탄한 타인의 답안"></a>감탄한 타인의 답안</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function numPY(s)&#123;</span><br><span class="line">    return s.toUpperCase().split(&quot;P&quot;).length &#x3D;&#x3D;&#x3D; s.toUpperCase().split(&quot;Y&quot;).length;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>대소문자를 모두 구분할 필요가 없었다. <code>.toUpperCase()</code>함수가 있었구나. <code>.split()</code>함수도 익숙하지 않아 사용하지 못 하였다..</li>
+</ul>
+<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
+<li><p>반응형 웹은 경우의 수에 따라 CSS를 만들어야해서 복잡하긴 하지만 재밌다.</p>
+</li>
+<li><p>공통 속성을 만들고 viewport에 따라 세분화된 속성을 적용하는 게 훨씬 효율적인 듯 하다.</p>
+</li>
+<li><p>요즘 간단한 javaScript 문제를 푸는데 재미있다.</p>
+</li>
+<li><p>javaScript는 처음 해보는 거라 좀 어렵지만 그래도 간만에 코딩하니 재밌다.. 쉬운 문제라 그런 걸지도..</p>
+</li>
+<li><p>함수를 많이 써보고 찾아봐야겠다. 내장함수를 잘 써야 효율적인 코딩이 가능하다.</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/02/201102-TIL/" rel="prev" title="201102_TIL">
+      <i class="fa fa-chevron-left"></i> 201102_TIL
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#padding%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%BD%EC%9E%85"><span class="nav-number">1.1.</span> <span class="nav-text">padding을 이용한  삽입.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%EB%B3%80%EC%88%98-%EC%A7%80%EC%A0%95"><span class="nav-number">1.2.</span> <span class="nav-text">CSS변수 지정</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B3%B5%EB%B6%80%ED%95%9C-javaScript-%EC%BD%94%EB%94%A9-%EB%AC%B8%EC%A0%9C"><span class="nav-number">1.3.</span> <span class="nav-text">공부한 javaScript 코딩 문제</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%EA%B0%99%EC%9D%80-%EC%88%AB%EC%9E%90%EB%8A%94-%EC%8B%AB%EC%96%B4"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.같은 숫자는 싫어</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%82%98%EC%9D%98-%EB%8B%B5"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">나의 답</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EA%B0%90%ED%83%84%ED%95%9C-%ED%83%80%EC%9D%B8%EC%9D%98-%EB%8B%B5%EC%95%88"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">감탄한 타인의 답안</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%EB%91%90-%EC%A0%95%EC%88%98-%EC%82%AC%EC%9D%B4%EC%9D%98-%ED%95%A9"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.두 정수 사이의 합</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%82%98%EC%9D%98-%EB%8B%B5-1"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">나의 답</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EA%B0%90%ED%83%84%ED%95%9C-%ED%83%80%EC%9D%B8%EC%9D%98-%EB%8B%B5%EC%95%88-1"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">감탄한 타인의 답안</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%82%B4-p%EC%99%80-y%EC%9D%98-%EA%B0%9C%EC%88%98"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.문자열 내 p와 y의 개수</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%82%98%EC%9D%98-%EB%8B%B5-2"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">나의 답</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EA%B0%90%ED%83%84%ED%95%9C-%ED%83%80%EC%9D%B8%EC%9D%98-%EB%8B%B5%EC%95%88-2"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">감탄한 타인의 답안</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%8A%90%EB%82%80-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">오늘 느낀 것</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
