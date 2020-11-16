@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="카페 W 프로젝트 개발카페 W는 고정형 웹 개발을 위한 프로젝트로서 HTML&#x2F;CSS를 최대한으로 활용하여 개발하였다. 카페 W의 디자인 완성된 UI 디자인을 Figma 도구를 통해 배포 받고 레이아웃 구성에 활용하였다.  cafe W figma 링크: cafeW figma  데스크탑 UI는 1440px+ 급으로 설계하였다.  Desktop UI     De">
+<meta property="og:type" content="article">
+<meta property="og:title" content="201113_CafeW_Project">
+<meta property="og:url" content="http://yhun940731.github.io/2020/11/13/201113-%ED%81%B4%EB%A1%A0-%EC%BD%94%EB%94%A9-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="카페 W 프로젝트 개발카페 W는 고정형 웹 개발을 위한 프로젝트로서 HTML&#x2F;CSS를 최대한으로 활용하여 개발하였다. 카페 W의 디자인 완성된 UI 디자인을 Figma 도구를 통해 배포 받고 레이아웃 구성에 활용하였다.  cafe W figma 링크: cafeW figma  데스크탑 UI는 1440px+ 급으로 설계하였다.  Desktop UI     De">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/99019720-4f474d00-25a0-11eb-9f72-950a59025680.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/99019752-61c18680-25a0-11eb-986f-6ee701b9b63b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/99020570-3b9ce600-25a2-11eb-8af2-3fa2681ad232.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/99020654-68e99400-25a2-11eb-81df-382661fe56b0.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/99020841-b403a700-25a2-11eb-9bcc-353df5c1cdcb.png">
+<meta property="article:published_time" content="2020-11-13T09:30:02.000Z">
+<meta property="article:modified_time" content="2020-11-16T12:42:14.363Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/56425514/99019720-4f474d00-25a0-11eb-9f72-950a59025680.png">
+
+<link rel="canonical" href="http://yhun940731.github.io/2020/11/13/201113-%ED%81%B4%EB%A1%A0-%EC%BD%94%EB%94%A9-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>201113_CafeW_Project | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/13/201113-%ED%81%B4%EB%A1%A0-%EC%BD%94%EB%94%A9-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          201113_CafeW_Project
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-13 18:30:02" itemprop="dateCreated datePublished" datetime="2020-11-13T18:30:02+09:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-16 21:42:14" itemprop="dateModified" datetime="2020-11-16T21:42:14+09:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/Git/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="카페-W-프로젝트-개발"><a href="#카페-W-프로젝트-개발" class="headerlink" title="카페 W 프로젝트 개발"></a>카페 W 프로젝트 개발</h1><p>카페 W는 고정형 웹 개발을 위한 프로젝트로서 HTML/CSS를 최대한으로 활용하여 개발하였다.</p>
+<h2 id="카페-W의-디자인"><a href="#카페-W의-디자인" class="headerlink" title="카페 W의 디자인"></a>카페 W의 디자인</h2><ul>
+<li><p>완성된 UI 디자인을 Figma 도구를 통해 배포 받고 레이아웃 구성에 활용하였다.</p>
+</li>
+<li><p>cafe W figma 링크: <a target="_blank" rel="noopener" href="https://www.figma.com/file/xxGWMBciUEN4kVX7E2AcIC/Cafe-W">cafeW figma</a></p>
+</li>
+<li><p>데스크탑 UI는 1440px+ 급으로 설계하였다.</p>
+</li>
+<li><p>Desktop UI</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/56425514/99019720-4f474d00-25a0-11eb-9f72-950a59025680.png" alt="UI"></p>
+<ul>
+<li>Design System</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/56425514/99019752-61c18680-25a0-11eb-986f-6ee701b9b63b.png" alt="Design"></p>
+<h2 id="UI-개발"><a href="#UI-개발" class="headerlink" title="UI 개발"></a>UI 개발</h2><ul>
+<li>Developer — 제작된 UI 디자인을 토대로 모바일/데스크탑 UI를 개발합니다.</li>
+</ul>
+<ol>
+<li>효율적인 코딩에 적합한 Visual Studio Code 도구를 활용하였다.</li>
+<li>모두를 위한 디자인을 지향하며 개발하였다. (Universal Design, A11Y)</li>
+<li>시멘틱 마크업을 통해 웹 접근성을 최대한 끌어내도록 노력하였다. (HTML5 + WAI-ARIA)</li>
+<li>소스 버전을 Git을 통해 관리하여 효율적인 개발 작업, 분배, 병합 환경을 구축하였다. (Git)</li>
+<li>issue 등록을 통한 작업 분배화 실시간으로 현황을 파악할 수 있는 환경을 구축하고 개발하였다. (GitHub)</li>
+</ol>
+<p>Semantic Markup (HTML5 + WAI-ARIA)<br><img src="https://user-images.githubusercontent.com/56425514/99020570-3b9ce600-25a2-11eb-8af2-3fa2681ad232.png" alt="image"></p>
+<p>Version Control System (Git + GitHub)<br><img src="https://user-images.githubusercontent.com/56425514/99020654-68e99400-25a2-11eb-81df-382661fe56b0.png" alt="image"><br><img src="https://user-images.githubusercontent.com/56425514/99020841-b403a700-25a2-11eb-9bcc-353df5c1cdcb.png" alt="image"></p>
+<h2 id="참여인원"><a href="#참여인원" class="headerlink" title="참여인원"></a>참여인원</h2><ul>
+<li>@yhun940731 최용훈</li>
+<li>@ahnanne 안예인</li>
+<li>@moripark32 박세리</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731/cafeW-project">프로젝트_GitHub</a><br><a target="_blank" rel="noopener" href="https://slides.com/yeinahn-1/deck">발표자료</a></p>
+<h1 id="느낀-것"><a href="#느낀-것" class="headerlink" title="느낀 것"></a>느낀 것</h1><ul>
+<li><p>팀장으로 참여하여 참 많은 우여곡절을 겪었다. 그래도 팀장이어서 더 책임감을 느끼고 보람찼다. 결과적으로 시간분배부터 팀장으로서의 git 사용, 더 많은 분량 등 최대의 노력을 쏟아낼 수 있었던 좋은 기회였다.</p>
+</li>
+<li><p>merge하다가 꼬여서 고생했다. 앞으로 진짜 신중하게 검토해야하는 습관을 들여야한다.</p>
+</li>
+<li><p>git bash에서 명령어 입력할 때 생각을 하고 하자. 잘 못 입력해서 이미지 파일을 다 날렸다.</p>
+</li>
+<li><p>방금 말한 것과 같이 git 과 git hub를 처음 사용해보면서 위와 같은 시행착오를 겪으며 어렵고 불편했지만 갈 수록 널리 쓰이는 이유를 알게됐다.</p>
+</li>
+<li><p>시멘틱 마크업을 알게되니 div와 span을 쓰면 불안해진다. 하지만 시멘틱 마크업도 중요하지만 쓸 때는 쓰는 결단력이 필요하다.</p>
+</li>
+<li><p>절대값으로 레이아웃을 구성하면 너무 찝찝해서 최대한 안 쓰려고 했는데 능력의 한계로<br>쓸 수 밖에 없을 때 좀 더 깊은 레이아웃 구성 방법에 대해 간절함을 느꼈다.</p>
+</li>
+<li><p>이번 프로젝트에서 css를 적용할 때 스타일 적용하면서도 더 효율적인 방법이 있을 텐데를 고민할때가<br>괴롭지만 참 재밌었다.</p>
+</li>
+<li><p>시간이 더 있었다면 퀄리티가 더 높았겠지만 그건 변명이다. 결국 정해진 기한 내에 하는 것도 실력이다.</p>
+</li>
+<li><p>크로스 브라우징은 너무 어려워서 거의 진행하지 못하였다. 좀 더 섬세한 부분도 완성하고 싶었지만 시간관계상 못 하지 못해 많이 아쉬웠다. 별개로 앞으로 IE를 사용하는 사람이 있으면 도시락 싸들고 말려야겠다는 결심을 했다.</p>
+</li>
+<li><p>결과는 과정의 노력을 확인하는 수단일 뿐, 집착하고 얽매일 필요가 없다. 때때로 힘들었지만 점점 결과를 보여갈 때 느꼈던 기분과, 과정을 통해 얻은 새로운 지식과 경험이 중요하다고 생각한다. 잘하는 것도 중요하지만 과정을 통해 전보다 나아졌다는 것이 중점이라고 생각하며 프로젝트를 마친다.</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"># Git</a>
+              <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/09/201109-TIL/" rel="prev" title="201109_TIL">
+      <i class="fa fa-chevron-left"></i> 201109_TIL
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%B9%B4%ED%8E%98-W-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EB%B0%9C"><span class="nav-number">1.</span> <span class="nav-text">카페 W 프로젝트 개발</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B9%B4%ED%8E%98-W%EC%9D%98-%EB%94%94%EC%9E%90%EC%9D%B8"><span class="nav-number">1.1.</span> <span class="nav-text">카페 W의 디자인</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI-%EA%B0%9C%EB%B0%9C"><span class="nav-number">1.2.</span> <span class="nav-text">UI 개발</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B0%B8%EC%97%AC%EC%9D%B8%EC%9B%90"><span class="nav-number">1.3.</span> <span class="nav-text">참여인원</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%8A%90%EB%82%80-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">느낀 것</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
