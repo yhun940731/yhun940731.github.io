@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="오늘 한 것변수원시 값 자체와, 원시값을 할당한 변수를 혼동하면 안 된다. 변수는 재할당할이 가능하지만, 원시 값은 객체타입과 다르게 변형할 수 없다. 123456789101112131415161718&#x2F;&#x2F; 문자열 메서드는 문자열을 변형하지 않음var bar &#x3D; &quot;baz&quot;;console.log(bar);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="201118_TIL">
+<meta property="og:url" content="http://yhun940731.github.io/2020/11/18/201118-TIL/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="오늘 한 것변수원시 값 자체와, 원시값을 할당한 변수를 혼동하면 안 된다. 변수는 재할당할이 가능하지만, 원시 값은 객체타입과 다르게 변형할 수 없다. 123456789101112131415161718&#x2F;&#x2F; 문자열 메서드는 문자열을 변형하지 않음var bar &#x3D; &quot;baz&quot;;console.log(bar);">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-18T10:10:12.000Z">
+<meta property="article:modified_time" content="2020-11-18T10:43:36.093Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yhun940731.github.io/2020/11/18/201118-TIL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>201118_TIL | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/18/201118-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          201118_TIL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-18 19:10:12 / Modified: 19:43:36" itemprop="dateCreated datePublished" datetime="2020-11-18T19:10:12+09:00">2020-11-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h2><p>원시 값 자체와, 원시값을 할당한 변수를 혼동하면 안 된다. 변수는 재할당할이 가능하지만, 원시 값은 객체타입과 다르게 변형할 수 없다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 문자열 메서드는 문자열을 변형하지 않음</span><br><span class="line">var bar &#x3D; &quot;baz&quot;;</span><br><span class="line">console.log(bar);        &#x2F;&#x2F; baz</span><br><span class="line">bar.toUpperCase();</span><br><span class="line">console.log(bar);        &#x2F;&#x2F; baz</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 할당은 원시 값에 새로운 값을 부여 (변형이 아님)</span><br><span class="line">bar &#x3D; bar.toUpperCase(); &#x2F;&#x2F; BAZ</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;원시타입 String도 같음</span><br><span class="line">var x &#x3D; &quot;Hello&quot;;  </span><br><span class="line">console.log(x);     &#x2F;&#x2F; Hi</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 참조 타입인 배열은 변형함</span><br><span class="line">var foo &#x3D; [];</span><br><span class="line">console.log(foo);        &#x2F;&#x2F; []</span><br><span class="line">foo.push(&quot;plugh&quot;);</span><br><span class="line">console.log(foo);        &#x2F;&#x2F; [&quot;plugh&quot;]</span><br></pre></td></tr></table></figure>
+<p>(원시값 MDN)[<a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Glossary/Primitive]">https://developer.mozilla.org/ko/docs/Glossary/Primitive]</a></p>
+<ul>
+<li>원시 값을 교체할 수는 있지만, 직접 변형할 수는 없다.</li>
+</ul>
+<p>아래의 경우 x와 y의 값을 바꾸는 과정이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;기본적인 방법</span><br><span class="line">var x &#x3D; 1;</span><br><span class="line">var y &#x3D; 2;</span><br><span class="line">var z &#x3D; y;</span><br><span class="line"></span><br><span class="line">y &#x3D; x;</span><br><span class="line">x &#x3D; z;</span><br><span class="line">console.log(x, y); &#x2F;&#x2F; 2 1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 배열 이용</span><br><span class="line">[y,x] &#x3D; [x,y];</span><br><span class="line">console.log(x, y); &#x2F;&#x2F; 2 1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>원시값을 변형할 수는 없지만 변수의 값은 재할당이 가능하다.</li>
+</ul>
+<h2 id="표현식과-문"><a href="#표현식과-문" class="headerlink" title="표현식과 문"></a>표현식과 문</h2><ul>
+<li><p>표현식인 문과 표현식이 아닌 문은 변수에 할당해보면 안다. 표현식인 문은 변수에 할당되지만, 표현식이 아닌 문은 변수에 할당되지 않는다.</p>
+</li>
+<li><p><code>문 &gt; 값 &gt; 표현식 &gt; 리터럴</code> 과 같이 포함 관계를 갖는다. 당연히 역은 성립되지 않는다.</p>
+</li>
+<li><p>토큰에는 문을 구성하는 모든 기본 요소가 토큰의 지위를 갖을 수 있지만 토큰의 조건은 문의 구성 요소만을 토큰이라 말한다.</p>
+</li>
+<li><p>콘솔에서 표현식인 문을 실행하면 평가되어 생성된 결과인 값을 출력한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 10 + 10</span><br><span class="line">&lt; 20</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>위와 같은 표현식과는 다르게 표현식이 아닌 문을 실행하면 언제나 undefined를 출력한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;console</span><br><span class="line">&gt; var x;</span><br><span class="line">&lt; undefined</span><br></pre></td></tr></table></figure></li>
+<li><p>이를 완료값이라 한다. 완료값은 표현식의 평가 결과가 아니다. 따라서 표현식처럼 변수에 할당, 참조가 불가능하다.</p>
+</li>
+</ul>
+<h3 id="데이터-타입"><a href="#데이터-타입" class="headerlink" title="데이터 타입"></a>데이터 타입</h3><ul>
+<li>JavaScript에서 데이터 타입은 변수가 아닌 값에 있다.</li>
+<li>JS에서 모든 숫자는 실수이다. 배정밀도 64비트 부동소수점 형식을 따른다.(8바이트)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line">console.log(x, typeof (x));</span><br><span class="line"></span><br><span class="line">var y &#x3D; &#39;1&#39;;</span><br><span class="line">console.log(y, typeof (y));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;은 값만 비교한다.</span><br><span class="line">console.log(x &#x3D;&#x3D; y); &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;&#x3D; 은 데이터타입과 값을 둘 다 비교한다.</span><br><span class="line">console.log(x &#x3D;&#x3D;&#x3D; y); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+<ul>
+<li>같은 값 1이 아닌 숫자와 문자에 차이가 있는 1이다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(0.1+0.2); &#x2F;&#x2F; 0.30000000000000004</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위 결과가 0.3이 아닌 이유는 컴퓨터의 한계다. 10진법을 2진법으로 변환해서 계산하면 높은 확률로 무한 소수가 발생하기 때문에 오차가 있다.</li>
+</ul>
+<h2 id="왜-8bit는-1byte일까"><a href="#왜-8bit는-1byte일까" class="headerlink" title="왜 8bit는 1byte일까?"></a>왜 8bit는 1byte일까?</h2><ul>
+<li>최근에는 8bit가  1byte지만, 역사적으로 6bit, 7bit, 9bit 등의 1byte가 존재했다.</li>
+<li>하여튼 8bit가 1byte인 이유는 컴퓨터의 발전이 영문권에서 발전한 것과 큰 연관이 있다.</li>
+<li>ASCII(아스키 코드: 영문 알파벳을 사용하는 대표적인 문자 인코딩)에서의 영문자와 숫자 1자가 7bit이다.</li>
+<li>여기에 통신 오류검출을 위한 parity bit를 1bit 추가해서 8bit가 됐다는 설이 가장 유력하다.</li>
+</ul>
+<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
+<li>기초를 파면서 C나 JAVA와는 다른 점이 생각보다 많으며 새로운 것도 많이 배우고 있다.</li>
+<li>JavaScript를 공부하다가 C, JAVA가 차라리 더 편하겠다는 생각이 들 때면 개발을 포기하고 싶었던 그때를 떠올리며 마음을 잡자…</li>
+<li>재밌다! 내일도 ‘즐코’</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/17/201117-TIL/" rel="prev" title="201117_TIL">
+      <i class="fa fa-chevron-left"></i> 201117_TIL
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B3%80%EC%88%98"><span class="nav-number">1.1.</span> <span class="nav-text">변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC-%EB%AC%B8"><span class="nav-number">1.2.</span> <span class="nav-text">표현식과 문</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85"><span class="nav-number">1.2.1.</span> <span class="nav-text">데이터 타입</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%99%9C-8bit%EB%8A%94-1byte%EC%9D%BC%EA%B9%8C"><span class="nav-number">1.3.</span> <span class="nav-text">왜 8bit는 1byte일까?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%8A%90%EB%82%80-%EA%B2%83"><span class="nav-number">2.</span> <span class="nav-text">오늘 느낀 것</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
