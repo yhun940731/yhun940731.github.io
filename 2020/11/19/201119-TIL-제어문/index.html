@@ -28,7 +28,7 @@
 <meta property="og:description" content="오늘 한 것제어문제어문(control flow statement)은 주어진 조건에 따라 코드 블록을 실행(조건문)하거나 반복 실행(반복문)할 때 사용한다. 조건문조건문은 조건식(Boolean)을 판단하여 참 거짓에 따라 실행할 코드 블록을 정한다. 123456789101112131415&#x2F;&#x2F; 대표적인 if else 문이다.if (조건식) &amp;#123;  &#x2F;&#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-19T02:25:09.000Z">
-<meta property="article:modified_time" content="2020-11-19T04:28:35.452Z">
+<meta property="article:modified_time" content="2020-11-19T04:38:29.347Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta name="twitter:card" content="summary">
@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-11-19 11:25:09 / Modified: 13:28:35" itemprop="dateCreated datePublished" datetime="2020-11-19T11:25:09+09:00">2020-11-19</time>
+              <time title="Created: 2020-11-19 11:25:09 / Modified: 13:38:29" itemprop="dateCreated datePublished" datetime="2020-11-19T11:25:09+09:00">2020-11-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,13 +214,13 @@
 <p>for 문을 무한루프로 활용하는 법이다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 무한루프</span></span><br><span class="line"><span class="keyword">for</span> (;;) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var count &#x3D; 0;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; count가 3보다 작을 때까지 코드 블록을 계속 반복 실행한다.</span><br><span class="line">while (count &lt; 3) &#123;</span><br><span class="line">  console.log(count); &#x2F;&#x2F; 0 1 2</span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// count가 3보다 작을 때까지 코드 블록을 계속 반복 실행한다.</span></span><br><span class="line"><span class="keyword">while</span> (count &lt; <span class="number">3</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(count); <span class="comment">// 0 1 2</span></span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>탈출하는 경우 break를 사용한다!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var count &#x3D; 0;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; while의 무한루프</span><br><span class="line">while (true) &#123;</span><br><span class="line">  console.log(count);</span><br><span class="line">  count++;</span><br><span class="line">  &#x2F;&#x2F; count가 3이면 코드 블록을 탈출한다.</span><br><span class="line">  if (count &#x3D;&#x3D;&#x3D; 3) break;</span><br><span class="line">&#125; &#x2F;&#x2F; 0 1 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// while의 무한루프</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(count);</span><br><span class="line">  count++;</span><br><span class="line">  <span class="comment">// count가 3이면 코드 블록을 탈출한다.</span></span><br><span class="line">  <span class="keyword">if</span> (count === <span class="number">3</span>) <span class="keyword">break</span>;</span><br><span class="line">&#125; <span class="comment">// 0 1 2</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="do…while"><a href="#do…while" class="headerlink" title="do…while"></a>do…while</h4><p>do를 먼저 실행한 후 반복문으로 들어간다. 그냥 while문과 실행 순서가 다른 것을 이용할 수 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var count &#x3D; 0;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; while과 다른 점은 조건식 비교 이전에 do를 실행한 후 조건식과 비교한다.</span><br><span class="line">do &#123;</span><br><span class="line">  console.log(count);</span><br><span class="line">  count++;</span><br><span class="line">&#125; while (count &lt; 3); &#x2F;&#x2F; 0 1 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// while과 다른 점은 조건식 비교 이전에 do를 실행한 후 조건식과 비교한다.</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(count);</span><br><span class="line">  count++;</span><br><span class="line">&#125; <span class="keyword">while</span> (count &lt; <span class="number">3</span>); <span class="comment">// 0 1 2</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="break와-continue"><a href="#break와-continue" class="headerlink" title="break와 continue"></a>break와 continue</h3><h4 id="break"><a href="#break" class="headerlink" title="break"></a>break</h4><ul>
 <li>break문은 엄밀하게 말하면 코드 블록 탈출이 아닌, 레이블 문, 반복문(for, for…in, for…of, while, do…while) 또는 switch 문의 코드 블록을 탈출하는 것이다.</li>
@@ -268,7 +268,10 @@
     <a href="/2020/11/18/201119-TIL-%EC%97%B0%EC%82%B0%EC%9E%90/" rel="prev" title="201119_TIL_연산자">
       <i class="fa fa-chevron-left"></i> 201119_TIL_연산자
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/19/201119-TIL-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98%EA%B3%BC-%EB%8B%A8%EC%B6%95-%ED%8F%89%EA%B0%80/" rel="next" title="201119_TIL_타입 변환과 단축 평가">
+      201119_TIL_타입 변환과 단축 평가 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -341,7 +344,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
