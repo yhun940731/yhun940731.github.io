@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/56425514/96712801-a2334780-13da-11eb-98e7-348c3d6b8465.PNG">
 <meta property="og:image" content="https://user-images.githubusercontent.com/56425514/96712830-aceddc80-13da-11eb-9234-e3c8b22f666a.PNG">
 <meta property="article:published_time" content="2020-10-21T10:44:11.000Z">
-<meta property="article:modified_time" content="2020-10-21T12:00:52.349Z">
+<meta property="article:modified_time" content="2020-11-22T07:47:06.194Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -177,10 +177,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-10-21 19:44:11 / Modified: 21:00:52" itemprop="dateCreated datePublished" datetime="2020-10-21T19:44:11+09:00">2020-10-21</time>
+              <time title="Created: 2020-10-21 19:44:11" itemprop="dateCreated datePublished" datetime="2020-10-21T19:44:11+09:00">2020-10-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 16:47:06" itemprop="dateModified" datetime="2020-11-22T16:47:06+09:00">2020-11-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -221,13 +227,13 @@
 <h5 id="display-none-display-hidden"><a href="#display-none-display-hidden" class="headerlink" title="display: none, display: hidden"></a><code>display: none</code>, <code>display: hidden</code></h5><ul>
 <li>위 방법은 좋지 않다. 이 속성을 사용할 경우 가시적으로는 차이점이 없으나 개체 자체를 없애거나 숨기기 때문에 의미론적이나 접근성이 좋지 못 하다.(스크린리더 등 보조기능 사용할 시)</li>
 </ul>
-<h5 id="position과-offset-사용"><a href="#position과-offset-사용" class="headerlink" title="position과 offset 사용"></a>position과 offset 사용</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">position: absolute;</span><br><span class="line">top: -9999px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="position과-offset-사용"><a href="#position과-offset-사용" class="headerlink" title="position과 offset 사용"></a>position과 offset 사용</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>: -<span class="number">9999px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>위와 같은 방법을 사용하면 스크린리더 등을 사용할 시 정상적인 스크롤 이동과 화면 이동 단계에 지장을 주게된다. -9999px 떨어진 콘텐츠를 찾아 좌표값이 이동하기 때문이다.</li>
 </ul>
 <h5 id="a11y-hidden-사용"><a href="#a11y-hidden-사용" class="headerlink" title=".a11y-hidden 사용"></a>.a11y-hidden 사용</h5><ul>
 <li><p>가장 좋은 방법은 숨겨주는 기능을 부여할 class의 보편적인 네이밍이다. 다른 것으로는 <code>.readable-hidden</code>, <code>offsreen</code> 등으로 쓰인다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.a11y-hidden&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 1px;</span><br><span class="line">    height: 1px;</span><br><span class="line">    margin:0;</span><br><span class="line">    overflow:hidden;</span><br><span class="line">    clip-path: polygon(0 0, 0 0, 0 0) &#x2F;*x, y, z*&#x2F;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a11y-hidden</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">    <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(<span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>) <span class="comment">/*x, y, z*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li><p><code>width</code>와 <code>height</code>를 최소값으로 주고 <code>overflow: hidden</code> 값을 줘 내부 콘텐츠를 보이지 않게 만들어 주는 것이다.</p>
 </li>
 <li><p><code>width</code>와 <code>height</code>가 1px 인 것은 이유가 있다. 0px일 경우 크기가 없기 때문에 스크린리더 같은 보조 도구가 존재하지 않는 콘텐츠로 넘겨버린다.</p>
@@ -255,12 +261,12 @@
 <li><p><code>cursor: pointer;</code>속성을 사용하면 <code>:hover</code> 등의 가상 클래스 사용시 마우스 포인터를 바꿔줄 수 있다.</p>
 </li>
 <li><p>윤곽체를 만들고 싶다면 <code>text-shadow</code>를 이용하자!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000; &#x2F;*윤곽체 처럼 보이게 하기*&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>, -<span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>; <span class="comment">/*윤곽체 처럼 보이게 하기*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>display: inline-block</code>에서 부모 요소 크기 문제로 block이 수직으로 쌓인다면 <code>white space: nowrap;</code>을 사용해보자!</p>
 </li>
 <li><p>중첩되는 offset 값이 걱정이라면 초기값으로 되돌리는 <code>initial</code> 속성값을 사용해보자.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.offset-initial&#123;</span><br><span class="line">    display:block;</span><br><span class="line">    right: 0;</span><br><span class="line">    left: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.offset-initial</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -385,7 +391,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
