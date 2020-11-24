@@ -28,7 +28,7 @@
 <meta property="og:description" content="오늘 한 것제어문제어문(control flow statement)은 주어진 조건에 따라 코드 블록을 실행(조건문)하거나 반복 실행(반복문)할 때 사용한다. 조건문조건문은 조건식(Boolean)을 판단하여 참 거짓에 따라 실행할 코드 블록을 정한다. 123456789101112131415&#x2F;&#x2F; 대표적인 if else 문이다.if (조건식) &amp;#123;  &#x2F;&#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-19T02:25:09.000Z">
-<meta property="article:modified_time" content="2020-11-19T04:38:29.347Z">
+<meta property="article:modified_time" content="2020-11-24T02:17:51.610Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta name="twitter:card" content="summary">
@@ -173,10 +173,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-11-19 11:25:09 / Modified: 13:38:29" itemprop="dateCreated datePublished" datetime="2020-11-19T11:25:09+09:00">2020-11-19</time>
+              <time title="Created: 2020-11-19 11:25:09" itemprop="dateCreated datePublished" datetime="2020-11-19T11:25:09+09:00">2020-11-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-24 11:17:51" itemprop="dateModified" datetime="2020-11-24T11:17:51+09:00">2020-11-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -241,7 +247,7 @@
 <li>반복문을 아예 탈출하는 break문과는 다르다.</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열에서 특정 문자의 개수를 세는 예</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> string = <span class="string">&#x27;Hello World.&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> search = <span class="string">&#x27;l&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열은 유사배열이므로 for 문으로 순회할 수 있다.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; string.length; i++) &#123;</span><br><span class="line">  <span class="comment">// &#x27;l&#x27;이 아니면 현 지점에서 실행을 중단하고 반복문의 증감식으로 이동한다.</span></span><br><span class="line">  <span class="keyword">if</span> (string[i] !== search) <span class="keyword">continue</span>;</span><br><span class="line">  count++; <span class="comment">// continue 문이 실행되면 이 문은 실행되지 않는다.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(count); <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 참고로 String.prototype.match 메서드를 사용해도 같은 동작을 한다.</span></span><br><span class="line"><span class="keyword">const</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(search, <span class="string">&#x27;g&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(string.match(regexp).length); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-<p>참고 <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/expression">Fastcampus-frontend school</a></p>
+<p>참고 <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/">Fastcampus-frontend school</a></p>
 <h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
 <li>제어문은 C나 JAVA 때도 했지만 오래전이라 다시 복기하는 심정으로 정리했다.</li>
 <li>다시 공부해보니 새롭게 알게 된 사실도 있고 애매하게 알고있던 부분도 명쾌해졌다.</li>
