@@ -145,6 +145,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/10/29/201029-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/201029-TIL/" class="post-title-link" itemprop="url">201029_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-29 20:31:25" itemprop="dateCreated datePublished" datetime="2020-10-29T20:31:25+09:00">2020-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 16:47:06" itemprop="dateModified" datetime="2020-11-22T16:47:06+09:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="IR-기법"><a href="#IR-기법" class="headerlink" title="IR 기법"></a>IR 기법</h2><ul>
+<li>IR 기법은 배경을 이미지로 처리하고 그에 맞는 text를 삽입하는 것이다.</li>
+<li>가시적으로는 이미지로 보이지만 스크린리더 등을 활용할 시 숨겨둔 삽입 text로 알 수 있어 접근성을 높인다.</li>
+</ul>
+<h3 id="padding을-이용한-IR-기법"><a href="#padding을-이용한-IR-기법" class="headerlink" title="padding을 이용한 IR 기법"></a>padding을 이용한 IR 기법</h3><ul>
+<li>대표적인 IR 기법은 padding과 overflow: hidden을 이용한 기법이다.</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn-prev</span>,</span><br><span class="line"><span class="selector-class">.btn-next</span>&#123;</span><br><span class="line">    <span class="comment">/*높이 대신 패딩값을 줘서 텍스트를 숨김*/</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">18px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">19px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="built_in">url</span>(./images/back_forward.png) <span class="number">0</span> <span class="number">0</span> no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-event</span>&#123;</span><br><span class="line">    <span class="comment">/*padding의 영향으로 button 영역 밖으로 밀려난 텍스트를 hidden 처리*/</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">18px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;btn-event&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn-prev&gt; 이전 이벤트 보기 &lt;/button&gt;</span></span></span><br><span class="line"><span class="tag"><span class="string">    &lt;button type=&quot;</span><span class="attr">button</span>&quot; <span class="attr">class</span>=<span class="string">&quot;btn-next&quot;</span>&gt;</span>다음 이벤트 보기<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="aria-label-속성을-이용"><a href="#aria-label-속성을-이용" class="headerlink" title="aria-label 속성을 이용"></a>aria-label 속성을 이용</h3><ul>
+<li>다만 굳이 padding과 overflow를 통해 text를 밀어내는 것 보다 <code>aria-label</code> 속성이 훨씬 효과적인 듯하다.</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn-event</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;btn-event&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn-prev&quot;</span> <span class="attr">aria-label</span>=<span class="string">&quot;이전 이벤트 보기&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn-next&quot;</span> <span class="attr">aria-label</span>=<span class="string">&quot;다음 이벤트 보기&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>위처럼 <code>aria-label</code> 값에 padding trick을 사용할 때 쓰는 text를 넣어주면 간단하게 해결된다. 굳이 배경처리를 위해 text를 숨길 노력이 필요없다.</p>
+</li>
+<li><p><code>aria-label</code>은 스크린리더 등이 값을 읽어주기 때문에 접근성 또한 떨어지지 않는다.</p>
+</li>
+<li><p>위의 두가지 방법 모두 이미지와 같이 동일하게 출력된다.</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/56425514/97822800-55187500-1cfa-11eb-99ce-8bc295d5bd59.png" alt="버튼이미지"></p>
+<h3 id="다른-예재를-통한-IR-기법"><a href="#다른-예재를-통한-IR-기법" class="headerlink" title="다른 예재를 통한 IR 기법"></a>다른 예재를 통한 IR 기법</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">&quot;slogan&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;slogan-heading&quot;</span> <span class="attr">title</span>=<span class="string">&quot;웹카페에서 웹표준을&quot;</span>&gt;</span>슬로건<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>padding과 overflow 사용<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.slogan-heading</span> &#123;</span><br><span class="line"><span class="attribute">float</span>: left;</span><br><span class="line"><span class="attribute">background-image</span>: <span class="built_in">url</span>(./images/coffee.png);</span><br><span class="line"><span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">110px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">83px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">padding-left</span>: <span class="number">110px</span>;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>가상요소를 활용한 기법<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*text처리된 요소 뒤에 가상요소로 배경을 넣어준다.*/</span></span><br><span class="line"><span class="selector-class">.slogan-heading</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line"><span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line"><span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">background</span>: <span class="built_in">url</span>(./images/coffee.png) no-repeat <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>&lt;h2&gt;</code>내부 <code>&lt;span&gt;</code> 두개를 만들고 <code>&lt;span&gt;</code> 하나에 text, 하나에는 배경 이미지를 만들어 <code>position: absolute</code>로 겹쳐 배경만 표시하는 방법도 있다.</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/56425514/97824476-644df180-1cff-11eb-8d5a-443c0d60d4fb.png" alt="coffeeSlogan"></p>
+<h2 id="counter-reset-속성"><a href="#counter-reset-속성" class="headerlink" title="counter-reset 속성"></a>counter-reset 속성</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.favorite-list</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">counter-reset </span>: numbering;</span><br><span class="line">    <span class="attribute">list-style-type</span>:none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.favorite-list</span> <span class="selector-tag">li</span><span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">counter-increment </span>: numbering; </span><br><span class="line">    <span class="attribute">content </span>: <span class="built_in">counter</span>(numbering);</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#999</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>위와 같이 counter-reset 속성을 이용하면 아래처럼 요소 앞에 가상요소 선택자를 통해 정렬된 숫자를 표기할 수 있다.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/56425514/97823160-79288600-1cfb-11eb-90b3-bbdaab8e2e55.png" alt="counter-reset결과"></p>
+<ul>
+<li>그게 아니라면 아래 코드를 목록 수 만큼 반복해야한다.<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.favorite-list</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(1)</span>&#123;</span><br><span class="line">	<span class="attribute">Content</span>: “<span class="number">1</span>”;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
+<li>아래의 이미지 한장으로 네이버 메인의 모든 배경 이미지 처리가 가능함.</li>
+<li>좌표값만을 통해 한장의 이미지로 각각 다른 배경을 연출한다.</li>
+<li>클라이언트 입장에서도 적은 데이터 사용이 가능하여 비용을 절감한다.</li>
+</ul>
+<p><img src="https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png" alt="naverImage"></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/10/28/201028-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1481,88 +1603,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/10/16/My-First-github-Pages/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/16/My-First-github-Pages/" class="post-title-link" itemprop="url">My First github Pages</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-16 16:31:06" itemprop="dateCreated datePublished" datetime="2020-10-16T16:31:06+09:00">2020-10-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-20 11:39:35" itemprop="dateModified" datetime="2020-10-20T11:39:35+09:00">2020-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dev/writing/" itemprop="url" rel="index"><span itemprop="name">writing</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Hello, there. This is my First post with Hexo.   </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1628,7 +1672,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
