@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="오늘 배운 것생성자 함수에 의한 객체 생성123456789101112131415161718192021function Person(name) &amp;#123;  this.name &#x3D; name;  this.sayHi &#x3D; function () &amp;#123;    console.log(&#96;Hi, my name is $&amp;#123;this.name&amp;#125;&#96;);  &amp;#125">
+<meta property="og:type" content="article">
+<meta property="og:title" content="201204_TIL">
+<meta property="og:url" content="http://yhun940731.github.io/2020/12/04/201204-TIL/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="오늘 배운 것생성자 함수에 의한 객체 생성123456789101112131415161718192021function Person(name) &amp;#123;  this.name &#x3D; name;  this.sayHi &#x3D; function () &amp;#123;    console.log(&#96;Hi, my name is $&amp;#123;this.name&amp;#125;&#96;);  &amp;#125">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-04T05:53:39.000Z">
+<meta property="article:modified_time" content="2020-12-04T08:39:15.303Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yhun940731.github.io/2020/12/04/201204-TIL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>201204_TIL | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/12/04/201204-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          201204_TIL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-04 14:53:39 / Modified: 17:39:15" itemprop="dateCreated datePublished" datetime="2020-12-04T14:53:39+09:00">2020-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="생성자-함수에-의한-객체-생성"><a href="#생성자-함수에-의한-객체-생성" class="headerlink" title="생성자 함수에 의한 객체 생성"></a>생성자 함수에 의한 객체 생성</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">  <span class="built_in">this</span>.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hi, my name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> you = <span class="keyword">new</span> Person(<span class="string">&#x27;Choi&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(me); <span class="comment">// Person &#123; name: &#x27;Lee&#x27;, sayHi: [Function] &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(me.name); <span class="comment">// Lee</span></span><br><span class="line"><span class="built_in">console</span>.log(me.sayHi); <span class="comment">// [Function]</span></span><br><span class="line"></span><br><span class="line">me.sayHi(); <span class="comment">// Hi, my name is Lee</span></span><br><span class="line">you.sayHi(); <span class="comment">// Hi, my name is Choi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// foo에 넣어줄 수 있다.</span></span><br><span class="line"><span class="keyword">const</span> foo = me.sayHi;</span><br><span class="line"><span class="comment">//여기서의 this는 전역객체이다.</span></span><br><span class="line">foo(); <span class="comment">// Hi, my name is undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="프로토타입"><a href="#프로토타입" class="headerlink" title="프로토타입"></a>프로토타입</h2><p>non-constructor는 함수 객체이지만 인스턴스를 생성할 일이 없기 때문에 prototype이 없다.</p>
+<h3 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍"></a>객체지향 프로그래밍</h3><p>프로그래밍 방법론 대세가 절차지향 프로그래밍에서 객체지향 프로그래밍으로 바뀌었다.</p>
+<p>상태와 행위를 갖는 객체 집합을 만들어서 객체끼리의 소통을 중심으로 어플리케이션을 만드는 방식을 말한다.</p>
+<p>대규모 프로젝트에서 사전에 철저하게 준비해야만 가능하다. 객체 지향 프로그래밍을 완벽하게 실행하려면 객체 추상화부터 설계, 제작을 어플리케이션 완성 전에 완벽하게 만들어놔야한다. 때문에 유지보수하기 힘든 단점이 있다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hi, my name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">  <span class="built_in">this</span>.sayHi = foo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> you = <span class="keyword">new</span> Person(<span class="string">&#x27;Choi&#x27;</span>);</span><br><span class="line"></span><br><span class="line">me.sayHi(); <span class="comment">// Hi, my name is Lee</span></span><br><span class="line">you.sayHi(); <span class="comment">// Hi, my name is Choi</span></span><br></pre></td></tr></table></figure>
+
+<p>위 코드도 동작은 하지만 객체 지향이 깨진다.</p>
+<h3 id="프로토타입-객체"><a href="#프로토타입-객체" class="headerlink" title="프로토타입 객체"></a>프로토타입 객체</h3><p>모든 객체는 내부 슬롯 <code>[[Prototype]]</code> 을 갖는다.</p>
+<p>프로토타입을 상속받은 하위(자식) 객체는 상위 객체의 프로퍼티를 자신의 프로퍼티처럼 자유롭게 사용할 수 있다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>. name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hi my name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"><span class="comment">// 스코프 체인에서 &#x27;me&#x27;를 찾아서 &#x27;me&#x27;객체부터 프로토타입 체인을 따라 sayHi를 찾는다.</span></span><br><span class="line">me.sayHi();</span><br></pre></td></tr></table></figure>
+
+<p>식별자는 스코프 체인에서 찾고 프로퍼티 키는 프로토타입 체인에서 찾는다.(프로토타입 체인 검색 기점은 . 앞 식별자 객체부터)</p>
+<p>프로토타입 종점인 최상단 프로토타입 Object.prototype은 전역개체가 만들어지고 만들어진다.</p>
+<h3 id="proto-접근자-프로퍼티"><a href="#proto-접근자-프로퍼티" class="headerlink" title="proto 접근자 프로퍼티"></a><strong>proto</strong> 접근자 프로퍼티</h3><p><code>__proto__</code> 는 <code>[[Prototype]]</code> 으로 간접적으로 접근할 수 있게 해준다. 하지만 <code>Object.getPrototypeOf(객체)</code> 로 대체하는 것이 좋다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>. name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(me.__proto__ === Person.prototype); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(me) === Person.prototype); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Own은 직접적으로 갖는 프로퍼티를 뜻한다. 하지만 __proto__는 상속받은 프로퍼티이다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(me, <span class="string">&#x27;__proto__&#x27;</span>)); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(Person.prototype, <span class="string">&#x27;__proto__&#x27;</span>)); <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="built_in">Object</span>.prototype, <span class="string">&#x27;__proto__&#x27;</span>));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  get: [Function: get __proto__],</span></span><br><span class="line"><span class="comment">  set: [Function: set __proto__],</span></span><br><span class="line"><span class="comment">  enumerable: false,</span></span><br><span class="line"><span class="comment">  configurable: true</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 모든 객체는 Object.prototype의 __proto__를 상속받아 사용한다. = Object.prototype가 최상위 객체이다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="built_in">Object</span>.prototype, <span class="string">&#x27;__proto__&#x27;</span>));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  get: [Function: get __proto__],</span></span><br><span class="line"><span class="comment">  set: [Function: set __proto__],</span></span><br><span class="line"><span class="comment">  enumerable: false,</span></span><br><span class="line"><span class="comment">  configurable: true</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>in, Reflect, hasOwnProperty</strong></p>
+<p>in 연산자는 상속까지 고려해서 프로퍼티 키를 찾지만 hasOwnProperty는 상속을 고려하지 않는다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in 연산자</span></span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  address: <span class="string">&#x27;Seoul&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에 name 프로퍼티가 존재한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> person);    <span class="comment">// true</span></span><br><span class="line"><span class="comment">// person 객체에 address 프로퍼티가 존재한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;address&#x27;</span> <span class="keyword">in</span> person); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// person 객체에 age 프로퍼티가 존재하지 않는다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;age&#x27;</span> <span class="keyword">in</span> person);     <span class="comment">// false</span></span><br><span class="line"><span class="comment">// 확인 대상 객체가 상속받은 모든 프로토타입의 프로퍼티를 확인한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;toString&#x27;</span> <span class="keyword">in</span> person); <span class="comment">// true</span></span><br><span class="line"><span class="comment">/*************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Reflect 함수</span></span><br><span class="line"><span class="keyword">const</span> person = &#123; <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.has(person, <span class="string">&#x27;name&#x27;</span>));     <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.has(person, <span class="string">&#x27;toString&#x27;</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="comment">/**********************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//hasOwnProperty</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  apple: <span class="number">1</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 빨간 줄이 뜬다.</span></span><br><span class="line"><span class="comment">// hasOwnProperty를 사용하지 못하는 경우가 있기 때문이다.</span></span><br><span class="line"><span class="built_in">console</span>.log(o.hasOwnProperty(<span class="string">&#x27;apple&#x27;</span>)); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> x = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">// 위 같은 경우 종점이다. hasOwnProperty를 사용하지 못한다.</span></span><br><span class="line"><span class="comment">// 위의 빨간 줄은 이런 경우를 방지하기 위해 아래 방법을 추천하는 것이다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// hasOwnProperty 메소드의 this로 o를 사용하는 것이다.</span></span><br><span class="line"><span class="comment">// Object.prototype.hasOwnProperty를 call 해주는 것이다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.hasOwnProperty.call(o, <span class="string">&#x27;apple&#x27;</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="comment">/***********************/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> o1 = &#123;</span><br><span class="line">  x: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로토타입 체인 종점을 뜻함.</span></span><br><span class="line"><span class="keyword">const</span> o2 = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line">o2.x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이렇게 찾아야한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.hasOwnProperty.call(<span class="string">&#x27;x&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 찾으려해도 프로토타입 종점이라 에러 발생</span></span><br><span class="line"><span class="built_in">console</span>.log(o2.hasOwnProperty(<span class="string">&#x27;x&#x27;</span>));</span><br><span class="line"><span class="built_in">console</span>.log(o2.hasOwnProperty(<span class="string">&#x27;y&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>프로토타입이 소유한 프로퍼티(메서드 포함)를 프로토타입 프로퍼티, 인스턴스가 소유한 프로퍼티를 인스턴스 프로퍼티라고 부른다. 생성자함수가 소유한 프로퍼티는 정적 프로퍼티라고 부른다.</strong></p>
+<p><strong>인스턴스에는 프로퍼티만 있고 메서드는 프로토타입에 두는게 기본이다.</strong></p>
+<h3 id="객체-생성-방식과-프로토타입의-결정"><a href="#객체-생성-방식과-프로토타입의-결정" class="headerlink" title="객체 생성 방식과 프로토타입의 결정"></a>객체 생성 방식과 프로토타입의 결정</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 생성 방식은 다르지만 결과적으로는 같다고 봐도 무방하다.</span></span><br><span class="line"><span class="keyword">const</span> o1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">const</span> o2 = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 내부동작은 다르지만 프로토타입 체인은 같다.</span></span><br><span class="line"><span class="keyword">const</span> f1 = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;return x&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> f2 = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 내부동작은 다르지만 프로토타입 체인은 같다.</span></span><br><span class="line"><span class="keyword">const</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">const</span> arr2 = [];</span><br></pre></td></tr></table></figure>
+
+<h3 id="프로토타입의-constructor-프로퍼티와-생성자-함수"><a href="#프로토타입의-constructor-프로퍼티와-생성자-함수" class="headerlink" title="프로토타입의 constructor 프로퍼티와 생성자 함수"></a>프로토타입의 constructor 프로퍼티와 생성자 함수</h3><p>프로토타입 객체는 constructor 프로퍼티를 갖는다. 참조값은 생성자 함수이다.</p>
+<h3 id="프로토타입의-교체"><a href="#프로토타입의-교체" class="headerlink" title="프로토타입의 교체"></a>프로토타입의 교체</h3><p><strong>인스턴스에 의한 프로토타입의 교체</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> p = &#123;</span><br><span class="line">  <span class="keyword">constructor</span>: Person,</span><br><span class="line">  age: 30,</span><br><span class="line">&#125;</span><br><span class="line">me.__proto__ = p;</span><br><span class="line"></span><br><span class="line">console.log(me.age); // 30 / 프로토타입 프로퍼티</span><br><span class="line">console.log(me.name); // Lee / 인스턴스 프로퍼티</span><br><span class="line">console.log(me.<span class="keyword">constructor</span>); // [Function: Object] / Object.prototype까지 올라가서 찾아온다.</span><br><span class="line">console.log(me instanceof Person); // false</span><br><span class="line">console.log(me instanceof Object); // true</span><br><span class="line"></span><br><span class="line">console.log(me instanceof Person); // false</span><br><span class="line">// Person 생성자 함수의 prototype이 me.__proto__와 다르다.</span><br><span class="line"></span><br><span class="line">Person.prototype = p; // Person의 prototype이 me.__proto__와 같게 만들어준다.</span><br><span class="line">console.log(me instanceof Person); // true</span><br></pre></td></tr></table></figure>
+
+<p>프로토타입 교체는 지양한다.</p>
+<h3 id="오버라이딩과-프로퍼티-섀도잉"><a href="#오버라이딩과-프로퍼티-섀도잉" class="headerlink" title="오버라이딩과 프로퍼티 섀도잉"></a>오버라이딩과 프로퍼티 섀도잉</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 생성자 함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//프로토타입 메서드</span></span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hi, My name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 이게 더 깔끔하다.</span></span><br><span class="line"><span class="keyword">const</span> Person = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 생성자 함수</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//프로토타입 메서드</span></span><br><span class="line">  Person.prototype.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hi, My name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> Person;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line">me.sayHello(); <span class="comment">// Hi, My name is Lee</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>섀도잉</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Person = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 생성자 함수</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//프로토타입 메서드</span></span><br><span class="line">  Person.prototype.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hi, My name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> Person;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"></span><br><span class="line">me.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hello, My name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">me.sayHello(); <span class="comment">// Hello, My name is Lee</span></span><br></pre></td></tr></table></figure>
+
+<p>상속 관계에 의해 프로퍼티가 가려져서 섀도잉됐다.</p>
+<p><strong>오버라이딩(overriding)</strong></p>
+<p>상위 클래스가 가지고 있는 메서드를 하위 클래스가 재정의하여 사용하는 방식이다.</p>
+<p><strong>오버로딩(overloading)</strong></p>
+<p>함수의 이름은 동일하지만 매개변수의 타입 또는 개수가 다른 메서드를 구현하고 매개변수에 의해 메서드를 구별하여 호출하는 방식이다. 자바스크립트는 오버로딩을 지원하지 않지만 arguments 객체를 사용하여 구현할 수는 있다.</p>
+<h3 id="정적-프로퍼티-메서드"><a href="#정적-프로퍼티-메서드" class="headerlink" title="정적 프로퍼티/메서드"></a>정적 프로퍼티/메서드</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로토타입 메서드</span></span><br><span class="line"><span class="comment">// 반드시 인스턴스로 호출해야함.</span></span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hi, I am <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>); <span class="comment">// Hi, I am Lee</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 인스턴스 굳이 만들어서 Hi 출력할 바에 정적 메서드로 쓴다.</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hi!`</span>); <span class="comment">// Hi!</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 정적 메서드</span></span><br><span class="line">Person.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this는 인스턴스를 위한 것이기 때문이다.</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hi, I am <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>); <span class="comment">// Hi, I am Person</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 정적 메서드는 인스턴스 생성 없고, this 없는 것을 위한 메서드이다.</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hi!`</span>); <span class="comment">// Hi!</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line">me.sayHello(); <span class="comment">// Hi, I am Lee</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 정적 메서드에서는 this를 안 쓴다. this를 쓴다는 것은 인스턴스를 본다는 의미이다.</span></span><br><span class="line"><span class="comment">// 정적 메서드는 인스턴스를 호출하는 것이 아니라 생성자 함수를 가져오기 때문에 this를 쓰지 않는다.</span></span><br><span class="line">Person.sayHello(); <span class="comment">// Hi, I am Person</span></span><br></pre></td></tr></table></figure>
+
+<p>쉽게 말해서 this를 쓰면 프로토타입 메서드, 안 쓰면 정적 메서드 정도로 정리하자.</p>
+<p>참고 <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/">Fastcampus-frontend school</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/03/201203-TIL-prototype/" rel="prev" title="201203_TIL_프로토타입">
+      <i class="fa fa-chevron-left"></i> 201203_TIL_프로토타입
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 배운 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1"><span class="nav-number">1.1.</span> <span class="nav-text">생성자 함수에 의한 객체 생성</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85"><span class="nav-number">1.2.</span> <span class="nav-text">프로토타입</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">1.2.1.</span> <span class="nav-text">객체지향 프로그래밍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EA%B0%9D%EC%B2%B4"><span class="nav-number">1.2.2.</span> <span class="nav-text">프로토타입 객체</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto-%EC%A0%91%EA%B7%BC%EC%9E%90-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0"><span class="nav-number">1.2.3.</span> <span class="nav-text">proto 접근자 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-%EB%B0%A9%EC%8B%9D%EA%B3%BC-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%9D%98-%EA%B2%B0%EC%A0%95"><span class="nav-number">1.2.4.</span> <span class="nav-text">객체 생성 방식과 프로토타입의 결정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%9D%98-constructor-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0%EC%99%80-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98"><span class="nav-number">1.2.5.</span> <span class="nav-text">프로토타입의 constructor 프로퍼티와 생성자 함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%9D%98-%EA%B5%90%EC%B2%B4"><span class="nav-number">1.2.6.</span> <span class="nav-text">프로토타입의 교체</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9%EA%B3%BC-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%84%80%EB%8F%84%EC%9E%89"><span class="nav-number">1.2.7.</span> <span class="nav-text">오버라이딩과 프로퍼티 섀도잉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A0%95%EC%A0%81-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EB%A9%94%EC%84%9C%EB%93%9C"><span class="nav-number">1.2.8.</span> <span class="nav-text">정적 프로퍼티&#x2F;메서드</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
