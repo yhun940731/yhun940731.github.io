@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="오늘 배운 것클래스클래스를 new 연산자 없이 호출하면 에러가 발행한다. → [[Call]]이 없으며 [[Constructor]]만 존재한다. 클래스 내부에는 메서드 축약 표현만 들어갈 수 있다. 클래스 정의12345&#x2F;&#x2F; 익명 클래스 표현식const Person &#x3D; class &amp;#123;&amp;#125;;&#x2F;&#x2F; 기명 클래스 표현식const Person &#x3D; clas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="201216_TIL">
+<meta property="og:url" content="http://yhun940731.github.io/2020/12/16/201216-TIL/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="오늘 배운 것클래스클래스를 new 연산자 없이 호출하면 에러가 발행한다. → [[Call]]이 없으며 [[Constructor]]만 존재한다. 클래스 내부에는 메서드 축약 표현만 들어갈 수 있다. 클래스 정의12345&#x2F;&#x2F; 익명 클래스 표현식const Person &#x3D; class &amp;#123;&amp;#125;;&#x2F;&#x2F; 기명 클래스 표현식const Person &#x3D; clas">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-16T09:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-16T10:13:20.848Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yhun940731.github.io/2020/12/16/201216-TIL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>201216_TIL | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/12/16/201216-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          201216_TIL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-16 18:00:00 / Modified: 19:13:20" itemprop="dateCreated datePublished" datetime="2020-12-16T18:00:00+09:00">2020-12-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h2><p>클래스를 new 연산자 없이 호출하면 에러가 발행한다. → <code>[[Call]]</code>이 없으며 <code>[[Constructor]]</code>만 존재한다.</p>
+<p>클래스 내부에는 메서드 축약 표현만 들어갈 수 있다.</p>
+<h3 id="클래스-정의"><a href="#클래스-정의" class="headerlink" title="클래스 정의"></a>클래스 정의</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 익명 클래스 표현식</span></span><br><span class="line"><span class="keyword">const</span> Person = <span class="class"><span class="keyword">class</span> </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 기명 클래스 표현식</span></span><br><span class="line"><span class="keyword">const</span> Person = <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>일반적이지는 않지만 함수와 마찬가지로 표현식으로 클래스를 정의할 수도 있다.</p>
+<p>클래스 몸체 안에는 constructor, 프로토타입 메서드, 정적 메서드만 올 수 있다.</p>
+<p>클래스 몸체의 constructor는 prototype의 constructor와는 다르다.</p>
+<p>클래스 몸체의 constructor는 함수 객체의 몸체로 들어가며 없어진다.</p>
+<h3 id="클래스-필드-정의-제안"><a href="#클래스-필드-정의-제안" class="headerlink" title="클래스 필드 정의 제안"></a>클래스 필드 정의 제안</h3><p>클래스 필드는 아래와 같다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  a = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// constructor() &#123;</span></span><br><span class="line">  <span class="comment">//   this.a = 1;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Foo()); <span class="comment">// Foo &#123; a: 1 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>클래스 필드는 아래와 같이 인수 전달이 필요할 때 불가능하다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  a = n; <span class="comment">//??</span></span><br><span class="line">  <span class="comment">// constructor(n) &#123;</span></span><br><span class="line">  <span class="comment">//   this.a = n;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Foo());</span><br></pre></td></tr></table></figure>
+
+<p>클래스 필드에 함수를 할당하는 경우, 이 함수는 프로토타입 메서드가 아닌 인스턴스 메서드가 된며 상위 스코프는 constructor 내부이다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(n) &#123;</span><br><span class="line">    <span class="built_in">this</span>.a = n;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Foo(<span class="number">100</span>)); <span class="comment">// Foo &#123; a: 100 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>클래스 필드는 고정값을 가지고 있을 때는 의미가 있지만 외부에서 인수를 받아 할당할 때는 constructor() 사용을 해야한다.</p>
+<h3 id="private-필드-정의-제안"><a href="#private-필드-정의-제안" class="headerlink" title="private 필드 정의 제안"></a>private 필드 정의 제안</h3><p>생김새가 못 생겼지만 private 가능하다. 또한, 아직까지 유일한 private 정의 방법이다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  #name = &#x27;&#x27;;</span><br><span class="line">  <span class="keyword">constructor</span>(name)&#123;</span><br><span class="line">    this.#name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(me.name); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>private 키워드를 안 쓴 것에는 분명 이유가 있겠지만 생김새가 아쉽다.</p>
+<h3 id="super-키워드"><a href="#super-키워드" class="headerlink" title="super 키워드"></a>super 키워드</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 수퍼클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(a, b) &#123;</span><br><span class="line">    <span class="built_in">this</span>.a = a;</span><br><span class="line">    <span class="built_in">this</span>.b = b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 서브클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 다음과 같이 암묵적으로 constructor가 정의된다.</span></span><br><span class="line">  <span class="comment">// constructor(...args) &#123; super(...args); &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> derived = <span class="keyword">new</span> Derived(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(derived); <span class="comment">// Derived &#123;a: 1, b: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>수퍼클래스에서 추가한 프로퍼티와 서브클래스에서 추가한 프로퍼티를 갖는 인스턴스를 생성한다면 서브클래스의 constructor를 생략할 수 없다. 이때 new 연산자와 함께 서브클래스를 호출하면서 전달한 인수 중에서 수퍼클래스의 constructor에 전달할 필요가 있는 인수는 서브클래스의 constructor에서 호출하는 super를 통해 전달한다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 수퍼클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(a, b) &#123; <span class="comment">// ④</span></span><br><span class="line">    <span class="built_in">this</span>.a = a;</span><br><span class="line">    <span class="built_in">this</span>.b = b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 서브클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(a, b, c) &#123; <span class="comment">// ②</span></span><br><span class="line">    <span class="built_in">super</span>(a, b); <span class="comment">// ③</span></span><br><span class="line">    <span class="built_in">this</span>.c = c;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> derived = <span class="keyword">new</span> Derived(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// ①</span></span><br><span class="line"><span class="built_in">console</span>.log(derived); <span class="comment">// Derived &#123;a: 1, b: 2, c: 3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>서브클래스에서 constructor를 생략하지 않는 경우 서브클래스의 constructor에서는 반드시 super를 호출해야 한다.</p>
+</li>
+<li><p>서브클래스의 constructor에서 super를 호출하기 전에는 this를 참조할 수 없다.</p>
+</li>
+<li><p>super는 반드시 서브클래스의 constructor에서만 호출한다. 서브클래스가 아닌 클래스의 constructor나 함수에서 super를 호출하면 에러가 발생한다. (객체 리터럴과 클래스에서만 가능)</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="built_in">super</span>(); <span class="comment">// SyntaxError: &#x27;super&#x27; keyword unexpected here</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">super</span>(); <span class="comment">// SyntaxError: &#x27;super&#x27; keyword unexpected here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="상속-클래스의-인스턴스-생성-과정"><a href="#상속-클래스의-인스턴스-생성-과정" class="headerlink" title="상속 클래스의 인스턴스 생성 과정"></a>상속 클래스의 인스턴스 생성 과정</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 수퍼클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(width, height) &#123;</span><br><span class="line"><span class="comment">// 4. 여기서 this의 빈객체 생성 및 바인딩, (2, 4)할당, 암묵적 return</span></span><br><span class="line"><span class="comment">// this = &#123;&#125;;</span></span><br><span class="line"><span class="comment">// console.log(this); // ColorRectangle &#123;&#125; -&gt; new 키워드로 호출한 객체 이름으로 찍힘. </span></span><br><span class="line">    <span class="built_in">this</span>.width = width;</span><br><span class="line">    <span class="built_in">this</span>.height = height;</span><br><span class="line"><span class="comment">// console.log(this); // ColorRectangle &#123;width: 2, height: 4&#125;</span></span><br><span class="line"><span class="comment">// return this;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getArea() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.height;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`width = <span class="subst">$&#123;<span class="built_in">this</span>.width&#125;</span>, height = <span class="subst">$&#123;<span class="built_in">this</span>.height&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 서브클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorRectangle</span> <span class="keyword">extends</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line"><span class="comment">// 2. 호출 뒤 이 위치부터 시작</span></span><br><span class="line">  <span class="keyword">constructor</span>(width, height, color) &#123;</span><br><span class="line"><span class="comment">// 3. super 호출</span></span><br><span class="line">    <span class="built_in">super</span>(width, height);</span><br><span class="line"><span class="comment">// 5. super가 종료되면서 반환 객체를 아래 this에 할당 후 color 값 할당</span></span><br><span class="line"><span class="comment">// this = super(width, height); 같은 느낌, 그렇기 때문에 super가 서브클래스의 this보다 앞에 와야한다.</span></span><br><span class="line"><span class="comment">// console.log(this); // ColorRectangle &#123;width: 2, height: 4&#125;</span></span><br><span class="line">    <span class="built_in">this</span>.color = color;</span><br><span class="line"><span class="comment">// console.log(this); // ColorRectangle &#123;width: 2, height: 4, color: &quot;red&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 6. 암묵적 this 반환</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 메서드 오버라이딩</span></span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">super</span>.toString() + <span class="string">`, color = <span class="subst">$&#123;<span class="built_in">this</span>.color&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 인수를 가지고 ColorRectangle의 constructor 호출</span></span><br><span class="line"><span class="keyword">const</span> colorRectangle = <span class="keyword">new</span> ColorRectangle(<span class="number">2</span>, <span class="number">4</span>, <span class="string">&#x27;red&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(colorRectangle); <span class="comment">// ColorRectangle &#123;width: 2, height: 4, color: &quot;red&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 상속을 통해 getArea 메서드를 호출</span></span><br><span class="line"><span class="built_in">console</span>.log(colorRectangle.getArea()); <span class="comment">// 8</span></span><br><span class="line"><span class="comment">// 오버라이딩된 toString 메서드를 호출</span></span><br><span class="line"><span class="built_in">console</span>.log(colorRectangle.toString()); <span class="comment">// width = 2, height = 4, color = red</span></span><br></pre></td></tr></table></figure>
+
+<p>Q. 클래스 상속이 깊어질 수록 매개변수가 많아지는게 필연적일 것 같은데 그럴 경우 대안 대책이 있는가?</p>
+<p>A. 매개변수 많아지는게 필연적은 아니지만 만약에 그렇다면 객체 리터럴로 지정하면 될 것 같다.</p>
+<h2 id="ES6-함수의-추가-기능"><a href="#ES6-함수의-추가-기능" class="headerlink" title="ES6 함수의 추가 기능"></a>ES6 함수의 추가 기능</h2><h3 id="화살표-함수"><a href="#화살표-함수" class="headerlink" title="화살표 함수"></a>화살표 함수</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="params">v</span> =&gt;</span> v * <span class="number">2</span>); <span class="comment">// -&gt; [ 2, 4, 6 ]</span></span><br></pre></td></tr></table></figure>
+
+<p>화살표 함수는 일반 함수 리터럴과 다르게 프로토타입 등을 만들지 않기 때문에 가볍고 가독성 또한 좋다.</p>
+<h3 id="화살표-함수와-일반-함수의-차이"><a href="#화살표-함수와-일반-함수의-차이" class="headerlink" title="화살표 함수와 일반 함수의 차이"></a>화살표 함수와 일반 함수의 차이</h3><ol>
+<li><p>화살표 함수는 인스턴스를 생성할 수 없는 non-constructor다.</p>
+</li>
+<li><p>중복된 매개변수 이름을 선언할 수 없다.</p>
+</li>
+<li><p><strong>화살표 함수는 함수 자체의 this, arguments, super, new.target 바인딩을 갖지 않는다.</strong></p>
+<p> 위의 것을 갖지 않는다는 것은 렉시컬 환경에 위의 것이 없다는 것이다. → 상위 스코프에서 찾아야한다. → 생성자 함수, 메서드로 상용하지말고 일반적인 함수로 사용하자.</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prefixer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(prefix) &#123;</span><br><span class="line">    <span class="built_in">this</span>.prefix = prefix;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  add(arr) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="built_in">this</span>); <span class="comment">// Prefixer &#123; prefix: &#x27;-webkit-&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> arr.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">this</span>.prefix + item); <span class="comment">//여기서 this는 화살표 함수의 상위 스코프(add 메서드)의 this</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> prefixer = <span class="keyword">new</span> Prefixer(<span class="string">&#x27;-webkit-&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(prefixer.add([<span class="string">&#x27;transition&#x27;</span>, <span class="string">&#x27;user-select&#x27;</span>]));</span><br><span class="line"><span class="comment">// [&#x27;-webkit-transition&#x27;, &#x27;-webkit-user-select&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/14/201214-TIL/" rel="prev" title="201214_TIL">
+      <i class="fa fa-chevron-left"></i> 201214_TIL
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 배운 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="nav-number">1.1.</span> <span class="nav-text">클래스</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%A0%95%EC%9D%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">클래스 정의</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%ED%95%84%EB%93%9C-%EC%A0%95%EC%9D%98-%EC%A0%9C%EC%95%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">클래스 필드 정의 제안</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#private-%ED%95%84%EB%93%9C-%EC%A0%95%EC%9D%98-%EC%A0%9C%EC%95%88"><span class="nav-number">1.1.3.</span> <span class="nav-text">private 필드 정의 제안</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#super-%ED%82%A4%EC%9B%8C%EB%93%9C"><span class="nav-number">1.1.4.</span> <span class="nav-text">super 키워드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%83%81%EC%86%8D-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95"><span class="nav-number">1.1.5.</span> <span class="nav-text">상속 클래스의 인스턴스 생성 과정</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-%ED%95%A8%EC%88%98%EC%9D%98-%EC%B6%94%EA%B0%80-%EA%B8%B0%EB%8A%A5"><span class="nav-number">1.2.</span> <span class="nav-text">ES6 함수의 추가 기능</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98"><span class="nav-number">1.2.1.</span> <span class="nav-text">화살표 함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EB%B0%98-%ED%95%A8%EC%88%98%EC%9D%98-%EC%B0%A8%EC%9D%B4"><span class="nav-number">1.2.2.</span> <span class="nav-text">화살표 함수와 일반 함수의 차이</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
