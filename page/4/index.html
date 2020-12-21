@@ -145,6 +145,147 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/22/201122-TIL-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/22/201122-TIL-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4/" class="post-title-link" itemprop="url">201122_TIL_객체 리터럴</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-22 16:54:23" itemprop="dateCreated datePublished" datetime="2020-11-22T16:54:23+09:00">2020-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-24 11:17:22" itemprop="dateModified" datetime="2020-11-24T11:17:22+09:00">2020-11-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="객체-리터럴"><a href="#객체-리터럴" class="headerlink" title="객체 리터럴"></a>객체 리터럴</h2><h3 id="객체"><a href="#객체" class="headerlink" title="객체"></a>객체</h3><p>원시값을 제외한 나머지 값들(함수, 배열, 정규표현식 등)은 모두 객체다. 원시값의 경우 변경 불가능한 하나의 값을 나타내지만, 객체는 변경 가능한 다양한 타입의 값으로 하나의 단위로 구성한 복잡한 자료구조다.</p>
+<p>객체는 0개 이상의 프로퍼티로 구성된 집합이며, 프로퍼티는 키(key)와 값(value)으로 구성된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">&#x27;Choi&#x27;</span>, <span class="comment">// 프로퍼티 = 프로퍼티 키: 프로퍼티 값</span></span><br><span class="line">    age: <span class="number">26</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>자바스크립트에서 사용할 수 있는 모든 값은 프로퍼티 값이 될 수 있다. 함수도 프로퍼티 값으로 사용할 수 있다. 프로퍼티 값이 함수일 경우 일반 함수와의 구분을 위해 메서드(method)라 부른다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">&#x27;Choi&#x27;</span>,</span><br><span class="line">    age: <span class="number">26</span></span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/********************/</span></span><br><span class="line"><span class="keyword">var</span> circle = &#123;</span><br><span class="line">  radius: <span class="number">5</span>, <span class="comment">// ← 프로퍼티</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 원의 지름</span></span><br><span class="line">  getDiameter: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// ← 메서드</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * <span class="built_in">this</span>.radius; <span class="comment">// this는 circle을 가리킨다.</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(circle.getDiameter()); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+
+<p>위처럼 객체는 프로퍼티와 메서드로 구성된 집합체이다. 프로퍼티와 메서드의 역할은 다음과 같다.</p>
+<ul>
+<li>프로퍼티: 객체의 상태를 나타내는 값(data)</li>
+<li>메서드: 프로퍼티(상태 데이터)를 참조하고 조작할 수 있는 동작(behavior)</li>
+</ul>
+<h3 id="객체-리터럴에-의한-객체-생성"><a href="#객체-리터럴에-의한-객체-생성" class="headerlink" title="객체 리터럴에 의한 객체 생성"></a>객체 리터럴에 의한 객체 생성</h3><p>자바스크립트는 프로토타입 기반 객체지향 언어로서 클래스 기반 객체지향 언어와는 달리 다양한 객체 생성 방법을 지원한다.</p>
+<ul>
+<li>객체 리터럴</li>
+<li>Object 생성자 함수</li>
+<li>생성자 함수</li>
+<li>Object.create 메서드</li>
+<li>클래스 (ES6)</li>
+</ul>
+<p>가장 일반적이고 간단한 방법은 객체 리터럴을 사용하는 방법이다. 변수에 할당이 이루어지는 시점에 자바스크립트 엔진은 객체 리터럴을 해석해 객체를 생성한다.<br>객체 리터럴의 중괄호는 코드 블록을 의미하지 않기 때문에 세미콜론(;)을 붙여줘야한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hello! My name is <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>.`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> person); <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: &quot;Lee&quot;, sayHello: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="프로퍼티"><a href="#프로퍼티" class="headerlink" title="프로퍼티"></a>프로퍼티</h3><p>객체는 프로퍼티의 집합이며 프로퍼티는 키와 값으로 구성</p>
+<ul>
+<li>프로퍼티 키 : 빈 문자열을 포함하는 모든 문자열 또는 심벌 값</li>
+<li>프로퍼티 값 : 자바스크립트에서 사용할 수 있는 모든 값</li>
+</ul>
+<p>심벌 값도 프로퍼티 키로 사용할 수 있지만 일반적으로 문자열을 사용한다.<br>프로퍼티 키는 문자열이므로 따옴표로 묶어야 한다. 하지만 식별자 네이밍 규칙을 준수하는 이름인 경우 따옴표를 생략할 수 있다. 그 외에 식별자 네이밍 규칙을 따르지 않는 이름에는 반드시 따옴표를 사용해야 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstName: <span class="string">&#x27;Ung-mo&#x27;</span>, <span class="comment">// 식별자 네이밍 규칙을 준수하는 프로퍼티 키</span></span><br><span class="line">  <span class="string">&#x27;last-name&#x27;</span>: <span class="string">&#x27;Lee&#x27;</span>   <span class="comment">// 식별자 네이밍 규칙을 준수하지 않는 프로퍼티 키</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;firstName: &quot;Ung-mo&quot;, last-name: &quot;Lee&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstName: <span class="string">&#x27;Ung-mo&#x27;</span>,</span><br><span class="line">  last-name: <span class="string">&#x27;Lee&#x27;</span> <span class="comment">// SyntaxError: Unexpected token -</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>프로퍼티 키를 동적으로 생성할 수도 있다. 이 경우에는 프로퍼티 키로 사용할 표현식을 대괄호([…])로 묶어야 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> key = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5: 프로퍼티 키 동적 생성</span></span><br><span class="line">obj[key] = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="comment">// ES6: 계산된 프로퍼티 이름</span></span><br><span class="line"><span class="comment">// var obj = &#123; [key]: &#x27;world&#x27; &#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;hello: &quot;world&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>프로퍼티 키를 중복 선언하면 나중에 선언한 프로퍼티가 먼저 선언한 프로퍼티를 덮어쓴다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  name: <span class="string">&#x27;Kim&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// &#123;name: &quot;Kim&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="프로퍼티-접근"><a href="#프로퍼티-접근" class="headerlink" title="프로퍼티 접근"></a>프로퍼티 접근</h3><p>프로퍼티에 접근하는 방법은 두 가지다.</p>
+<ul>
+<li>마침표 프로퍼티 접근 연산자(.)를 사용하는 마침표 표기법(dot notation)</li>
+<li>대괄호 프로퍼티 접근 연산자([…])를 사용하는 대괄호 표기법(bracket notation)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 마침표 표기법에 의한 프로퍼티 접근</span></span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// Lee</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 대괄호 표기법에 의한 프로퍼티 접근</span></span><br><span class="line"><span class="comment">//대괄호 프로퍼티 접근 연산자 내부에 지정하는 프로퍼티 키는 반드시 따옴표로 감싼 문자열이어야 한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">&#x27;name&#x27;</span>]); <span class="comment">// Lee</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>객체에 존재하지 않는 프로퍼티에 접근하면 undefined를 반환한다. 이때 ReferenceError가 발생하지 않는 데 주의하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.age); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>프로퍼티 키가 숫자로 이뤄진 문자열인 경우 따옴표를 생략 가능.<br>그 외의 경우 대괄호 내에 들어가는 프로퍼티 키는 따옴표로 감싼 문자열이어야 한다</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="string">&#x27;last-name&#x27;</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person.<span class="string">&#x27;last-name&#x27;</span>;  <span class="comment">// -&gt; SyntaxError: Unexpected string</span></span><br><span class="line"></span><br><span class="line">person.last-name;    <span class="comment">// -&gt; 브라우저 환경: NaN</span></span><br><span class="line">                     <span class="comment">// -&gt; Node.js 환경: ReferenceError: name is not defined</span></span><br><span class="line"></span><br><span class="line">person[last-name];   <span class="comment">// -&gt; ReferenceError: last is not defined</span></span><br><span class="line">person[<span class="string">&#x27;last-name&#x27;</span>]; <span class="comment">// -&gt; Lee</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 키가 숫자로 이뤄진 문자열인 경우 따옴표를 생략할 수 있다.</span></span><br><span class="line">person<span class="number">.1</span>;     <span class="comment">// -&gt; SyntaxError: Unexpected number</span></span><br><span class="line">person.<span class="string">&#x27;1&#x27;</span>;   <span class="comment">// -&gt; SyntaxError: Unexpected string</span></span><br><span class="line">person[<span class="number">1</span>];    <span class="comment">// -&gt; 10 : person[1] -&gt; person[&#x27;1&#x27;]</span></span><br><span class="line">person[<span class="string">&#x27;1&#x27;</span>];  <span class="comment">// -&gt; 10</span></span><br></pre></td></tr></table></figure>
+<p>Node.js 환경에서는 현재 어디에도 <code>name</code>이라는 식별자(변수, 함수 등의 이름) 선언이 없으므로 <code>“ReferenceError: name is not defined”</code>이라는 에러가 발생한다. 그런데 브라우저 환경에서는 <code>name</code>이라는 전역 변수(전역 객체 window의 프로퍼티)가 암묵적으로 존재한다. 전역 변수<code>name</code>은 창(window)의 이름을 가리키며, 기본값은 빈 문자열이다. 따라서 <code>person.last-name</code>은 <code>undefined – &#39;&#39;</code>과 같으므로 <code>NaN</code>이 된다.</p>
+<h3 id="프로퍼티-값-갱신"><a href="#프로퍼티-값-갱신" class="headerlink" title="프로퍼티 값 갱신"></a>프로퍼티 값 갱신</h3><p>존재하는 프로퍼티에 값을 할당하면 프로퍼티 값이 갱신된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에 name 프로퍼티가 존재하므로 name 프로퍼티의 값이 갱신된다.</span></span><br><span class="line">person.name = <span class="string">&#x27;Kim&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person);  <span class="comment">// &#123;name: &quot;Kim&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="프로퍼티-동적-생성"><a href="#프로퍼티-동적-생성" class="headerlink" title="프로퍼티 동적 생성"></a>프로퍼티 동적 생성</h3><p>존재하지 않는 프로퍼티에 값을 할당하면 프로퍼티가 동적으로 생성되고 값이 할당된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에는 age 프로퍼티가 존재하지 않는다.</span></span><br><span class="line"><span class="comment">// 따라서 person 객체에 age 프로퍼티가 동적으로 생성되고 값이 할당된다.</span></span><br><span class="line">person.age = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: &quot;Lee&quot;, age: 20&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="프로퍼티-삭제"><a href="#프로퍼티-삭제" class="headerlink" title="프로퍼티 삭제"></a>프로퍼티 삭제</h3><p>delete 연산자는 객체의 프로퍼티를 삭제한다.<br>delete 연산자의 피연산자는 프로퍼티 값에 접근할 수 있는 표현식이어야 한다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 동적 생성</span></span><br><span class="line">person.age = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에 age 프로퍼티가 존재한다.</span></span><br><span class="line"><span class="comment">// 따라서 delete 연산자로 age 프로퍼티를 삭제할 수 있다.</span></span><br><span class="line"><span class="keyword">delete</span> person.age;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에 address 프로퍼티가 존재하지 않는다.</span></span><br><span class="line"><span class="comment">// 따라서 delete 연산자로 address 프로퍼티를 삭제할 수 없다. 이때 에러가 발생하지 않는다.</span></span><br><span class="line"><span class="keyword">delete</span> person.address;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: &quot;Lee&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ES6에서-추가된-객체-리터럴의-확장-기능"><a href="#ES6에서-추가된-객체-리터럴의-확장-기능" class="headerlink" title="ES6에서 추가된 객체 리터럴의 확장 기능"></a>ES6에서 추가된 객체 리터럴의 확장 기능</h3><h4 id="프로퍼티-축약-표현"><a href="#프로퍼티-축약-표현" class="headerlink" title="프로퍼티 축약 표현"></a>프로퍼티 축약 표현</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  x: x,</span><br><span class="line">  y: y</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 1, y: 2&#125;</span></span><br><span class="line"><span class="comment">/****************************/</span></span><br><span class="line"><span class="comment">//ES6에서는 프로퍼티 값으로 변수를 사용하는 경우 변수 이름과 프로퍼티 키가 동일한 이름일 때, 프로퍼티 키를 생략(property shorthand)할 수 있다. 이때 프로퍼티 키는 변수 이름으로 자동 생성된다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 축약 표현</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; x, y &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 1, y: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="계산된-프로퍼티-이름"><a href="#계산된-프로퍼티-이름" class="headerlink" title="계산된 프로퍼티 이름"></a>계산된 프로퍼티 이름</h4><p>문자열 또는 문자열로 타입 변환할 수 있는 값으로 평가되는 표현식을 사용해 프로퍼티 키를 동적으로 생성할 수도 있다. 단, 프로퍼티 키로 사용할 표현식을 대괄호([…])로 묶어야 한다. 이를 계산된 프로퍼티 이름(computed property name)이라 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> prefix = <span class="string">&#x27;prop&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 계산된 프로퍼티 이름으로 프로퍼티 키 동적 생성</span></span><br><span class="line">obj[prefix + <span class="string">&#x27;-&#x27;</span> + ++i] = i;</span><br><span class="line">obj[prefix + <span class="string">&#x27;-&#x27;</span> + ++i] = i;</span><br><span class="line">obj[prefix + <span class="string">&#x27;-&#x27;</span> + ++i] = i;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;prop-1: 1, prop-2: 2, prop-3: 3&#125;</span></span><br><span class="line"><span class="comment">/*********************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> prefix = <span class="string">&#x27;prop&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 리터럴 내부에서 계산된 프로퍼티 이름으로 프로퍼티 키 동적 생성</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-<span class="subst">$&#123;++i&#125;</span>`</span>]: i,</span><br><span class="line">  [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-<span class="subst">$&#123;++i&#125;</span>`</span>]: i,</span><br><span class="line">  [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-<span class="subst">$&#123;++i&#125;</span>`</span>]: i</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;prop-1: 1, prop-2: 2, prop-3: 3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="메서드-축약-표현"><a href="#메서드-축약-표현" class="headerlink" title="메서드 축약 표현"></a>메서드 축약 표현</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hi! &#x27;</span> + <span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.sayHi(); <span class="comment">// Hi! Lee</span></span><br><span class="line"><span class="comment">/**************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6에서는 function 키워드를 생략한 축약 표현을 사용할 수 있다.</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="comment">// 메서드 축약 표현</span></span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hi! &#x27;</span> + <span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.sayHi(); <span class="comment">// Hi! Lee</span></span><br></pre></td></tr></table></figure>
+
+<p>참고 <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/">Fastcampus-frontend school</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/22/201122-TIL-programmers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1450,144 +1591,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/13/201113-%ED%81%B4%EB%A1%A0-%EC%BD%94%EB%94%A9-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/13/201113-%ED%81%B4%EB%A1%A0-%EC%BD%94%EB%94%A9-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/" class="post-title-link" itemprop="url">201113_CafeW_Project</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-13 18:30:02" itemprop="dateCreated datePublished" datetime="2020-11-13T18:30:02+09:00">2020-11-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-16 21:42:14" itemprop="dateModified" datetime="2020-11-16T21:42:14+09:00">2020-11-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS/Git/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="카페-W-프로젝트-개발"><a href="#카페-W-프로젝트-개발" class="headerlink" title="카페 W 프로젝트 개발"></a>카페 W 프로젝트 개발</h1><p>카페 W는 고정형 웹 개발을 위한 프로젝트로서 HTML/CSS를 최대한으로 활용하여 개발하였다.</p>
-<h2 id="카페-W의-디자인"><a href="#카페-W의-디자인" class="headerlink" title="카페 W의 디자인"></a>카페 W의 디자인</h2><ul>
-<li><p>완성된 UI 디자인을 Figma 도구를 통해 배포 받고 레이아웃 구성에 활용하였다.</p>
-</li>
-<li><p>cafe W figma 링크: <a target="_blank" rel="noopener" href="https://www.figma.com/file/xxGWMBciUEN4kVX7E2AcIC/Cafe-W">cafeW figma</a></p>
-</li>
-<li><p>데스크탑 UI는 1440px+ 급으로 설계하였다.</p>
-</li>
-<li><p>Desktop UI</p>
-</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/56425514/99019720-4f474d00-25a0-11eb-9f72-950a59025680.png" alt="UI"></p>
-<ul>
-<li>Design System</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/56425514/99019752-61c18680-25a0-11eb-986f-6ee701b9b63b.png" alt="Design"></p>
-<h2 id="UI-개발"><a href="#UI-개발" class="headerlink" title="UI 개발"></a>UI 개발</h2><ul>
-<li>Developer — 제작된 UI 디자인을 토대로 모바일/데스크탑 UI를 개발합니다.</li>
-</ul>
-<ol>
-<li>효율적인 코딩에 적합한 Visual Studio Code 도구를 활용하였다.</li>
-<li>모두를 위한 디자인을 지향하며 개발하였다. (Universal Design, A11Y)</li>
-<li>시멘틱 마크업을 통해 웹 접근성을 최대한 끌어내도록 노력하였다. (HTML5 + WAI-ARIA)</li>
-<li>소스 버전을 Git을 통해 관리하여 효율적인 개발 작업, 분배, 병합 환경을 구축하였다. (Git)</li>
-<li>issue 등록을 통한 작업 분배화 실시간으로 현황을 파악할 수 있는 환경을 구축하고 개발하였다. (GitHub)</li>
-</ol>
-<p>Semantic Markup (HTML5 + WAI-ARIA)<br><img src="https://user-images.githubusercontent.com/56425514/99020570-3b9ce600-25a2-11eb-8af2-3fa2681ad232.png" alt="image"></p>
-<p>Version Control System (Git + GitHub)<br><img src="https://user-images.githubusercontent.com/56425514/99020654-68e99400-25a2-11eb-81df-382661fe56b0.png" alt="image"><br><img src="https://user-images.githubusercontent.com/56425514/99020841-b403a700-25a2-11eb-9bcc-353df5c1cdcb.png" alt="image"></p>
-<h2 id="참여인원"><a href="#참여인원" class="headerlink" title="참여인원"></a>참여인원</h2><ul>
-<li>@yhun940731 최용훈</li>
-<li>@ahnanne 안예인</li>
-<li>@moripark32 박세리</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731/cafeW-project">프로젝트_GitHub</a><br><a target="_blank" rel="noopener" href="https://slides.com/yeinahn-1/deck">발표자료</a></p>
-<h1 id="느낀-것"><a href="#느낀-것" class="headerlink" title="느낀 것"></a>느낀 것</h1><ul>
-<li><p>팀장으로 참여하여 참 많은 우여곡절을 겪었다. 그래도 팀장이어서 더 책임감을 느끼고 보람찼다. 결과적으로 시간분배부터 팀장으로서의 git 사용, 더 많은 분량 등 최대의 노력을 쏟아낼 수 있었던 좋은 기회였다.</p>
-</li>
-<li><p>merge하다가 꼬여서 고생했다. 앞으로 진짜 신중하게 검토해야하는 습관을 들여야한다.</p>
-</li>
-<li><p>git bash에서 명령어 입력할 때 생각을 하고 하자. 잘 못 입력해서 이미지 파일을 다 날렸다.</p>
-</li>
-<li><p>방금 말한 것과 같이 git 과 git hub를 처음 사용해보면서 위와 같은 시행착오를 겪으며 어렵고 불편했지만 갈 수록 널리 쓰이는 이유를 알게됐다.</p>
-</li>
-<li><p>시멘틱 마크업을 알게되니 div와 span을 쓰면 불안해진다. 하지만 시멘틱 마크업도 중요하지만 쓸 때는 쓰는 결단력이 필요하다.</p>
-</li>
-<li><p>절대값으로 레이아웃을 구성하면 너무 찝찝해서 최대한 안 쓰려고 했는데 능력의 한계로<br>쓸 수 밖에 없을 때 좀 더 깊은 레이아웃 구성 방법에 대해 간절함을 느꼈다.</p>
-</li>
-<li><p>이번 프로젝트에서 css를 적용할 때 스타일 적용하면서도 더 효율적인 방법이 있을 텐데를 고민할때가<br>괴롭지만 참 재밌었다.</p>
-</li>
-<li><p>시간이 더 있었다면 퀄리티가 더 높았겠지만 그건 변명이다. 결국 정해진 기한 내에 하는 것도 실력이다.</p>
-</li>
-<li><p>크로스 브라우징은 너무 어려워서 거의 진행하지 못하였다. 좀 더 섬세한 부분도 완성하고 싶었지만 시간관계상 못 하지 못해 많이 아쉬웠다. 별개로 앞으로 IE를 사용하는 사람이 있으면 도시락 싸들고 말려야겠다는 결심을 했다.</p>
-</li>
-<li><p>결과는 과정의 노력을 확인하는 수단일 뿐, 집착하고 얽매일 필요가 없다. 때때로 힘들었지만 점점 결과를 보여갈 때 느꼈던 기분과, 과정을 통해 얻은 새로운 지식과 경험이 중요하다고 생각한다. 잘하는 것도 중요하지만 과정을 통해 전보다 나아졌다는 것이 중점이라고 생각하며 프로젝트를 마친다.</p>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1657,7 +1660,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
