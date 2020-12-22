@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="디스트럭처링 할당배열과 같은 이터러블 또는 객체를 destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당하는 것을 말한다. 배열 디스트럭처링 할당ES6의 배열 디스트럭처링 할당은 배열의 각 요소를 배열로부터 추출하여 1개 이상의 변수에 할당한다. 이때 배열 디스트럭처링 할당의 대상(할당문의 우변)은 이터러블이어야 하며, 할당">
+<meta property="og:type" content="article">
+<meta property="og:title" content="디스트럭처링 할당">
+<meta property="og:url" content="http://yhun940731.github.io/2020/12/22/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="디스트럭처링 할당배열과 같은 이터러블 또는 객체를 destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당하는 것을 말한다. 배열 디스트럭처링 할당ES6의 배열 디스트럭처링 할당은 배열의 각 요소를 배열로부터 추출하여 1개 이상의 변수에 할당한다. 이때 배열 디스트럭처링 할당의 대상(할당문의 우변)은 이터러블이어야 하며, 할당">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-22T05:33:00.000Z">
+<meta property="article:modified_time" content="2020-12-22T06:20:13.205Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yhun940731.github.io/2020/12/22/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>디스트럭처링 할당 | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/12/22/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          디스트럭처링 할당
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-22 14:33:00 / Modified: 15:20:13" itemprop="dateCreated datePublished" datetime="2020-12-22T14:33:00+09:00">2020-12-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="디스트럭처링-할당"><a href="#디스트럭처링-할당" class="headerlink" title="디스트럭처링 할당"></a>디스트럭처링 할당</h1><p>배열과 같은 이터러블 또는 객체를 destructuring(비구조화, 구조 파괴)하여 1개 이상의 변수에 개별적으로 할당하는 것을 말한다.</p>
+<h2 id="배열-디스트럭처링-할당"><a href="#배열-디스트럭처링-할당" class="headerlink" title="배열 디스트럭처링 할당"></a>배열 디스트럭처링 할당</h2><p>ES6의 배열 디스트럭처링 할당은 배열의 각 요소를 배열로부터 추출하여 1개 이상의 변수에 할당한다. 이때 배열 디스트럭처링 할당의 대상(할당문의 우변)은 이터러블이어야 하며, 할당 기준은 배열의 인덱스다. 즉, 순서대로 할당된다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 배열 디스트럭처링 할당</span></span><br><span class="line"><span class="comment">// 변수 one, two, three를 선언하고 배열 arr을 디스트럭처링하여 할당한다.</span></span><br><span class="line"><span class="comment">// 이때 할당 기준은 배열의 인덱스다.</span></span><br><span class="line"><span class="keyword">const</span> [one, two, three] = arr;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(one, two, three); <span class="comment">// 1 2 3</span></span><br></pre></td></tr></table></figure>
+
+<p>배열 디스트럭처링 할당을 위해서는 할당 연산자 왼쪽에 값을 할당받을 변수를 선언해야 한다. 이때 변수를 배열 리터럴 형태로 선언한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [x, y] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// const로 선언할 수 없어 권장하지 않는다.</span></span><br><span class="line"><span class="keyword">let</span> x, y;</span><br><span class="line">[x, y] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [x, y]; <span class="comment">// SyntaxError: Missing initializer in destructuring declaration</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [a, b] = &#123;&#125;; <span class="comment">// TypeError: &#123;&#125; is not iterable</span></span><br></pre></td></tr></table></figure>
+
+<p>배열 디스트럭처링 할당의 기준은 배열의 인덱스다. 즉, 순서대로 할당된다. 이때 변수의 개수와 이터러블의 요소 개수가 반드시 일치할 필요는 없다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [a, b] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a, b); <span class="comment">// 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [c, d] = [<span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(c, d); <span class="comment">// 1 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [e, f] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(e, f); <span class="comment">// 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [g, , h] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(g, h); <span class="comment">// 1 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 기본값</span></span><br><span class="line"><span class="keyword">const</span> [a, b, c = <span class="number">3</span>] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c); <span class="comment">// 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 기본값보다 할당된 값이 우선한다.</span></span><br><span class="line"><span class="keyword">const</span> [e, f = <span class="number">10</span>, g = <span class="number">3</span>] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(e, f, g); <span class="comment">// 1 2 3</span></span><br></pre></td></tr></table></figure>
+
+<p>배열 디스트럭처링 할당을 위한 변수에 Rest 파라미터와 유사하게 Rest 요소(Rest element) …을 사용할 수 있다. Rest 요소는 Rest 파라미터와 마찬가지로 반드시 마지막에 위치해야 한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Rest 요소</span></span><br><span class="line"><span class="keyword">const</span> [x, ...y] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(x, y); <span class="comment">// 1 [ 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="객체-디스트럭처링-할당"><a href="#객체-디스트럭처링-할당" class="headerlink" title="객체 디스트럭처링 할당"></a>객체 디스트럭처링 할당</h2><p>ES5에서 객체의 각 프로퍼티를 객체로부터 디스트럭처링하여 변수에 할당하기 위해서는 프로퍼티 키를 사용해야 한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> user = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> firstName = user.firstName;</span><br><span class="line"><span class="keyword">var</span> lastName  = user.lastName;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(firstName, lastName); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<p>ES6의 객체 디스트럭처링 할당은 객체의 각 프로퍼티를 객체로부터 추출하여 1개 이상의 변수에 할당한다. 이때 객체 디스트럭처링 할당의 대상(할당문의 우변)은 객체이어야 하며, 할당 기준은 프로퍼티 키다. <strong>즉, 순서는 의미가 없으며 선언된 변수 이름과 프로퍼티 키가 일치하면 할당된다.</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 객체 디스트럭처링 할당</span></span><br><span class="line"><span class="comment">// 변수 lastName, firstName을 선언하고 user 객체를 디스트럭처링하여 할당한다.</span></span><br><span class="line"><span class="comment">// 이때 프로퍼티 키를 기준으로 디스트럭처링 할당이 이루어진다. 순서는 의미가 없다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = user;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(firstName, lastName); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<p>배열 디스트럭처링 할당과 마찬가지로 객체 디스트럭처링 할당을 위해서는 할당 연산자 왼쪽에 프로퍼티 값을 할당받을 변수를 선언해야 한다. 이때 변수를 객체 리터럴 형태로 선언한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125;;</span><br><span class="line"><span class="comment">// SyntaxError: Missing initializer in destructuring declaration</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = <span class="literal">null</span>;</span><br><span class="line"><span class="comment">// TypeError: Cannot destructure property &#x27;lastName&#x27; of &#x27;null&#x27; as it is null.</span></span><br></pre></td></tr></table></figure>
+
+<p>위 예제에서 객체 리터럴 형태로 선언한 변수는 lastName, firstName이다. 이는 프로퍼티 축약 표현을 통해 선언한 것이다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = user;</span><br><span class="line"><span class="comment">// 위와 아래는 동치다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">lastName</span>: lastName, <span class="attr">firstName</span>: firstName &#125; = user;</span><br></pre></td></tr></table></figure>
+<p>따라서 객체의 프로퍼티 키와 다른 변수 이름으로 프로퍼티 값을 할당받으려면 다음과 같이 변수를 선언한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 키를 기준으로 디스트럭처링 할당이 이루어진다.</span></span><br><span class="line"><span class="comment">// 프로퍼티 키가 lastName인 프로퍼티 값을 ln에 할당하고,</span></span><br><span class="line"><span class="comment">// 프로퍼티 키가 firstName인 프로퍼티 값을 fn에 할당한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">lastName</span>: ln, <span class="attr">firstName</span>: fn &#125; = user;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fn, ln); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<p>객체 디스트럭처링 할당을 위한 변수에 기본값을 설정할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; firstName = <span class="string">&#x27;Ungmo&#x27;</span>, lastName &#125; = &#123; <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(firstName, lastName); <span class="comment">// Ungmo Lee</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">firstName</span>: fn = <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: ln &#125; = &#123; <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(fn, ln); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<p>객체 디스트럭처링 할당은 객체에서 프로퍼티 키로 필요한 프로퍼티 값만 추출하여 변수에 할당하고 싶을 때 유용하다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="comment">// String 래퍼 객체로부터 length 프로퍼티만 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; length &#125; = str;</span><br><span class="line"><span class="built_in">console</span>.log(length); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todo = &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;;</span><br><span class="line"><span class="comment">// todo 객체로부터 id 프로퍼티만 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; id &#125; = todo;</span><br><span class="line"><span class="built_in">console</span>.log(id); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>객체 디스트럭처링 할당은 객체를 인수로 전달받는 함수의 매개변수에도 사용할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printTodo</span>(<span class="params">todo</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`할일 <span class="subst">$&#123;todo.content&#125;</span>은 <span class="subst">$&#123;todo.completed ? <span class="string">&#x27;완료&#x27;</span> : <span class="string">&#x27;비완료&#x27;</span>&#125;</span> 상태입니다.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 디스트럭처링 할당</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printTodo</span>(<span class="params">&#123; content, completed &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`할일 <span class="subst">$&#123;content&#125;</span>은 <span class="subst">$&#123;completed ? <span class="string">&#x27;완료&#x27;</span> : <span class="string">&#x27;비완료&#x27;</span>&#125;</span> 상태입니다.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printTodo(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"><span class="comment">// 할일 HTML은 완료 상태입니다.</span></span><br></pre></td></tr></table></figure>
+
+<p>배열의 요소가 객체인 경우 배열 디스트럭처링 할당과 객체 디스트럭처링 할당을 혼용할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;JS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// todos 배열의 두 번째 요소인 객체로부터 id 프로퍼티만 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> [, &#123; id &#125;] = todos;</span><br><span class="line"><span class="built_in">console</span>.log(id); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>중첩 객체의 경우는 다음과 같이 사용한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  address: &#123;</span><br><span class="line">    zipCode: <span class="string">&#x27;03068&#x27;</span>,</span><br><span class="line">    city: <span class="string">&#x27;Seoul&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// address 프로퍼티 키로 객체를 추출하고 이 객체의 city 프로퍼티 키로 값을 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">address</span>: &#123; city &#125; &#125; = user;</span><br><span class="line"><span class="built_in">console</span>.log(city); <span class="comment">// &#x27;Seoul&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>객체 디스트럭처링 할당을 위한 변수에 Rest 파라미터나 Rest 요소와 유사하게 Rest 프로퍼티 …을 사용할 수 있다. Rest 프로퍼티는 Rest 파라미터나 Rest 요소와 마찬가지로 반드시 마지막에 위치해야 한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Rest 프로퍼티</span></span><br><span class="line"><span class="keyword">const</span> &#123; x, ...rest &#125; = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">z</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(x, rest); <span class="comment">// 1 &#123; y: 2, z: 3 &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>참고 도서: <cite>모던 자바스크립트 Deep Dive</cite></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/22/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" rel="prev" title="스프레드 문법">
+      <i class="fa fa-chevron-left"></i> 스프레드 문법
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9"><span class="nav-number">1.</span> <span class="nav-text">디스트럭처링 할당</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B0%B0%EC%97%B4-%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9"><span class="nav-number">1.1.</span> <span class="nav-text">배열 디스트럭처링 할당</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4-%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9"><span class="nav-number">1.2.</span> <span class="nav-text">객체 디스트럭처링 할당</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
