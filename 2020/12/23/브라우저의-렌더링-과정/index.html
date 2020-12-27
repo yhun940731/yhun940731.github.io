@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103003383-0b1e7380-4574-11eb-83e2-09dcbc030eb5.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103003519-4620a700-4574-11eb-9f2a-4dc080c7e47c.png">
 <meta property="article:published_time" content="2020-12-23T09:15:39.000Z">
-<meta property="article:modified_time" content="2020-12-23T14:12:44.001Z">
+<meta property="article:modified_time" content="2020-12-24T08:06:30.405Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta name="twitter:card" content="summary">
@@ -184,10 +184,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-23 18:15:39 / Modified: 23:12:44" itemprop="dateCreated datePublished" datetime="2020-12-23T18:15:39+09:00">2020-12-23</time>
+              <time title="Created: 2020-12-23 18:15:39" itemprop="dateCreated datePublished" datetime="2020-12-23T18:15:39+09:00">2020-12-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-24 17:06:30" itemprop="dateModified" datetime="2020-12-24T17:06:30+09:00">2020-12-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -258,7 +264,7 @@
 <li>파싱(parsing)<br>토큰들의 집합을 구문 분석(syntactic analysis)하여 AST(Abstract Syntax Tree, 추상적 구문 트리)를 생성한다. AST는 토큰에 문법적 의미와 구조를 반영한 트리 구조의 자료구조다. AST는 인터프리터나 컴파일러만이 사용하는 것은 아니다. AST를 사용하면 TypeScript, Babel, Prettier 같은 트랜스파일러(transpiler)를 구현할 수도 있다. AST Explorer 웹사이트에 방문하면 다양한 오픈소스 자바스크립트 파서를 사용하여 AST를 생성해 볼 수 있다.</li>
 <li>바이트코드 생성과 실행<br>파싱의 결과물로서 생성된 AST는 인터프리터가 실행할 수 있는 중간 코드인 바이트코드로 변환되고 인터프리터에 의해 실행된다. 참고로 V8 엔진의 경우 자주 사용되는 코드는 터보팬(TurboFan)이라 불리는 컴파일러에 의해 최적화된 머신 코드(optimized machine code)로 컴파일되어 성능을 최적화한다. 만약 코드의 사용 빈도가 적어지면 다시 디옵티마이징(deoptimizing)하기도 한다.</li>
 </ul>
-<h2 id="리플로우와-리페인트"><a href="#리플로우와-리페인트" class="headerlink" title="리플로우와 리페인트"></a>리플로우와 리페인트</h2><p>자바스크립트 코드에 DOM이나 CSSOM을 변경하는 DOM API가 사용된 경우 DOM이나 CSSOM이 변경된다. 이때 변경된 DOM과 CSSOM은 다시 렌더 트리로 결합되고 변경된 렌더 트리를 기반으로 레이아웃과 페인트 과정을 거쳐 브라우저의 화면에 다시 렌더링한다. 이를 리플로우(reflow), 리페인트(repaint)라 한다.</p>
+<h2 id="리플로우와-리페인트"><a href="#리플로우와-리페인트" class="headerlink" title="리플로우와 리페인트"></a>리플로우와 리페인트</h2><p>자바스크립트 코드에 DOM이나 CSSOM을 변경하는 DOM API가 사용된 경우 DOM이나 CSSOM이 변경된다. 이때 변경된 DOM과 CSSOM은 다시 렌더 트리로 결합되고 변경된 렌더 트리를 기반으로 레이아웃과 페인트 과정을 거쳐 브라우저의 화면에 다시 렌더링한다. 이를 리플로우(reflow), 리페인트(repaint)라 한다. 래아아웃 변경(리플로우)이 많아지면 성능이 저하된다. 대부분 상속되지 않는 속성이 리플로우를 발생시킨다.</p>
 <p><img src="https://user-images.githubusercontent.com/56425514/103003034-6308aa80-4573-11eb-8069-415800cd0909.png" alt="리플로우, 리페인트"></p>
 <p>리플로우는 레이아웃 계산을 다시 하는 것을 말하며, 노드 추가/삭제, 요소의 크기/위치 변경, 윈도우 리사이징 등 레이아웃에 영향을 주는 변경이 발생한 경우에 한하여 실행된다. 리페인트는 재결합된 렌더 트리를 기반으로 다시 페인트를 하는 것을 말한다. 리플로우와 리페인트가 반드시 순차적으로 동시에 실행되는 것은 아니다. 레이아웃에 영향이 없는 변경은 리플로우 없이 리페인트만 실행된다.</p>
 <h2 id="자바스크립트-파싱에-의한-HTML-파싱-중단"><a href="#자바스크립트-파싱에-의한-HTML-파싱-중단" class="headerlink" title="자바스크립트 파싱에 의한 HTML 파싱 중단"></a>자바스크립트 파싱에 의한 HTML 파싱 중단</h2><p>렌더링 엔진과 자바스크립트 엔진은 직렬적으로 파싱을 수행한다.</p>
@@ -307,7 +313,10 @@
     <a href="/2020/12/23/201223-TIL/" rel="prev" title="201223_TIL">
       <i class="fa fa-chevron-left"></i> 201223_TIL
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/23/DOM/" rel="next" title="DOM">
+      DOM <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -380,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
