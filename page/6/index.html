@@ -145,6 +145,306 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/09/201109-TIL-git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/09/201109-TIL-git/" class="post-title-link" itemprop="url">201109_TIL_git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-09 19:27:57" itemprop="dateCreated datePublished" datetime="2020-11-09T19:27:57+09:00">2020-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-26 15:49:05" itemprop="dateModified" datetime="2020-11-26T15:49:05+09:00">2020-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="Git을-이용한-협업"><a href="#Git을-이용한-협업" class="headerlink" title="Git을 이용한 협업"></a>Git을 이용한 협업</h2><ul>
+<li>git을 이용한 협업의 방법은 아래와 같다.<ol>
+<li>GitHub Collaboration 하지만 추천하지 않는다.</li>
+<li>Fork 이 방법을 추천한다.</li>
+</ol>
+</li>
+</ul>
+<h2 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h2><ul>
+<li><p>마블 멀티 유니버스를 만드는 느낌으로 만들어준다!</p>
+</li>
+<li><p><code>$ git branch</code> 명령어를 통해 현재 branch를 모아 볼 수 있다.</p>
+</li>
+<li><p><code>$ git branch &#123;branch 이름&#125;</code> 명령어로 멀티유니버스를 생성해준다.</p>
+</li>
+<li><p><code>$ git checkout &#123;branch 이름&#125;</code> 명령어는 입력한 branch로 바꾸는 명령어이다.</p>
+</li>
+<li><p><code>$ git merge &#123;branch 이름&#125;</code> 명령어는 입력한 branch를 지금 branch로 병합하는 명령어이다. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/dev/branch-practice (master)</span><br><span class="line">$ git merge footer</span><br><span class="line">Auto-merging index.html</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> index.html</span><br><span class="line">Automatic merge failed; fix conflicts and <span class="keyword">then</span> commit the result.</span><br></pre></td></tr></table></figure></li>
+<li><p>branch 내용이 서로 달라서 conflict될 경우 merge에 실패한다. 다행히도 어떤 점이 충돌했는지 표시돼있다.<br><img src="https://user-images.githubusercontent.com/56425514/99247959-141c7680-284b-11eb-9db6-a55c7fe289b1.png" alt="conflict_해결"></p>
+</li>
+<li><p>둘 중 하나를 고르거나 재조합할 수 있다.</p>
+</li>
+<li><p>작업 중인 branch는 남겨두지만 작업이 끝난 branch는 merge 후 없애는 것이 편하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/dev/branch-practice (master)</span><br><span class="line">$ git branch -D footer</span><br><span class="line">Deleted branch footer (was 6163da2).</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (master)</span><br><span class="line">$ git branch -D header</span><br><span class="line">Deleted branch header (was 151c663).</span><br></pre></td></tr></table></figure>
+<p><code>$ git branch -D &#123;branch 이름&#125;</code>은 branch를 제거하는 명령어이다.</p>
+</li>
+</ul>
+<h2 id="git-flow"><a href="#git-flow" class="headerlink" title="git flow"></a>git flow</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://danielkummer.github.io/git-flow-cheatsheet/">Brew</a> 여기서 Brew 설치법을 익히고 사용해보자</li>
+</ul>
+<h3 id="flow의-시작"><a href="#flow의-시작" class="headerlink" title="flow의 시작"></a>flow의 시작</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/dev/branch-practice (master)</span><br><span class="line">$ git flow init</span><br><span class="line"></span><br><span class="line">Which branch should be used <span class="keyword">for</span> bringing forth production releases?</span><br><span class="line">   - master</span><br><span class="line">Branch name <span class="keyword">for</span> production releases: [master]</span><br><span class="line">Branch name <span class="keyword">for</span> <span class="string">&quot;next release&quot;</span> development: [develop]</span><br><span class="line"></span><br><span class="line">How to name your supporting branch prefixes?</span><br><span class="line">Feature branches? [feature/]</span><br><span class="line">Bugfix branches? [bugfix/]</span><br><span class="line">Release branches? [release/]</span><br><span class="line">Hotfix branches? [hotfix/]</span><br><span class="line">Support branches? [support/]</span><br><span class="line">Version tag prefix? []</span><br><span class="line">Hooks and filters directory? [C:/Users/ChoiYonghun/Documents/dev/branch-practice/.git/hooks]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>git flow init</code>을 통해 master를 포함한 branch를 만들 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/dev/branch-practice (develop)</span><br><span class="line">$ git branch</span><br><span class="line">* develop</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+<ul>
+<li>master의 경우 최종 릴리즈에 사용한다.</li>
+<li>개발은 develop branch에서 진행하자!</li>
+</ul>
+<h3 id="flow-feature"><a href="#flow-feature" class="headerlink" title="flow feature"></a>flow feature</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/dev/branch-practice (develop)</span><br><span class="line">$ git flow feature start create-sauron</span><br><span class="line">Switched to a new branch <span class="string">&#x27;feature/create-sauron&#x27;</span></span><br><span class="line"></span><br><span class="line">Summary of actions:</span><br><span class="line">- A new branch <span class="string">&#x27;feature/create-sauron&#x27;</span> was created, based on <span class="string">&#x27;develop&#x27;</span></span><br><span class="line">- You are now on branch <span class="string">&#x27;feature/create-sauron&#x27;</span></span><br><span class="line"></span><br><span class="line">Now, start committing on your feature. When <span class="keyword">done</span>, use:</span><br><span class="line"></span><br><span class="line">     git flow feature finish create-sauron</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/create-sauron)</span><br><span class="line">$ git branch</span><br><span class="line">  develop</span><br><span class="line">* feature/create-sauron</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>$ git flow feature start &#123;branch 이름&#125;</code>를 이용하여 새로운 개발을 위한 branch를 만들고 자동으로 checkout할 수 있다.</li>
+</ul>
+<h3 id="feature-없애기"><a href="#feature-없애기" class="headerlink" title="feature 없애기"></a>feature 없애기</h3><ul>
+<li>feature 중 내용이 너무 맘에 안들어서 merge고 뭐고 때려치고 싶을 때는 간단하게 push하기 전에 그냥 branch를 삭제하면 된다!</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/dev/branch-practice (feature/create-sauron)</span><br><span class="line">$ touch sauron.html</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/create-sauron)</span><br><span class="line">$ git add sauron.html</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/create-sauron)</span><br><span class="line">$ git commit</span><br><span class="line">[feature/create-sauron 1660b20] feat: create sauron.html</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 sauron.html</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/create-sauron)</span><br><span class="line">$ ls</span><br><span class="line">index.html  sauron.html  static/</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/create-sauron)</span><br><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch <span class="string">&#x27;develop&#x27;</span></span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (develop)</span><br><span class="line">$ git branch -D feature/create-sauron</span><br><span class="line">Deleted branch feature/create-sauron (was 1660b20).</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (develop)</span><br><span class="line">$ git branch</span><br><span class="line">* develop</span><br><span class="line">Master</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위와 같이 push하기 전에 checkout 후 편안한 마음으로 삭제해준다!</li>
+<li>이런 것이 <code>feature의 편안함!</code></li>
+</ul>
+<h3 id="flow-release"><a href="#flow-release" class="headerlink" title="flow release"></a>flow release</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/dev/branch-practice (develop)</span><br><span class="line">$ git flow feature start <span class="built_in">test</span></span><br><span class="line">Switched to a new branch <span class="string">&#x27;feature/test&#x27;</span></span><br><span class="line"></span><br><span class="line">Summary of actions:</span><br><span class="line">- A new branch <span class="string">&#x27;feature/test&#x27;</span> was created, based on <span class="string">&#x27;develop&#x27;</span></span><br><span class="line">- You are now on branch <span class="string">&#x27;feature/test&#x27;</span></span><br><span class="line"></span><br><span class="line">Now, start committing on your feature. When <span class="keyword">done</span>, use:</span><br><span class="line"></span><br><span class="line">     git flow feature finish <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/<span class="built_in">test</span>)</span><br><span class="line">$ ls</span><br><span class="line">index.html  static/</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/<span class="built_in">test</span>)</span><br><span class="line">$ vi index.html</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/<span class="built_in">test</span>)</span><br><span class="line">$ git add index.html</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/<span class="built_in">test</span>)</span><br><span class="line">$ git commit</span><br><span class="line">[feature/<span class="built_in">test</span> ab55d8e] feat: Create aside</span><br><span class="line"> 1 file changed, 42 insertions(+), 35 deletions(-)</span><br><span class="line"> rewrite index.html (92%)</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (feature/<span class="built_in">test</span>)</span><br><span class="line">$ git flow feature finish <span class="built_in">test</span></span><br><span class="line">Switched to branch <span class="string">&#x27;develop&#x27;</span></span><br><span class="line">Updating ec453b4..ab55d8e</span><br><span class="line">Fast-forward</span><br><span class="line"> index.html | 63 ++++++++++++++++++++++++++++++++++----------------------------</span><br><span class="line"> 1 file changed, 35 insertions(+), 28 deletions(-)</span><br><span class="line">Deleted branch feature/<span class="built_in">test</span> (was ab55d8e).</span><br><span class="line"></span><br><span class="line">Summary of actions:</span><br><span class="line">- The feature branch <span class="string">&#x27;feature/test&#x27;</span> was merged into <span class="string">&#x27;develop&#x27;</span></span><br><span class="line">- Feature branch <span class="string">&#x27;feature/test&#x27;</span> has been locally deleted</span><br><span class="line">- You are now on branch <span class="string">&#x27;develop&#x27;</span></span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (develop)</span><br><span class="line">$ git flow release start v0.0.1</span><br><span class="line">Switched to a new branch <span class="string">&#x27;release/v0.0.1&#x27;</span></span><br><span class="line"></span><br><span class="line">Summary of actions:</span><br><span class="line">- A new branch <span class="string">&#x27;release/v0.0.1&#x27;</span> was created, based on <span class="string">&#x27;develop&#x27;</span></span><br><span class="line">- You are now on branch <span class="string">&#x27;release/v0.0.1&#x27;</span></span><br><span class="line"></span><br><span class="line">Follow-up actions:</span><br><span class="line">- Bump the version number now!</span><br><span class="line">- Start committing last-minute fixes <span class="keyword">in</span> preparing your release</span><br><span class="line">- When <span class="keyword">done</span>, run:</span><br><span class="line"></span><br><span class="line">     git flow release finish <span class="string">&#x27;v0.0.1&#x27;</span></span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (release/v0.0.1)</span><br><span class="line">$ git branch</span><br><span class="line">  develop</span><br><span class="line">  master</span><br><span class="line">* release/v0.0.1</span><br><span class="line"></span><br><span class="line">~/Documents/dev/branch-practice (release/v0.0.1)</span><br><span class="line">$ git flow release finish v0.0.1</span><br><span class="line">Switched to branch <span class="string">&#x27;master&#x27;</span></span><br><span class="line">Merge made by the <span class="string">&#x27;recursive&#x27;</span> strategy.</span><br><span class="line"> index.html           | 65 ++++++++++++++++++++++++++++------------------------</span><br><span class="line"> static/css/style.css |  3 +++</span><br><span class="line"> 2 files changed, 38 insertions(+), 30 deletions(-)</span><br><span class="line"> create mode 100644 static/css/style.css</span><br><span class="line">Already on <span class="string">&#x27;master&#x27;</span></span><br><span class="line">Switched to branch <span class="string">&#x27;develop&#x27;</span></span><br><span class="line">Already up to date!</span><br><span class="line">Merge made by the <span class="string">&#x27;recursive&#x27;</span> strategy.</span><br><span class="line">Deleted branch release/v0.0.1 (was ab55d8e).</span><br><span class="line"></span><br><span class="line">Summary of actions:</span><br><span class="line">- Release branch <span class="string">&#x27;release/v0.0.1&#x27;</span> has been merged into <span class="string">&#x27;master&#x27;</span></span><br><span class="line">- The release was tagged <span class="string">&#x27;v0.0.1&#x27;</span></span><br><span class="line">- Release tag <span class="string">&#x27;v0.0.1&#x27;</span> has been back-merged into <span class="string">&#x27;develop&#x27;</span></span><br><span class="line">- Release branch <span class="string">&#x27;release/v0.0.1&#x27;</span> has been locally deleted</span><br><span class="line">- You are now on branch <span class="string">&#x27;develop&#x27;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>위와 같이 feature start를 통해 단발적인 branch를 만들어 새로운 기능을 개발한다.</li>
+<li><code>$ git flow feature finish &#123;branch 이름&#125;</code>을 통해 종료하면 develop과 자동으로 merge 후 삭제된다.</li>
+<li>branch를 <code>release start</code> <code>release finish</code>한다.</li>
+<li><code>release finish</code>를 할 때 노트가 총 세 개 열린다. 열심히 자세히 양식에 최대한 맞춰서 적어본다!<ol>
+<li>master branch commit 노트</li>
+<li>release 노트 (제일 중요하다!)</li>
+<li>develop branch commit 노트</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>flow를 열심히 사용하여 협업을 잘하는 개발자가 되자!</li>
+</ul>
+<h2 id="Fork-하기"><a href="#Fork-하기" class="headerlink" title="Fork 하기!"></a>Fork 하기!</h2><ul>
+<li>팀장의 역할<ol>
+<li>repo를 만들어준다.</li>
+<li>git clone 한다.</li>
+<li><code>git flow init</code></li>
+<li>README.md 파일 등 만들기</li>
+<li>개발개발개발개발개발</li>
+<li><code>git push -u origin develop</code> //upstream set이 필요하다면!</li>
+<li>팀원의 issue에 성심성의껏 대답하고 조율한다.</li>
+<li>팀원이 pull request를 보낸다면 신중하게 검토한 후 merge 한다.</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>팀원의 역할<ol>
+<li>팀장이 만든 repo를 fork한다.</li>
+<li>git clone 한다.</li>
+<li>isuue를 요청하여 작업에 대해 알리고 논의한다.</li>
+<li>`git flow feature start {branch name} //feature을 사용하자 괜히 원본 건들지말고</li>
+<li>개발개발개발개발개발</li>
+<li>개발이 끝났다면 내가 clone한 repo에 <code>git push</code>한다.</li>
+<li>팀장에게 pull request를 보낸다.</li>
+</ol>
+</li>
+</ul>
+<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
+<li>vim 사용시 <code>set nu</code> 명령어를 통해 line number를 표시할 수 있다.</li>
+</ul>
+<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
+<li>git이 이렇게 복잡하다니.. 하지만 협업하는 법을 배우는 것이 즐겁다. 앞으로 진행할 협업 프로젝트에서 큰 도움이 되기를.</li>
+<li>아직 git 사용법이 서툴 다 괜한 명령어로 실수할까봐 무섭다.</li>
+<li>이번주부터 진행하는 팀 프로젝트, 공부한 것을 토대로 열심히 해보자!</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/06/201106-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/06/201106-TIL/" class="post-title-link" itemprop="url">201106_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-06 18:06:52" itemprop="dateCreated datePublished" datetime="2020-11-06T18:06:52+09:00">2020-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-22 16:47:06" itemprop="dateModified" datetime="2020-11-22T16:47:06+09:00">2020-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML/CSS"></a>HTML/CSS</h2><h3 id="role-속성"><a href="#role-속성" class="headerlink" title="role 속성"></a>role 속성</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 영역의 주요 header일 경우 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">role</span>=<span class="string">”banner”</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- main의 역할을 할 경우 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">role</span>=<span class="string">”main”</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 영역의 footer일 경우(랜드마크 역할)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">role</span>=<span class="string">”contentinfo”</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- a 태그를 버튼으로 사용할 경우 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>role=&quot;dialog&quot;</code>를 사용하면 마크업이 연속적이지 않아도 바로 접근 가능. (스크린 리더 등에서 딤드된 팝업에서 사용될 수 있다.)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Yv0dBR-ygg8" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+
+<ul>
+<li>위와 같이 <code>role=&quot;#&quot;</code> 속성을 사용할 수 있다.</li>
+<li><code>role</code>속성의 속성값은 정말 많다. 적재적소에 사용해보자!</li>
+<li><code>role</code>속성을 이용하여 더욱 시멘틱한 마크업 효과를 줄 수 있다.<br>참고 <a target="_blank" rel="noopener" href="https://www.w3.org/WAI/PF/HTML/wiki/RoleAttribute">W3C RoleAttribute</a></li>
+</ul>
+<h3 id="접근성-table의-속성"><a href="#접근성-table의-속성" class="headerlink" title="접근성 table의 속성"></a>접근성 table의 속성</h3><h4 id="headers-와-id-속성"><a href="#headers-와-id-속성" class="headerlink" title="headers 와 id 속성"></a>headers 와 id 속성</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">id</span>=<span class="string">&quot;name&quot;</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">headers</span>=<span class="string">&quot;name&quot;</span>&gt;</span>Firstname<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">headers</span>=<span class="string">&quot;name&quot;</span>&gt;</span>Lastname<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>th</code>의 <code>headers</code> 속성과 고유 <code>id</code>를 부여하게 되면 같은 <code>id</code> 값을 갖은 요소들 값을 같이 출력한다.</p>
+</li>
+<li><p>위의 예의 경우 Name의 <code>id</code> 값과 같은 <code>headers</code> 값을 가진 셀인 Firstname 과 Lastname을 출력한다.</p>
+</li>
+<li><p>다시 말하면 <code>id</code> 값과 <code>headers</code>의 값을 비교하여 <code>id</code> 값으로 연결 관계를 만들어준다.</p>
+</li>
+</ul>
+<h4 id="scope-속성-사용"><a href="#scope-속성-사용" class="headerlink" title="scope 속성 사용"></a>scope 속성 사용</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span> <span class="attr">scope</span>=<span class="string">&quot;col&quot;</span>&gt;</span>이름<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>John<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span> <span class="attr">scope</span>=<span class="string">&quot;col&quot;</span>&gt;</span>성별<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>남자<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>위의 경우 <code>scope=&quot;col&quot;</code> 속성과 속성값으로 이름: John , 성별: 남자 순서로 읽어준다.</p>
+</li>
+<li><p>row의 경우 <code>scope=&quot;row&quot;</code>를 사용하면 된다.</p>
+</li>
+<li><p>위와 같이 table 또한 의미론적으로 강화할 수 있는 요소가 있으니 잘 써보는 것이 좋겠다.</p>
+</li>
+</ul>
+<h3 id="positon과-transform을-이용한-가운데-정렬"><a href="#positon과-transform을-이용한-가운데-정렬" class="headerlink" title="positon과 transform을 이용한 가운데 정렬"></a>positon과 transform을 이용한 가운데 정렬</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;button-search&quot;</span> <span class="attr">aria-label</span>=<span class="string">&quot;검색&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-search&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.news__press-form</span> <span class="selector-class">.button-search</span>&#123;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/56425514/99246204-42e51d80-2848-11eb-92ad-ccf981e0cb92.png" alt="검색버튼"></p>
+<ul>
+<li>위와 같이 <code>positon:absolute</code>에 <code>top: 50%</code>을 주면 y축 중앙에 위치한다.</li>
+<li>하지만 배경이미지의 시작점이 중앙인 것이지 배경이미지의 중앙과 좌표의 중앙을 맞추는 것이 아니기 때문에 조금 어긋나 보일 수 있다.</li>
+<li><code>transform: translateY(-50%)</code>를 이용하여 배경 이미지의 y축을 중간으로 맞추면 전체 y축 중앙에 위치하며 버튼의 크기가 변해도 항상 중간을 유지한다.</li>
+<li>정중앙을 원한다면 x좌표를 같은 방식으로 추가해주면된다.</li>
+</ul>
+<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
+<li><p><code>&lt;details&gt;</code>를 사용하면 접었다 폈다가 가능하지만 브라우저 호환성이 너무 안 좋다.<br><img src="https://user-images.githubusercontent.com/56425514/99246605-ee8e6d80-2848-11eb-8d8f-e116e74299bb.png" alt="`&lt;details&gt;`"></p>
+</li>
+<li><p>개발과 배포는 항상 다른 폴더로 관리하는 것이 좋다.(Build / production로 나눠야한다.)</p>
+</li>
+</ul>
+<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
+<li>시멘틱 마크업…중요….</li>
+<li>다음 주 부터 클론 코딩 프로젝트…</li>
+<li>허리 아파…</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/04/201104-TIL-programmers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1194,323 +1494,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/10/22/201022-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/22/201022-TIL/" class="post-title-link" itemprop="url">201022_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-22 18:47:49" itemprop="dateCreated datePublished" datetime="2020-10-22T18:47:49+09:00">2020-10-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-22 16:47:06" itemprop="dateModified" datetime="2020-11-22T16:47:06+09:00">2020-11-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><h3 id="animation-제작-과정"><a href="#animation-제작-과정" class="headerlink" title="animation 제작 과정!"></a>animation 제작 과정!</h3><ol>
-<li><p>시나리오 작성</p>
-<ol>
-<li><p>animation 이름을 정한다.</p>
-</li>
-<li><p>animation 동작에 필요한 조건을 찾아본다.</p>
-<ol>
-<li><p>(0,0)에서 (400px, 75px) 이동</p>
-<ul>
-<li><p>margin 값을 조정하여 위치를 바꾸는 경우는 Layout 자체의 구조를 바꿔버리기 때문에 지양한다.</p>
-</li>
-<li><p>padding 값으로 조정하는 경우에는 내부 여백이 커지면서 다른 영역을 침범한다.</p>
-</li>
-<li><p><code>position: absolute</code>에 offset을 적용하면 상위 요소에도 <code>position</code> 값을 설정해야한다.</p>
-</li>
-<li><p><code>position: relative</code>에 offset을 설정할 경우 scroll이 발생한다. 다만 이때 <code>width</code>에 고정값을 주면 scroll 문제를 해결할 수 있다.</p>
-</li>
-<li><p><code>transform: translate(400px, 75px);</code>는 <code>&lt;p&gt;</code>등을 움직일 경우 scroll이 발생한다. 이때도 마찬가지로 <code>width</code> 값을 고정해주면 scroll 문제가 해결된다!</p>
-</li>
-</ul>
-</li>
-<li><p>투명도 (0에서 1)</p>
-<ul>
-<li>투명도는 <code>opacity</code> 속성으로 가능하지만 <code>color: rgba(#, #, #, #);</code> 속성으로도 가능하다.</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>animation을 완성하고 즐긴다!</p>
-</li>
-</ol>
-<ul>
-<li>위에서 여러가지 속성을 통해 시도해본 것 처럼 항상 다양한 방식으로 시도해보는 것이 스스로에게 도움이 된다!<br>참고 <a target="_blank" rel="noopener" href="https://www.slideshare.net/wsconf/css-animation-wsconfseoul2017-vol2?qid=9b685d4f-7d7d-402d-8b7f-44f3c2f101af&v=&b=&from_search=3">translate가 성능면에서 좋은 점!</a></li>
-</ul>
-</li>
-</ol>
-<h3 id="animation-만들기"><a href="#animation-만들기" class="headerlink" title="animation 만들기"></a>animation 만들기</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> textAni&#123;</span><br><span class="line">    0%&#123; <span class="comment">/*from과 to 속성으로도 설정할 수 있음.*/</span></span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;    </span><br><span class="line">    100%&#123;</span><br><span class="line">        <span class="attribute">font-size</span>:: <span class="number">24px</span>;</span><br><span class="line">        <span class="attribute">color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.visual-text</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">animation-name</span>: textAni;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>위와 같이 animation을 정의하고 사용한다. 하지만 작동하지 않는다.</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.visual-text</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">animation-name</span>: textAni;</span><br><span class="line">    <span class="attribute">animation-duration</span>: <span class="number">3000ms</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>위와 같이 duration 값을 필수로 넣어줘야한다.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.visual-text</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">animation-name</span>: textAni;</span><br><span class="line">    <span class="attribute">animation-duration</span>: <span class="number">3000ms</span>;</span><br><span class="line">    <span class="attribute">animation-fill-mode</span>: forwards;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>내친김에 자연스러움을 위해 <code>animation-fill-mode</code> 속성도 추가해보자. fill-mode는 animation의 전후 상태를 정의해준다.<br>참고: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a></p>
-</li>
-<li><p><code>animation-timing-function</code>도 사용하면 더욱 자연스럽고 멋진 animation을 제작할 수 있다.<br>참고 <a target="_blank" rel="noopener" href="https://www.the-art-of-web.com/css/timing-function/">timing-function 속성값 </a> / <a target="_blank" rel="noopener" href="https://cubic-bezier.com/">cubic-bezier 속성값 계산기</a></p>
-</li>
-</ul>
-<h2 id="form"><a href="#form" class="headerlink" title="form"></a>form</h2><ul>
-<li><p><code>&lt;form&gt;&lt;/form&gt;</code>을 사용할 때는 <code>fieldset</code>을 잘 활용하자! 동일항목을 묶어주고 의미론적으로 더 완성시켜준다.</p>
-</li>
-<li><p>로그인 같이 웹 사이트의 큰 form이나 목록은 heading 태그를 사용하여 중제목쯤으로 만들어주면 좋다.</p>
-</li>
-<li><p>입력서식은 <label> 태그로 묶어주자!</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">”Nyong”</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">”Nyong”</span>&gt;</span> /*명시적*/</span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span>&gt;</span> <span class="tag">&lt;/<span class="name">label</span>&gt;</span> /*암묵적*/</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p><code>&lt;input&gt;</code>태그의 <code>requierd</code> 속성을 사용하면 클라이언트에게 형식 검사를 맡긴다. 처리량을 클라이언트에게 부과해 서버의 부담이 줄어든다.</p>
-</li>
-</ul>
-<h3 id="오늘의-작성-form"><a href="#오늘의-작성-form" class="headerlink" title="오늘의 작성 form"></a>오늘의 작성 form</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">&quot;login&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;login-heading&quot;</span>&gt;</span>로그인<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;login-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;#&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">legend</span>&gt;</span>회원 로그인<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;user-email&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;userEmail&quot;</span>&gt;</span>아이디<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span> <span class="attr">id</span>=<span class="string">&quot;userEmail&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userEmail&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;이메일 주소&quot;</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;user-pw&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;userPw&quot;</span>&gt;</span>비밀번호<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;userPw&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userPw&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;8자리 이상&quot;</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;btn-login&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> &gt;</span>로그인<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;login-member&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;signup&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-right-open&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>회원가입<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;find-pw&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon-right-open&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>아이디/비밀번호 찾기<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>form은 만드는 것 보다 CSS로 배치하고 꾸미는게 더 힘든 것 같다.</li>
-</ul>
-<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
-<li><p><code>backgroung-color: transparent</code> transparent는 투명 색상을 뜻한다. <code>border</code> 등에서도 사용 가능하다.</p>
-</li>
-<li><p>확장 기능 중 ‘CSS Compressor’을 사용하면 CSS를 한줄씩 정리해준다. 인쇄나 최소한의 페이지를 활용해서 볼 때 요긴하게 쓸 듯하다.</p>
-</li>
-<li><p>naming에 대한 스스로의 규칙이 필요하다. 예를 들어 class 이름은 KC 표기법으로, id 이름은 CC 표기법으로! 등등!</p>
-</li>
-<li><p><code>회원가입</code>, <code>아이디/비밀번호 찾기</code> 처럼 부가적인 요소는 <code>&lt;Ul&gt;&lt;/Ul&gt;</code> 등으로 묶어주면 스크린리더가 목록으로 인식하면서 연관성을 갖고 접근성을 높인다.</p>
-</li>
-<li><p><code>text-indent</code>라는 첫줄을 들여쓰는 기능을 가진 속성은 inline 요소에서 사용 불가능하다.</p>
-</li>
-</ul>
-<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
-<li><p>HTML과 CSS의 깊이가 가늠이 안된다. 정말 무궁무진한 활용성을 갖으면서도 제대로 익히지 못하면 전혀 사용하지를 못하겠다. 계속 익히자</p>
-</li>
-<li><p>animation은 너무 재밌게 작성했다. 꽤나 재밌는 속성이다.</p>
-</li>
-<li><p>마크업하고 CSS를 활용하여 속성을 부여하는 과정이 정말 어렵기도 하지만 다행스러운 건 재밌다! 바로바로 새롭게 단장하는 모습이 지루할 틈이 없다! 가끔 어려워서 속상하지만.</p>
-</li>
-<li><p>‘즐코’란 말이 좋다. 즐겁게 코딩… 매번 즐겁지는 않지만 오늘도 내일도 ‘즐코’하자!</p>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/10/21/201021-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/21/201021-TIL/" class="post-title-link" itemprop="url">201021_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-21 19:44:11" itemprop="dateCreated datePublished" datetime="2020-10-21T19:44:11+09:00">2020-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-22 16:47:06" itemprop="dateModified" datetime="2020-11-22T16:47:06+09:00">2020-11-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML/CSS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="nav의-Semantic-성질-부여"><a href="#nav의-Semantic-성질-부여" class="headerlink" title="nav의 Semantic 성질 부여"></a>nav의 Semantic 성질 부여</h2><h3 id="heading-태그의-사용"><a href="#heading-태그의-사용" class="headerlink" title="heading 태그의 사용"></a>heading 태그의 사용</h3><ul>
-<li>웹 사이트 main에서 <code>&lt;h1&gt;</code>은 보통 로고에 쓰인다. 이때 로고는 <code>&lt;a&gt;</code> 기능도 하며 동시에 사이트의 대제목이다.</li>
-<li><code>&lt;h2&gt;</code>같은 경우 보통 중제목으로 쓰이는데, 이를 <code>&lt;nav&gt;</code>와 묶어 사용하는 것이 의미론적으로나 접근성 측면에서 좋다.<img width="50%" alt="W3cList" src="https://user-images.githubusercontent.com/56425514/96712801-a2334780-13da-11eb-98e7-348c3d6b8465.PNG">
-<img width="50%" alt="W3cNav" src="https://user-images.githubusercontent.com/56425514/96712830-aceddc80-13da-11eb-9234-e3c8b22f666a.PNG">
-
-</li>
-</ul>
-<p>참고: [W3C]](<a target="_blank" rel="noopener" href="https://www.w3.org/">https://www.w3.org/</a>)</p>
-<ul>
-<li>위 목록을 보면 navigation이 중제목으로 설정된 것을 볼 수 있다.</li>
-<li><code>&lt;nav&gt;</code>태그를 이용할 때는 중제목 하위 요소를 <code>&lt;div&gt;</code>로 묶어준다.</li>
-</ul>
-<h4 id="중제목-숨기기"><a href="#중제목-숨기기" class="headerlink" title=" 중제목 숨기기"></a><nav> 중제목 숨기기</h4><ul>
-<li>위 W3C 홈페이지를 보면 콘텐츠 목록으로 봤을 떄와 직접 페이지를 봤을 때 차이점이 있다. 그것은 바로 <code>&lt;nav&gt;</code>부분의 ‘Site Navigation’의 유무이다. 왜 홈페이지 레이아웃에서는 이 제목이 보이지 않을까?</li>
-<li>Navigation의 제목은 의도적으로 숨긴 것이다.</li>
-</ul>
-<h5 id="display-none-display-hidden"><a href="#display-none-display-hidden" class="headerlink" title="display: none, display: hidden"></a><code>display: none</code>, <code>display: hidden</code></h5><ul>
-<li>위 방법은 좋지 않다. 이 속성을 사용할 경우 가시적으로는 차이점이 없으나 개체 자체를 없애거나 숨기기 때문에 의미론적이나 접근성이 좋지 못 하다.(스크린리더 등 보조기능 사용할 시)</li>
-</ul>
-<h5 id="position과-offset-사용"><a href="#position과-offset-사용" class="headerlink" title="position과 offset 사용"></a>position과 offset 사용</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>: -<span class="number">9999px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>위와 같은 방법을 사용하면 스크린리더 등을 사용할 시 정상적인 스크롤 이동과 화면 이동 단계에 지장을 주게된다. -9999px 떨어진 콘텐츠를 찾아 좌표값이 이동하기 때문이다.</li>
-</ul>
-<h5 id="a11y-hidden-사용"><a href="#a11y-hidden-사용" class="headerlink" title=".a11y-hidden 사용"></a>.a11y-hidden 사용</h5><ul>
-<li><p>가장 좋은 방법은 숨겨주는 기능을 부여할 class의 보편적인 네이밍이다. 다른 것으로는 <code>.readable-hidden</code>, <code>offsreen</code> 등으로 쓰인다.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a11y-hidden</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">    <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(<span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>) <span class="comment">/*x, y, z*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p><code>width</code>와 <code>height</code>를 최소값으로 주고 <code>overflow: hidden</code> 값을 줘 내부 콘텐츠를 보이지 않게 만들어 주는 것이다.</p>
-</li>
-<li><p><code>width</code>와 <code>height</code>가 1px 인 것은 이유가 있다. 0px일 경우 크기가 없기 때문에 스크린리더 같은 보조 도구가 존재하지 않는 콘텐츠로 넘겨버린다.</p>
-</li>
-<li><p>때문에 1px를 주는 것인데, 이때 문제점은 1px이라도 가시적으로 보일 수 밖에 없다.</p>
-</li>
-<li><p>이것을 위해 <code>clip-path: polygon(0 0, 0 0, 0 0);</code>를 사용한다. <code>clip-path</code>에 대한 이해와 계산을 돕는 페이지는 <a target="_blank" rel="noopener" href="https://bennettfeely.com/clippy/">bennettfeely</a> 과 같다.</p>
-</li>
-<li><p>참고로 <code>opacity: 0</code>을 생각할 수 있지만 불행이도 이것 또한 모바일 환경에서 읽혀지지 않는 이슈가 있었다.</p>
-</li>
-</ul>
-<h3 id="lt-div-gt-lt-span-gt-보다는-lt-button-gt"><a href="#lt-div-gt-lt-span-gt-보다는-lt-button-gt" class="headerlink" title="&lt;div&gt;, &lt;span&gt; 보다는 &lt;button&gt;"></a><code>&lt;div&gt;</code>, <code>&lt;span&gt;</code> 보다는 <code>&lt;button&gt;</code></h3><ul>
-<li><p><code>&lt;nav&gt;</code>에 넣어줄 하위 목록을 만들 때 <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code> 등이 많이 쓰인다. 하지만 이는 최후 수단으로 사용하는 것이 의미론적으로 좋으며 이럴 때 <code>role=&#123;속성값&#125;</code> 속성을 부여해 의미를 더해주면 더 좋다!</p>
-</li>
-<li><p><code>&lt;nav&gt;</code>에 <code>&lt;button&gt;</code> 태그를 사용하여 Semantic한 효과를 줄 수 있다. 또한 <code>aria-pressed</code> / <code>aria-haspopus</code> / <code>aria-expanded</code> 속성 등을 부여할 수 있다.</p>
-</li>
-</ul>
-<h2 id="속성-관련-배운-것"><a href="#속성-관련-배운-것" class="headerlink" title="속성 관련 배운 것"></a>속성 관련 배운 것</h2><ul>
-<li><p><code>border-top: 2px solid currentColor;</code>에서 currentColor란 현재 글자 색상과 동일한 색상을 적용하는 속성값이다.</p>
-</li>
-<li><p><code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> 등은 태그마다 <code>box-sizing</code> 속성값이 다르다. 때문에 태그의 속성 기본값을 잘 확인한다면 시행착오를 줄이며 활용할 수 있다. 때로는 태그에 모두 <code>box-sizing</code>을 같은 속성값으로 주고 사용해도 된다.</p>
-</li>
-<li><p><code>line-height</code>와 <code>font-size</code>의 크기값을 잘 조정하여 블럭 요소 높이의 중간에 위치하게 할 수 있다.</p>
-</li>
-<li><p><code>cursor: pointer;</code>속성을 사용하면 <code>:hover</code> 등의 가상 클래스 사용시 마우스 포인터를 바꿔줄 수 있다.</p>
-</li>
-<li><p>윤곽체를 만들고 싶다면 <code>text-shadow</code>를 이용하자!</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>, -<span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>; <span class="comment">/*윤곽체 처럼 보이게 하기*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>display: inline-block</code>에서 부모 요소 크기 문제로 block이 수직으로 쌓인다면 <code>white space: nowrap;</code>을 사용해보자!</p>
-</li>
-<li><p>중첩되는 offset 값이 걱정이라면 초기값으로 되돌리는 <code>initial</code> 속성값을 사용해보자.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.offset-initial</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h2 id="Git-관련"><a href="#Git-관련" class="headerlink" title="Git 관련"></a>Git 관련</h2><ul>
-<li>Git push -f는 코드 변경 이력을 덮어쓴다. 원격 저장소의 변경 이력을 나의 개인적인 변경이력으로 덮어씌우며 되돌릴 수 없다. 개인 프로젝트라면 상관 없지만 협업일 경우 함부로 입력해서는 안 된다.</li>
-</ul>
-<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
-<li><p>nav바를 포함 박스 콘텐츠를 꾸미고 싶을 때 box-shadow, background로 꾸미면 자연스럽고 예쁘게 꾸밀 수 있다.</p>
-</li>
-<li><p>CSS로 꾸밀 때 그라데이션 효과를 체험해 보고 CSS 적용 코드를 복사해 올 수 있다. [colorzilla]](<a target="_blank" rel="noopener" href="https://www.colorzilla.com/gradient-editor/">https://www.colorzilla.com/gradient-editor/</a>)</p>
-</li>
-<li><p>[CodePen](<a target="_blank" rel="noopener" href="https://codepen.io/">https://Codepen.io</a> /)에 가면 다양한 코드와 기발한 꾸밈 요소를 볼 수 있다.</p>
-</li>
-</ul>
-<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
-<li><p>cascading은 css의 정체성! 중첩이 어렵더라도 해제가 아닌 회피! 잘 이용해보자!</p>
-</li>
-<li><p>점점 어려워진다. 좀 더 집중하고 좀 더 탐구하자!</p>
-</li>
-<li><p>오늘은 큼지막한 내용보다 자잘자잘한 tip을 많이 얻었다. 태그와 속성을 알아봤자 응용하지 못하면 쓸모 없다. 다양하게 배우는 HTML/CSS 관련 지식을 사용해보자.</p>
-</li>
-<li><p>HTML과 CSS는 재밌다가도 욕이 나오게 만든다. 질서 속의 무질서 속의 질서 같은 느낌이다. 논리적이다가도 무작정 우겨넣는 기분이기도 하고, 받아드리자…</p>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1580,7 +1563,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
