@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="오늘 배운 것DOMdata 어트리뷰트와 dataset 프로퍼티1234567891011121314&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;    &lt;ul class&#x3D;&quot;todos&quot;&gt;        &lt;li id&#x3D;&quot;1&quot; data-user-id&#x3D;&quot;1&quot;&gt;HT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="201229_TIL">
+<meta property="og:url" content="http://yhun940731.github.io/2020/12/29/201229-TIL/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="오늘 배운 것DOMdata 어트리뷰트와 dataset 프로퍼티1234567891011121314&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;    &lt;ul class&#x3D;&quot;todos&quot;&gt;        &lt;li id&#x3D;&quot;1&quot; data-user-id&#x3D;&quot;1&quot;&gt;HT">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-29T08:15:05.000Z">
+<meta property="article:modified_time" content="2020-12-29T08:16:17.842Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yhun940731.github.io/2020/12/29/201229-TIL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>201229_TIL | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/12/29/201229-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          201229_TIL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-29 17:15:05 / Modified: 17:16:17" itemprop="dateCreated datePublished" datetime="2020-12-29T17:15:05+09:00">2020-12-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><h3 id="data-어트리뷰트와-dataset-프로퍼티"><a href="#data-어트리뷰트와-dataset-프로퍼티" class="headerlink" title="data 어트리뷰트와 dataset 프로퍼티"></a>data 어트리뷰트와 dataset 프로퍼티</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;todos&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;1&quot;</span> <span class="attr">data-user-id</span>=<span class="string">&quot;1&quot;</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span> <span class="attr">data-user-id</span>=<span class="string">&quot;2&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span> <span class="attr">data-user-id</span>=<span class="string">&quot;3&quot;</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.todos &gt; li&#x27;</span>).dataset.customerId = <span class="string">&#x27;0&#x27;</span>; <span class="comment">// 해당 어트리뷰트가 없으면 생성한다.</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;.todos &gt; li&#x27;</span>).dataset.userId); <span class="comment">// 1</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="스타일"><a href="#스타일" class="headerlink" title="스타일"></a>스타일</h3><p><strong>인라인 스타일 조작</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;todos&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;1&quot;</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.todos &gt; li&#x27;</span>).style.color = <span class="string">&#x27;red&#x27;</span>;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>클래스 조작</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.red</span> &#123; <span class="attribute">color </span>: red;&#125;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.big</span> &#123; <span class="attribute">font-size</span>: <span class="number">10em</span>;&#125;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;todos&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;1&quot;</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.todos &gt; li&#x27;</span>).className = <span class="string">&#x27;red big&#x27;</span>;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>className은 문자열로 class를 보관하기 때문에 유사배열 객체로 구성된 <strong>classList</strong>가 사용하기 더 편리하다. classList는 메서드도 제공한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.red</span> &#123; <span class="attribute">color </span>: red;&#125;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.big</span> &#123; <span class="attribute">font-size</span>: <span class="number">10em</span>;&#125;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.small</span> &#123;<span class="attribute">font-size</span>: <span class="number">1em</span>;&#125;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;todos&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;1&quot;</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;2&quot;</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&#x27;1&#x27;</span>).classList.add(<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;big&#x27;</span>); <span class="comment">// red big 적용</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&#x27;1&#x27;</span>).classList.remove(<span class="string">&#x27;red&#x27;</span>); <span class="comment">// big 적용</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&#x27;1&#x27;</span>).classList.contains(<span class="string">&#x27;big&#x27;</span>); <span class="comment">// ture (적용 여부)</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&#x27;1&#x27;</span>).classList.replace(<span class="string">&#x27;big&#x27;</span>, <span class="string">&#x27;small&#x27;</span>); <span class="comment">// small (교체)</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&#x27;1&#x27;</span>).classList.toggle(<span class="string">&#x27;red&#x27;</span>); <span class="comment">// small red (없으면 추가)</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&#x27;1&#x27;</span>).classList.toggle(<span class="string">&#x27;red&#x27;</span>); <span class="comment">// small (있으면 삭제)</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="요소에-적용되어-있는-CSS-스타일-참조"><a href="#요소에-적용되어-있는-CSS-스타일-참조" class="headerlink" title="요소에 적용되어 있는 CSS 스타일 참조"></a>요소에 적용되어 있는 CSS 스타일 참조</h3><p>style 프로퍼티는 인라인 스타일만 반환한다. 따라서 클래스를 적용한 스타일이나 상속을 통해 암묵적으로 적용된 스타일은 style 프로퍼티로 참조할 수 없다. HTML 요소에 적용되어 있는 모든 CSS 스타일을 참조해야 할 경우 getComputedStyle 메서드를 사용한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    body &#123;</span><br><span class="line">      color: red;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.box</span> &#123;</span></span><br><span class="line">      width: 100px;</span><br><span class="line">      height: 50px;</span><br><span class="line">      background-color: cornsilk;</span><br><span class="line">      border: 1px solid black;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span>Box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> $box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">// .box 요소에 적용된 모든 CSS 스타일을 담고 있는 CSSStyleDeclaration 객체를 취득</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> computedStyle = <span class="built_in">window</span>.getComputedStyle($box);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle); <span class="comment">// CSSStyleDeclaration</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">// 임베딩 스타일</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle.width); <span class="comment">// 100px</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle.height); <span class="comment">// 50px</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle.backgroundColor); <span class="comment">// rgb(255, 248, 220)</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle.border); <span class="comment">// 1px solid rgb(0, 0, 0)</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">// 상속 스타일(body -&gt; .box)</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle.color); <span class="comment">// rgb(255, 0, 0)</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">// 기본 스타일</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle.display); <span class="comment">// block</span></span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>getComputedStyle 메서드의 두 번째 인수(pseudo)로 :after, :before와 같은 의사 요소 를 지정하는 문자열을 전달할 수 있다. 의사 요소가 아닌 일반 요소의 경우 두 번째 인수는 생략한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span><span class="selector-pseudo">:before</span> &#123;</span></span><br><span class="line">      content: &#x27;Hello&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span>Box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> $box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">// 의사 요소 :before의 스타일을 취득한다.</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> computedStyle = <span class="built_in">window</span>.getComputedStyle($box, <span class="string">&#x27;:before&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(computedStyle.content); <span class="comment">// &quot;Hello&quot;</span></span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="이벤트"><a href="#이벤트" class="headerlink" title="이벤트"></a>이벤트</h2><h3 id="이벤트-드리븐-프로그래밍"><a href="#이벤트-드리븐-프로그래밍" class="headerlink" title="이벤트 드리븐 프로그래밍"></a>이벤트 드리븐 프로그래밍</h3><p>이벤트가 발생했을 때 호출될 함수를 이벤트 핸들러(event handler)라 하고, 이벤트가 발생했을 때 브라우저에게 이벤트 핸들러의 호출을 위임하는 것을 이벤트 핸들러 등록이라 한다. 프로그램의 흐름을 이벤트 중심으로 제어하는 프로그래밍 방식을 **이벤트 드리븐 프로그래밍(event-driven programming)**이라 한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;button&#x27;</span>).onclick = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;Hello&#x27;</span>);</span></span><br><span class="line">        &#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="이벤트-핸들러-등록"><a href="#이벤트-핸들러-등록" class="headerlink" title="이벤트 핸들러 등록"></a>이벤트 핸들러 등록</h3><h4 id="이벤트-핸들러-어트리뷰트-방식"><a href="#이벤트-핸들러-어트리뷰트-방식" class="headerlink" title="이벤트 핸들러 어트리뷰트 방식"></a>이벤트 핸들러 어트리뷰트 방식</h4><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;sayHi(&#x27;Lee&#x27;)&quot;</span>&gt;</span>Click me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- &lt;button onclick=&quot;console.log(`Hi!`);&quot;&gt;Click me!&lt;/button --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">`Hi! <span class="subst">$&#123;name&#125;</span>.`</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+이벤트 핸들러 어트리뷰트 값으로 함수 참조가 아닌 인수 전달을 위힌 함수 호출문 등의 문을 할당한다.
+
+onclick 어트리뷰트 값은 onclick이란 함수 이름을 가진 함수 몸체 안에 들어오는 문들을 넣어주는 것과 마찬가지다.</code></pre>
+<h4 id="이벤트-핸들러-프로퍼티-방식"><a href="#이벤트-핸들러-프로퍼티-방식" class="headerlink" title="이벤트 핸들러 프로퍼티 방식"></a>이벤트 핸들러 프로퍼티 방식</h4><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;display&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> $username = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;username&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> $display = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.display&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        $username.oninput = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line">            $display.textContent = $username.value;</span><br><span class="line">        &#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></code></pre>
+<h3 id="todoList-간단하게-만들어보기"><a href="#todoList-간단하게-만들어보기" class="headerlink" title="todoList 간단하게 만들어보기"></a>todoList 간단하게 만들어보기</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;input-todo&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;enter todo!&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 버튼 타입을 버튼으로 지정하지 않으면 submit이 기본값 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;add&quot;</span>&gt;</span>Add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;todos&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> $form = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;form&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> $inputTodo = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.input-todo&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="comment">// const $add = document.querySelector(&#x27;.add&#x27;); // submit 버튼을 add로 대체</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> $todos = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.todos&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> addTodo = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> &#123; value &#125; = $inputTodo;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (!value) <span class="keyword">return</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="handlebars"><span class="xml">            // $todos.innerHTML += `<span class="tag">&lt;<span class="name">li</span>&gt;</span>$&#123;value&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>`;</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> $li = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> $checkbox = <span class="built_in">document</span>.createElement(<span class="string">&#x27;input&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> $span = <span class="built_in">document</span>.createElement(<span class="string">&#x27;span&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> $remove = <span class="built_in">document</span>.createElement(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">            $checkbox.setAttribute(<span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;checkbox&#x27;</span>);</span></span><br><span class="line">            $span.textContent = value;</span><br><span class="line"><span class="javascript">            $remove.classList.add(<span class="string">&#x27;remove&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            $remove.textContent = <span class="string">&#x27;X&#x27;</span>;</span></span><br><span class="line"></span><br><span class="line">            $li.appendChild($checkbox);</span><br><span class="line">            $li.appendChild($span);</span><br><span class="line">            $li.appendChild($remove);</span><br><span class="line">            $todos.appendChild($li);</span><br><span class="line"></span><br><span class="line"><span class="javascript">            $inputTodo.value = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line">            $inputTodo.focus();</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">// $add.onclick = addTodo;</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">// $inputTodo.onkeyup = e =&gt; &#123;</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//     if (e.key !== &#x27;Enter&#x27;) return;</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//     addTodo();</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// &#125;;</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        $form.onsubmit = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span></span><br><span class="line">            e.preventDefault();</span><br><span class="line">            addTodo();</span><br><span class="line">        &#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/28/%EC%9D%B4%EB%B2%A4%ED%8A%B8/" rel="prev" title="이벤트">
+      <i class="fa fa-chevron-left"></i> 이벤트
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/29/%ED%83%80%EC%9D%B4%EB%A8%B8/" rel="next" title="타이머">
+      타이머 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 배운 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">1.1.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#data-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8%EC%99%80-dataset-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">data 어트리뷰트와 dataset 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%8A%A4%ED%83%80%EC%9D%BC"><span class="nav-number">1.1.2.</span> <span class="nav-text">스타일</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9A%94%EC%86%8C%EC%97%90-%EC%A0%81%EC%9A%A9%EB%90%98%EC%96%B4-%EC%9E%88%EB%8A%94-CSS-%EC%8A%A4%ED%83%80%EC%9D%BC-%EC%B0%B8%EC%A1%B0"><span class="nav-number">1.1.3.</span> <span class="nav-text">요소에 적용되어 있는 CSS 스타일 참조</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8"><span class="nav-number">1.2.</span> <span class="nav-text">이벤트</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%93%9C%EB%A6%AC%EB%B8%90-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">1.2.1.</span> <span class="nav-text">이벤트 드리븐 프로그래밍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%EB%93%B1%EB%A1%9D"><span class="nav-number">1.2.2.</span> <span class="nav-text">이벤트 핸들러 등록</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EB%B0%A9%EC%8B%9D"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">이벤트 핸들러 어트리뷰트 방식</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EB%B0%A9%EC%8B%9D"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">이벤트 핸들러 프로퍼티 방식</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#todoList-%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0"><span class="nav-number">1.2.3.</span> <span class="nav-text">todoList 간단하게 만들어보기</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

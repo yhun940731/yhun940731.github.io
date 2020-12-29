@@ -20,16 +20,17 @@
     var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="title: DOM (2)date: 2020-12-28 02:14:51categories:  javaScripttags: javaScript   이벤트참고 도서: 모던 자바스크립트 Deep Dive Nyong’s GitHub">
+  <meta name="description" content="이벤트이벤트 드리븐 프로그래밍이벤트가 발생했을 때 호출될 함수를 이벤트 핸들러(event handler)라 하고, 이벤트가 발생했을 때 브라우저에게 이벤트 핸들러의 호출을 위임하는 것을 이벤트 핸들러 등록이라 한다. 프로그램의 흐름을 이벤트 중심으로 제어하는 프로그래밍 방식을 **이벤트 드리븐 프로그래밍(event-driven programming)**이라">
 <meta property="og:type" content="article">
 <meta property="og:title" content="이벤트">
 <meta property="og:url" content="http://yhun940731.github.io/2020/12/28/%EC%9D%B4%EB%B2%A4%ED%8A%B8/index.html">
 <meta property="og:site_name" content="Nyong&#39;s Blog">
-<meta property="og:description" content="title: DOM (2)date: 2020-12-28 02:14:51categories:  javaScripttags: javaScript   이벤트참고 도서: 모던 자바스크립트 Deep Dive Nyong’s GitHub">
+<meta property="og:description" content="이벤트이벤트 드리븐 프로그래밍이벤트가 발생했을 때 호출될 함수를 이벤트 핸들러(event handler)라 하고, 이벤트가 발생했을 때 브라우저에게 이벤트 핸들러의 호출을 위임하는 것을 이벤트 핸들러 등록이라 한다. 프로그램의 흐름을 이벤트 중심으로 제어하는 프로그래밍 방식을 **이벤트 드리븐 프로그래밍(event-driven programming)**이라">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-28T07:59:33.000Z">
-<meta property="article:modified_time" content="2020-12-28T07:59:53.594Z">
+<meta property="article:modified_time" content="2020-12-29T08:18:46.125Z">
 <meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="javaScript">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yhun940731.github.io/2020/12/28/%EC%9D%B4%EB%B2%A4%ED%8A%B8/">
@@ -172,9 +173,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-28 16:59:33 / Modified: 16:59:53" itemprop="dateCreated datePublished" datetime="2020-12-28T16:59:33+09:00">2020-12-28</time>
+              <time title="Created: 2020-12-28 16:59:33" itemprop="dateCreated datePublished" datetime="2020-12-28T16:59:33+09:00">2020-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-29 17:18:46" itemprop="dateModified" datetime="2020-12-29T17:18:46+09:00">2020-12-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
             </span>
 
           
@@ -188,13 +204,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>title: DOM (2)<br>date: 2020-12-28 02:14:51<br>categories:</p>
-<ul>
-<li>javaScript<br>tags:</li>
-<li>javaScript</li>
-</ul>
-<hr>
-<h1 id="이벤트"><a href="#이벤트" class="headerlink" title="이벤트"></a>이벤트</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>참고 도서: <cite>모던 자바스크립트 Deep Dive</cite></p>
+        <h1 id="이벤트"><a href="#이벤트" class="headerlink" title="이벤트"></a>이벤트</h1><h2 id="이벤트-드리븐-프로그래밍"><a href="#이벤트-드리븐-프로그래밍" class="headerlink" title="이벤트 드리븐 프로그래밍"></a>이벤트 드리븐 프로그래밍</h2><p>이벤트가 발생했을 때 호출될 함수를 이벤트 핸들러(event handler)라 하고, 이벤트가 발생했을 때 브라우저에게 이벤트 핸들러의 호출을 위임하는 것을 이벤트 핸들러 등록이라 한다. 프로그램의 흐름을 이벤트 중심으로 제어하는 프로그래밍 방식을 **이벤트 드리븐 프로그래밍(event-driven programming)**이라 한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;button&#x27;</span>).onclick = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;Hello&#x27;</span>);</span></span><br><span class="line">        &#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="이벤트-핸들러-등록"><a href="#이벤트-핸들러-등록" class="headerlink" title="이벤트 핸들러 등록"></a>이벤트 핸들러 등록</h2><h3 id="이벤트-핸들러-어트리뷰트-방식"><a href="#이벤트-핸들러-어트리뷰트-방식" class="headerlink" title="이벤트 핸들러 어트리뷰트 방식"></a>이벤트 핸들러 어트리뷰트 방식</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;sayHi(&#x27;Lee&#x27;)&quot;</span>&gt;</span>Click me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- &lt;button onclick=&quot;console.log(`Hi!`);&quot;&gt;Click me!&lt;/button --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">`Hi! <span class="subst">$&#123;name&#125;</span>.`</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+이벤트 핸들러 어트리뷰트 값으로 함수 참조가 아닌 인수 전달을 위힌 함수 호출문 등의 문을 할당한다.
+
+onclick 어트리뷰트 값은 onclick이란 함수 이름을 가진 함수 몸체 안에 들어오는 문들을 넣어주는 것과 마찬가지다.</code></pre>
+<h3 id="이벤트-핸들러-프로퍼티-방식"><a href="#이벤트-핸들러-프로퍼티-방식" class="headerlink" title="이벤트 핸들러 프로퍼티 방식"></a>이벤트 핸들러 프로퍼티 방식</h3><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;display&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> $username = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;username&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> $display = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.display&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        $username.oninput = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line">            $display.textContent = $username.value;</span><br><span class="line">        &#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></code></pre>
+<p>참고 도서: <cite>모던 자바스크립트 Deep Dive</cite></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
 
     </div>
@@ -204,6 +223,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          </div>
 
         
 
@@ -214,7 +236,10 @@
     <a href="/2020/12/28/201228-TIL/" rel="prev" title="201228_TIL">
       <i class="fa fa-chevron-left"></i> 201228_TIL
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/29/201229-TIL/" rel="next" title="201229_TIL">
+      201229_TIL <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -273,7 +298,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8"><span class="nav-number">1.</span> <span class="nav-text">이벤트</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8"><span class="nav-number">1.</span> <span class="nav-text">이벤트</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%93%9C%EB%A6%AC%EB%B8%90-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">1.1.</span> <span class="nav-text">이벤트 드리븐 프로그래밍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%EB%93%B1%EB%A1%9D"><span class="nav-number">1.2.</span> <span class="nav-text">이벤트 핸들러 등록</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EB%B0%A9%EC%8B%9D"><span class="nav-number">1.2.1.</span> <span class="nav-text">이벤트 핸들러 어트리뷰트 방식</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EB%B0%A9%EC%8B%9D"><span class="nav-number">1.2.2.</span> <span class="nav-text">이벤트 핸들러 프로퍼티 방식</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -287,7 +312,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
