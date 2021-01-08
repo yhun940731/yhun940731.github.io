@@ -27,17 +27,11 @@
 <meta property="og:site_name" content="Nyong&#39;s Blog">
 <meta property="og:description" content="오늘 배운 것this외부 컨텍스트와 내부 컨텍스트가 일치하지 않을 때 각각의 다른 this를 가리키는 문제가 있다.  Function.prototype.apply&#x2F;call&#x2F;bind 메서드에 의한 간접 호출Function.prototype.apply(thisArg[, argsArray]) 와 같은 함수 시그니쳐에서 괄호 안에 있는 내용은 필수 입력, 괄호 안">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/101887509-4fa72800-3be0-11eb-87c5-e58b986c4ef0.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/101887557-63eb2500-3be0-11eb-83c2-787ac516c231.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/101887585-6f3e5080-3be0-11eb-94ab-30959d81ef6e.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/101887641-811ff380-3be0-11eb-9253-6d68fa632615.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/101887670-88df9800-3be0-11eb-9ea1-e34d06dc470e.png">
 <meta property="article:published_time" content="2020-12-11T08:39:54.000Z">
-<meta property="article:modified_time" content="2020-12-11T09:43:23.314Z">
+<meta property="article:modified_time" content="2021-01-08T04:30:31.419Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/56425514/101887509-4fa72800-3be0-11eb-87c5-e58b986c4ef0.png">
 
 <link rel="canonical" href="http://yhun940731.github.io/2020/12/11/201211-TIL/">
 
@@ -179,10 +173,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-11 17:39:54 / Modified: 18:43:23" itemprop="dateCreated datePublished" datetime="2020-12-11T17:39:54+09:00">2020-12-11</time>
+              <time title="Created: 2020-12-11 17:39:54" itemprop="dateCreated datePublished" datetime="2020-12-11T17:39:54+09:00">2020-12-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-08 13:30:31" itemprop="dateModified" datetime="2021-01-08T13:30:31+09:00">2021-01-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -225,7 +225,6 @@
 <p>렉시컬 환경은 렉시컬 스코프의 실체이다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://user-images.githubusercontent.com/56425514/101887509-4fa72800-3be0-11eb-87c5-e58b986c4ef0.png" alt="실행 컨텍스트1"></p>
 <ul>
 <li>BindingObject를 통해 전역 객체에 변수 식별자를 키로 등록한 다음, 암묵적으로 undefined를 바인딩한다.</li>
 <li>let, const 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 되지 않고 전역 개체와 무관한 개념적인 블록인 전역 환경 레코드의 선언적 환경 레코드내 에 존재한다.(ES6에서 추가)</li>
@@ -238,19 +237,15 @@
 <p>if 문의 코드 블록 내에서 <strong>let 키워드로 변수가 선언되었다</strong>.(var로 선언된다면 따로 렉시컬 환경을 만들지는 않는다. 또한 전역 코드 평가 단계에서 블록문 안까지 들여다봐야 아래와 같은 대처가 가능하다.)</p>
 <p>따라서 if 문의 코드 블록이 실행되면 if 문의 코드 블록을 위한 블록 레벨 스코프를 생성해야 한다. 이를 위해 선언적 환경 레코드를 갖는 렉시컬 환경을 새롭게 생성하여 기존의 전역 렉시컬 환경을 교체한다.</p>
 <p>이때 새롭게 생성된 if 문의 코드 블록을 위한 렉시컬 환경의 외부 렉시컬 환경에 대한 참조는 if 문이 실행되기 이전의 전역 렉시컬 환경을 가리킨다.</p>
-<p><img src="https://user-images.githubusercontent.com/56425514/101887557-63eb2500-3be0-11eb-83c2-787ac516c231.png" alt="if문 실행 컨텍스트"></p>
 <p>if 문 코드 블록의 실행이 종료되면 if 문의 코드 블록이 실행되기 이전의 렉시컬 환경으로 되돌린다.</p>
-<p><img src="https://user-images.githubusercontent.com/56425514/101887585-6f3e5080-3be0-11eb-94ab-30959d81ef6e.png" alt="if문 실행 컨텍스트2"></p>
 <p>이는 if 문뿐 아니라 블록 레밸 스코프를 생성하는 모든 블록문에 적용된다.</p>
 <p><strong>코드 블록은 실행컨텍스트를 만들지는 않지만 렉시컬 환경을 따로 만든다.</strong></p>
 <h2 id="클로저"><a href="#클로저" class="headerlink" title="클로저"></a>클로저</h2><p>클로저는 함수와 그 함수가 선언된 렉시컬 환경(상위 스코프)과의 조합이다.</p>
 <h3 id="함수-객체의-내부-슬롯-Environment"><a href="#함수-객체의-내부-슬롯-Environment" class="headerlink" title="함수 객체의 내부 슬롯 [[Environment]]"></a>함수 객체의 내부 슬롯 [[Environment]]</h3><p>함수 객체의 내부 슬롯 <code>[[Environment]]</code>에 저장된 현재 실행 중인 실행 컨텍스트의 렉시컬 환경의 참조가 바로 상위 스코프다. 또한 자신이 호출되었을 때 생성될 함수 렉시컬 환경의 “외부 렉시컬 환경에 대한 참조”에 저장될 참조값이다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 상위 스코프는 함수 정의 환경(위치)에 따라 결정된다.</span></span><br><span class="line">  <span class="comment">// 함수 호출 위치와 상위 스코프는 아무런 관계가 없다.</span></span><br><span class="line">  bar();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 bar는 자신의 상위 스코프, 즉 전역 렉시컬 환경을 [[Environment]]에 저장하여 기억한다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// ?</span></span><br><span class="line">bar(); <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://user-images.githubusercontent.com/56425514/101887641-811ff380-3be0-11eb-9253-6d68fa632615.png" alt="environment"></p>
 <h3 id="클로저와-렉시컬-환경"><a href="#클로저와-렉시컬-환경" class="headerlink" title="클로저와 렉시컬 환경"></a>클로저와 렉시컬 환경</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ①</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> x = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">const</span> inner = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(x); &#125;; <span class="comment">// ②</span></span><br><span class="line">  <span class="keyword">return</span> inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// outer 함수를 호출하면 중첩 함수 inner를 반환한다.</span></span><br><span class="line"><span class="comment">// 그리고 outer 함수의 실행 컨텍스트는 실행 컨텍스트 스택에서 팝되어 제거된다.</span></span><br><span class="line"><span class="keyword">const</span> innerFunc = outer(); <span class="comment">// ③</span></span><br><span class="line">innerFunc(); <span class="comment">// ④ 10</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://user-images.githubusercontent.com/56425514/101887670-88df9800-3be0-11eb-9ea1-e34d06dc470e.png" alt="클로저"></p>
 <p>outer 함수는 종료되어 실행 컨텍스트 스택에서 pop 됐지만 inner 함수가 참조하기 때문에 생존하고 있다. 여기서 outer 함수는 클로저이다.(순환 참조의 경우에는 가비지 컬렉터에 의해 소멸한다.)</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
 

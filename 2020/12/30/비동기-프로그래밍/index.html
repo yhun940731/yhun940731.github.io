@@ -27,13 +27,11 @@
 <meta property="og:site_name" content="Nyong&#39;s Blog">
 <meta property="og:description" content="비동기 프로그래밍동기 처리과 비동기 처리자바스크립트 엔진은 한 번에 하나의 태스크만 실행할 수 있는 싱글 스레드(single thread) 방식으로 동작한다. 싱글 스레드 방식은 한 번에 하나의 태스크만 실행할 수 있기 때문에 처리에 시간이 걸리는 태스크를 실행하는 경우 블로킹(blocking, 작업 중단)이 발생한다. 12345678910111213141">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103347756-36a4df00-4adb-11eb-9eca-bb251279942a.png">
 <meta property="article:published_time" content="2020-12-30T09:21:48.000Z">
-<meta property="article:modified_time" content="2020-12-30T12:24:45.869Z">
+<meta property="article:modified_time" content="2021-01-08T04:35:23.737Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/56425514/103347756-36a4df00-4adb-11eb-9eca-bb251279942a.png">
 
 <link rel="canonical" href="http://yhun940731.github.io/2020/12/30/%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">
 
@@ -175,10 +173,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-30 18:21:48 / Modified: 21:24:45" itemprop="dateCreated datePublished" datetime="2020-12-30T18:21:48+09:00">2020-12-30</time>
+              <time title="Created: 2020-12-30 18:21:48" itemprop="dateCreated datePublished" datetime="2020-12-30T18:21:48+09:00">2020-12-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-08 13:35:23" itemprop="dateModified" datetime="2021-01-08T13:35:23+09:00">2021-01-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -207,7 +211,6 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;bar&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 타이머 함수 setTimeout은 일정 시간이 경과한 이후에 콜백 함수 foo를 호출한다.</span></span><br><span class="line"><span class="comment">// 타이머 함수 setTimeout은 bar 함수를 블로킹하지 않는다.</span></span><br><span class="line"><span class="built_in">setTimeout</span>(foo, <span class="number">3</span> * <span class="number">1000</span>);</span><br><span class="line">bar();</span><br><span class="line"><span class="comment">// bar 호출 -&gt; (3초 경과 후) foo 호출</span></span><br></pre></td></tr></table></figure>
 <p>현재 실행 중인 태스크가 종료되지 않은 상태라 해도 다음 태스크를 곧바로 실행하므로 블로킹이 발생하지 않는다는 장점이 있지만 태스크의 실행 순서가 보장되지 않는 단점이 있다.</p>
 <h2 id="이벤트-루프와-태스크-큐"><a href="#이벤트-루프와-태스크-큐" class="headerlink" title="이벤트 루프와 태스크 큐"></a>이벤트 루프와 태스크 큐</h2><p>자바스크립트의 동시성(concurrency)을 지원하는 것이 바로 이벤트 루프(event loop)다.</p>
-<p><img src="https://user-images.githubusercontent.com/56425514/103347756-36a4df00-4adb-11eb-9eca-bb251279942a.png" alt="이벤트 루프와 브라우저 환경"></p>
 <p>구글의 V8 자바스크립트 엔진을 비롯한 대부분의 자바스크립트 엔진은 크게 2개의 영역으로 구분할 수 있다.</p>
 <ul>
 <li>콜 스택(call stack)<br>소스코드(전역 코드나 함수 코드 등) 평가 과정에서 생성된 실행 컨텍스트가 추가되고 제거되는 스택 자료구조인 실행 컨텍스트 스택이 바로 콜 스택이다.<br>함수를 호출하면 함수 실행 컨텍스트가 순차적으로 콜 스택에 푸시되어 순차적으로 실행된다. 자바스크립트 엔진은 단 하나의 콜 스택을 사용하기 때문에 최상위 실행 컨텍스트(실행 중인 실행 컨텍스트)가 종료되어 콜 스택에서 제거되기 전까지는 다른 어떤 태스크도 실행되지 않는다.</li>

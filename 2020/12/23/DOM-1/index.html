@@ -20,24 +20,18 @@
     var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="DOM노드HTML 요소와 노드 객체HTML 요소(HTML element)는 HTML 문서를 구성하는 개별적인 요소를 의미한다.HTML 요소는 렌더링 엔진에 의해 파싱되어 DOM을 구성하는 요소 노드 객체로 변환된다. 이때 HTML 요소의 어트리뷰트는 어트리뷰트 노드로, HTML 요소의 텍스트 콘텐츠는 텍스트 노드로 변환된다.  HTML 요소는 요소 간 중첩">
+  <meta name="description" content="DOM노드HTML 요소와 노드 객체HTML 요소(HTML element)는 HTML 문서를 구성하는 개별적인 요소를 의미한다.HTML 요소는 렌더링 엔진에 의해 파싱되어 DOM을 구성하는 요소 노드 객체로 변환된다. 이때 HTML 요소의 어트리뷰트는 어트리뷰트 노드로, HTML 요소의 텍스트 콘텐츠는 텍스트 노드로 변환된다. HTML 요소는 요소 간 중첩">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM (1)">
 <meta property="og:url" content="http://yhun940731.github.io/2020/12/23/DOM-1/index.html">
 <meta property="og:site_name" content="Nyong&#39;s Blog">
-<meta property="og:description" content="DOM노드HTML 요소와 노드 객체HTML 요소(HTML element)는 HTML 문서를 구성하는 개별적인 요소를 의미한다.HTML 요소는 렌더링 엔진에 의해 파싱되어 DOM을 구성하는 요소 노드 객체로 변환된다. 이때 HTML 요소의 어트리뷰트는 어트리뷰트 노드로, HTML 요소의 텍스트 콘텐츠는 텍스트 노드로 변환된다.  HTML 요소는 요소 간 중첩">
+<meta property="og:description" content="DOM노드HTML 요소와 노드 객체HTML 요소(HTML element)는 HTML 문서를 구성하는 개별적인 요소를 의미한다.HTML 요소는 렌더링 엔진에 의해 파싱되어 DOM을 구성하는 요소 노드 객체로 변환된다. 이때 HTML 요소의 어트리뷰트는 어트리뷰트 노드로, HTML 요소의 텍스트 콘텐츠는 텍스트 노드로 변환된다. HTML 요소는 요소 간 중첩">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103007604-0dce9800-4577-11eb-8f1e-b9287488f04c.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103061116-abfd4500-45ed-11eb-876d-58f89332e2fe.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103077615-766b5280-4613-11eb-9ec0-ebd315a4af33.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103077727-b3cfe000-4613-11eb-8134-99f37ae2fe83.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/56425514/103175775-e72e9b00-48af-11eb-82d8-ce196ee42d49.png">
 <meta property="article:published_time" content="2020-12-23T14:16:40.000Z">
-<meta property="article:modified_time" content="2020-12-27T17:15:55.548Z">
+<meta property="article:modified_time" content="2021-01-08T04:39:07.323Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/56425514/103007604-0dce9800-4577-11eb-8f1e-b9287488f04c.png">
 
 <link rel="canonical" href="http://yhun940731.github.io/2020/12/23/DOM-1/">
 
@@ -187,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-28 02:15:55" itemprop="dateModified" datetime="2020-12-28T02:15:55+09:00">2020-12-28</time>
+                <time title="Modified: 2021-01-08 13:39:07" itemprop="dateModified" datetime="2021-01-08T13:39:07+09:00">2021-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -211,11 +205,9 @@
 
       
         <h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><h2 id="노드"><a href="#노드" class="headerlink" title="노드"></a>노드</h2><h3 id="HTML-요소와-노드-객체"><a href="#HTML-요소와-노드-객체" class="headerlink" title="HTML 요소와 노드 객체"></a>HTML 요소와 노드 객체</h3><p>HTML 요소(HTML element)는 HTML 문서를 구성하는 개별적인 요소를 의미한다.<br>HTML 요소는 렌더링 엔진에 의해 파싱되어 DOM을 구성하는 요소 노드 객체로 변환된다. 이때 HTML 요소의 어트리뷰트는 어트리뷰트 노드로, HTML 요소의 텍스트 콘텐츠는 텍스트 노드로 변환된다.</p>
-<p><img src="https://user-images.githubusercontent.com/56425514/103007604-0dce9800-4577-11eb-8f1e-b9287488f04c.png" alt="HTML 요소"></p>
 <p>HTML 요소는 요소 간 중첩 관계에 의해 계층적인 부자(parent-child) 관계가 형성된다. 이러한 HTML 요소 간의 부자 관계를 반영하여 HTML 문서의 구성 요소인 HTML 요소를 객체화한 모든 노드 객체들을 트리 자료구조로 구성한다.</p>
 <p>노드 객체들로 구성된 트리 자료구조를 DOM(Document Object Model)이라 한다. 노드 객체의 트리로 구조화되어 있기 때문에 DOM을 DOM 트리라고 부르기도 한다.</p>
-<h3 id="노드-객체의-타입"><a href="#노드-객체의-타입" class="headerlink" title="노드 객체의 타입"></a>노드 객체의 타입</h3><p><img src="https://user-images.githubusercontent.com/56425514/103061116-abfd4500-45ed-11eb-876d-58f89332e2fe.png" alt="DOM"></p>
-<p>노드 객체는 총 12개의 종류(노드 타입)가 있다. 이 중에서 중요한 노드 타입은 다음과 같이 4가지다.</p>
+<h3 id="노드-객체의-타입"><a href="#노드-객체의-타입" class="headerlink" title="노드 객체의 타입"></a>노드 객체의 타입</h3><p>노드 객체는 총 12개의 종류(노드 타입)가 있다. 이 중에서 중요한 노드 타입은 다음과 같이 4가지다.</p>
 <ul>
 <li><p>문서 노드<br>문서 노드(document node)는 DOM 트리의 최상위에 존재하는 루트 노드로서 document 객체를 가리킨다. document 객체는 브라우저가 렌더링한 HTML 문서 전체를 가리키는 객체로서 전역 객체 window의 document 프로퍼티에 바인딩되어 있다. 따라서 문서 노드는 window.document 또는 document로 참조할 수 있다.</p>
 <p>브라우저 환경의 모든 자바스크립트 코드는 script 태그에 의해 분리되어 있어도 하나의 전역 객체 window를 공유한다. 따라서 모든 자바스크립트 코드는 전역 객체 window의 document 프로퍼티에 바인딩되어 있는 하나의 document 객체를 바라본다. 즉, HTML 문서당 document 객체는 유일하다.</p>
@@ -231,10 +223,8 @@
 <p>위 4가지 노드 타입 이외에도 주석을 위한 Comment 노드, DOCTYPE을 위한 DocumentType 노드, 복수의 노드를 생성하여 추가할 때 사용하는 DocumentFragment 노드 등 총 12개의 노드 타입이 있다.</p>
 <h3 id="노드-객체의-상속-구조"><a href="#노드-객체의-상속-구조" class="headerlink" title="노드 객체의 상속 구조"></a>노드 객체의 상속 구조</h3><p>DOM을 구성하는 노드 객체는 자신의 구조와 정보를 제어할 수 있는 DOM API를 사용할 수 있다. 이를 통해 노드 객체는 자신의 부모, 형제, 자식을 탐색할 수 있으며, 자신의 어트리뷰트와 텍스트를 조작할 수도 있다.</p>
 <p>DOM을 구성하는 노드 객체는 브라우저 환경에서 추가적으로 제공하는 호스트 객체(host objects)다. 하지만 노드 객체도 자바스크립트 객체이므로 프로토타입에 의한 상속 구조를 갖는다. 노드 객체의 상속 구조는 다음과 같다.</p>
-<p><img src="https://user-images.githubusercontent.com/56425514/103077615-766b5280-4613-11eb-9ec0-ebd315a4af33.png" alt="노드 객체의 상속 구조"></p>
 <p>모든 노드 객체는 Object, EventTarget, Node 인터페이스를 상속받는다. 추가로 문서 노드는 Document, HTMLDocument 인터페이스를 상속받고 어트리뷰트 노드는 Attr, 텍스트 노드는 CharacterData 인터페이스를 각각 상속받는다. 요소 노드는 Element 인터페이스를 상속받는다. 또한 요소 노드는 추가적으로 HTMLElement와 태그의 종류별로 세분화된 HTMLHtmlElement, HTMLHeadElement, HTMLBodyElement, HTMLUListElement 등의 인터페이스를 상속받는다.</p>
 <p>예를 들어, input 요소를 파싱하여 객체화한 input 요소 노드 객체는 HTMLInputElement, HTMLElement, Element, Node, EventTarget, Object의 prototype에 바인딩되어 있는 프로토타입 객체를 상속받는다. 즉, input 요소 노드 객체는 프로토타입 체인에 있는 모든 프로토타입의 프로퍼티나 메서드를 상속받아 사용할 수 있다.</p>
-<p><img src="https://user-images.githubusercontent.com/56425514/103077727-b3cfe000-4613-11eb-8134-99f37ae2fe83.png" alt="input 요소 노드 객체의 프로토타입 체인"></p>
 <p>노드 객체에는 모든 노드 객체가 공통으로 갖는 기능과 노드 타입에 따라 고유한 기능도 있다. 예를 들어, 모든 노드 객체는 이벤트를 발생시킬 수 있다. 이벤트 관련 기능은 EventTarge 인터페이스가 제공한다. 또한 모든 노드 객체는 트리 자료구조의 노드로서 트리 탐색 기능이나 노드 정보 제공 기능이 필요하며, 이와 같은 노드 관련 기능은 Node 인터페이스가 제공한다.</p>
 <p>HTML 요소가 객체화된 요소 노드 객체는 HTML 요소가 같은 공통적인 기능이 있다.(style 프로퍼티 등) 이런 HTML 요소의 공통 기능은 HTMLElement 인터페이스가 제공한다. 하지만 요소 노드 객체는 HTML 요소의 종류에 따라 고유한 기능도 있다.(input에는 value 프로퍼티가 있지만 div에는 필요없다.) 따라서 필요한 기능을 제공하는 인터페이스가 HTML 요소에 따라 다르다.</p>
 <p>이처럼 노드 객체는 공통된 기능일수록 프로토타입 체인의 상위에, 개별적인 고유 기능일수록 프로토타입 체인의 하위에 프로토타입 체인을 구축하여 노드 객체에 필요한 기능, 즉 프로퍼티와 메서드를 제공하는 상속 구조를 갖는다.</p>
@@ -299,7 +289,6 @@
 
 <h2 id="노드-탐색"><a href="#노드-탐색" class="headerlink" title="노드 탐색"></a>노드 탐색</h2><p>parentNode, previousSibling, firstChild, childNodes 프로퍼티는 Node.prototype이 제공하고, 프로퍼티 키에 Element가 포함된 previousElementSibling, nextElementSibling과 children 프로퍼티는 Element.prototype이 제공한다. 노드 탐색 프로퍼티는 모두 읽기 전용 접근자 프로퍼티이다.</p>
 <h3 id="공백-텍스트-노드"><a href="#공백-텍스트-노드" class="headerlink" title="공백 텍스트 노드"></a>공백 텍스트 노드</h3><p>지금까지 언급하지 않았지만 HTML 요소 사이의 스페이스, 탭, 줄바꿈(개행) 등의 공백(white space) 문자는 텍스트 노드를 생성한다.</p>
-<p><img src="https://user-images.githubusercontent.com/56425514/103175775-e72e9b00-48af-11eb-82d8-ce196ee42d49.png" alt="공백 텍스트 노드"></p>
 <h3 id="자식-노드-탐색"><a href="#자식-노드-탐색" class="headerlink" title="자식 노드 탐색"></a>자식 노드 탐색</h3><ul>
 <li><p>Node.prototype.childNodes<br>자식 노드를 모두 탐색하여 DOM 컬렉션 객체인 NodeList에 담아 반환한다. childNodes 프로퍼티가 반환한 NodeList에는 요소 노드뿐만 아니라 텍스트 노드도 포함되어 있을 수 있다.</p>
 </li>
