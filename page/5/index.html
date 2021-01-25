@@ -145,6 +145,124 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/25/201125-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/25/201125-TIL/" class="post-title-link" itemprop="url">201125_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-25 17:50:57 / Modified: 17:55:03" itemprop="dateCreated datePublished" datetime="2020-11-25T17:50:57+09:00">2020-11-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="타입-변환과-단축-평가"><a href="#타입-변환과-단축-평가" class="headerlink" title="타입 변환과 단축 평가"></a><strong>타입 변환과 단축 평가</strong></h2><p><strong>자열 타입으로 변환</strong></p>
+<p><code>1.toString()</code> → 중의적 표현이라서 문맥에 따라 숫자 뒤의 <code>.</code>은 소수점으로 인식<br><code>(1).toString()</code>으로 해야한다.</p>
+<h2 id="원시값과-객체의-비교"><a href="#원시값과-객체의-비교" class="headerlink" title="원시값과 객체의 비교"></a>원시값과 객체의 비교</h2><h3 id="원시값"><a href="#원시값" class="headerlink" title="원시값"></a><strong>원시값</strong></h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// y에는 x를 평가하여 x의 값을 참조하여 값을 전달한다. (값에 의한 전달)</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> y = x;</span><br></pre></td></tr></table></figure>
+
+<p>원시값은 변경 불가이다.<br>변수값 변경은 ‘재할당’이다. 변수값 변경과 원시값 변경은 다른 의미이다.</p>
+<p>상수는 단 한 번만 할당이 허용되는 변수이므로 상수와 변경 불가능한 값을 동일시하는 것은 곤란하다. 상수는 재할당이 금지된 변수일 뿐이다.</p>
+<p><strong>값에 의한 전달</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> score = <span class="number">80</span>;</span><br><span class="line"><span class="keyword">var</span> copy = score;</span><br></pre></td></tr></table></figure>
+
+<p>score의 80이 평가되어 score의 값 80을 복사한 후 메모리에 마련한 뒤 copy에 할당해 준다.</p>
+<h3 id="객체"><a href="#객체" class="headerlink" title="객체"></a>객체</h3><blockquote>
+<p>객체는 프로퍼티의 개수가 정해져 있지 않으며, 동적으로 추가되고 삭제할 수 있다. 또한 프로퍼티의 값에도 제약이 없다. 따라서 객체는 원시값과 같이 확보해야 할 메모리 공간의 크기를 사전에 정해 둘 수 없다.</p>
+</blockquote>
+<p>클래스 기반 객체 지향 언어는 객체에 할당된 메모리량을 정의한 클래스를 이용해 알 수 있다. 하지만 프로토타입 기반 객체 지향 언어는 객체의 할당 메모리량을 알 수 없다.<br>만약 객체가 원시값 처럼 동작한다면 메모리 소비가 매우 많다. → 변경 불가능한 값을 변경을 위해서는 복사한 값에 대한 새로운 메모리 공간이 필요하기 때문이다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name: <span class="string">&#x27;Kim&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 프로퍼티 값 갱신</span></span><br><span class="line">person.name = <span class="string">&#x27;Lee&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name: <span class="string">&#x27;Kim&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person = &#123;</span><br><span class="line">name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>위 두 상황은 같은 과정일까? → 물론 아니다. 전자는 프로퍼티 값만을 갱신해주는 행위지만, 후자는 person 식별자에 새로운 객체 생성해서 참조해주는 것이다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person1 === person2); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.name === person2.name); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>person1과 person2의 변수 값은 객체의 참조 주소이다. 물론 person1과 person2는 내용이 같을 뿐 다른 객체이기에 참조 주소도 다르다.<br>반면 person1.name과 person2.name은 모두 원시값 문자열 ‘Lee’의 표현식이기 때문에 같은 값으로 평가된다.</p>
+<p><strong>얕은 복사와 깊은 복사</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 얕은 복사 예</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">name: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 참조에 의한 전달.</span></span><br><span class="line"><span class="comment">// 두 식별자가 하나의 객체를 공유한다.</span></span><br><span class="line"><span class="keyword">var</span> copy = person;</span><br><span class="line"></span><br><span class="line">copy.name = <span class="string">&#x27;Kim&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// Kim</span></span><br><span class="line"><span class="built_in">console</span>.log(copy === person); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>얕은 복사는 항상 조심해야한다.<br>깊은 복사를 해야 객체의 불변성을 얻을 수 있다. 하지만 깊은 복사는 퍼포먼스 측면에서 좋지 않기 때문에 대부분 얕은 복사를 기본으로 한다.<br>깊은 복사를 사용하고 싶다면 라이브러리를 사용해는 것이 좋다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: <span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  f() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// lodash의 cloneDeep을 사용한 깊은 복사</span></span><br><span class="line"><span class="comment">// &quot;npm install lodash&quot;로 lodash를 설치한 후, Node.js 환경에서 실행</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;lodash&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = _.cloneDeep(o);</span><br><span class="line"><span class="built_in">console</span>.log(o === c); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(o.a === c.a); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(c.f); <span class="comment">// f</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수에 함수 리터럴을 할당 (함수 표현식)</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>;</code>이 붙는 것은 표현식이라는 것이다. 값으로 평가되는 함수 리터럴이다. 함수 리터럴은 변수에 참조하기 직전에 생성한다.(함수 선언문은 runtime 전에 정의됨)</li>
+<li>함수 이름 <code>add</code>는 함수 몸체 내에서만 참조할 수 있는 식별자다.(함수 이름 생략 가능)</li>
+<li>함수가 객체라는 사실은 함수형 프로그래밍이 가능하다는 말이다. 함수가 객체가 아니라면 함수형 프로그래밍이 불가능하다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 함수 선언문(function declaration/function statement)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 함수 표현식(function expression)</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 화살표 함수</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x + y;</span><br></pre></td></tr></table></figure>
+
+<p>선언문은 익명함수가 불가능하고 <code>;</code> 가 붙지 않으며 표현식처럼 값으로 평가되지 않는다. 값으로 평가되는 문맥에서는 함수는 표현식이다.</p>
+<p><strong>함수 호이스팅</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 함수 호이스팅</span></span><br><span class="line">foo(); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 선언문은 runtime 이전에 정의되고 함수 이름으로 동일한 식별자를 생성함.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 변수 호이스팅</span></span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>가변인자 함수</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> total=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++)</span><br><span class="line">    total += <span class="built_in">arguments</span>[i];</span><br><span class="line">	<span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+<p>argument는 유사배열로서 인자가 내부에 모두 저장되기 때문에 가능하다.</p>
+<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
+<li><p>슬슬 어렵다. 그래도 본격적으로 공부하니까 재밌다.</p>
+</li>
+<li><p>배우는 것이 많다. 배움에서 끝내지 말고 학습하자.</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/24/%ED%95%A8%EC%88%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1397,129 +1515,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/18/%EC%97%B0%EC%82%B0%EC%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/%EC%97%B0%EC%82%B0%EC%9E%90/" class="post-title-link" itemprop="url">연산자</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-18 21:35:44" itemprop="dateCreated datePublished" datetime="2020-11-18T21:35:44+09:00">2020-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-08 13:35:21" itemprop="dateModified" datetime="2021-01-08T13:35:21+09:00">2021-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h2><p>표현식인 피연산자와 연산자의 조합으로 값으로 평가될 수 있는 표현식인 연산자 표현식을 이룬다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 산술 연산자</span></span><br><span class="line"><span class="number">5</span> * <span class="number">4</span> <span class="comment">// -&gt; 20</span></span><br><span class="line"><span class="comment">// 문자열 연결 연산자</span></span><br><span class="line"><span class="string">&#x27;My name is &#x27;</span> + <span class="string">&#x27;Lee&#x27;</span> <span class="comment">// -&gt; &#x27;My name is Lee&#x27;</span></span><br><span class="line"><span class="comment">// 할당 연산자</span></span><br><span class="line">color = <span class="string">&#x27;red&#x27;</span> <span class="comment">// -&gt; &#x27;red&#x27;</span></span><br><span class="line"><span class="comment">// 비교 연산자</span></span><br><span class="line"><span class="number">3</span> &gt; <span class="number">5</span> <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="comment">// 논리 연산자</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">false</span> <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="comment">// 타입 연산자</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;Hi&#x27;</span> <span class="comment">// -&gt; &#x27;string&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="산술-연산자"><a href="#산술-연산자" class="headerlink" title="산술 연산자"></a>산술 연산자</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> / <span class="number">2</span>; <span class="comment">// -&gt; 2.5</span></span><br></pre></td></tr></table></figure>
-<p>JavaScript는 number 타입이 모두 실수기 때문에 정수를 나눠 실수값을 얻을 수도 있다.</p>
-<h4 id="단항-산술-연산자"><a href="#단항-산술-연산자" class="headerlink" title="단항 산술 연산자"></a>단항 산술 연산자</h4><p>단항 산술 연산자인 증가/감소(++/–) 연산자는 위치에 의미가 있다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>, result;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 선할당 후증가(postfix increment operator)</span></span><br><span class="line">result = x++;</span><br><span class="line"><span class="built_in">console</span>.log(result, x); <span class="comment">// 5 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 선증가 후할당(prefix increment operator)</span></span><br><span class="line">result = ++x;</span><br><span class="line"><span class="built_in">console</span>.log(result, x); <span class="comment">// 7 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 선할당 후감소(postfix decrement operator)</span></span><br><span class="line">result = x--;</span><br><span class="line"><span class="built_in">console</span>.log(result, x); <span class="comment">// 7 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 선감소 후할당 (prefix decrement operator)</span></span><br><span class="line">result = --x;</span><br><span class="line"><span class="built_in">console</span>.log(result, x); <span class="comment">// 5 5</span></span><br></pre></td></tr></table></figure>
-
-<p>단항 산술 연산자에는 <code>+</code>, <code>-</code> 도 있다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// + 연산자는 아무런 효과가 없다.</span></span><br><span class="line">+<span class="number">10</span>;    <span class="comment">// -&gt; 10</span></span><br><span class="line">+(<span class="number">-10</span>); <span class="comment">// -&gt; -10</span></span><br></pre></td></tr></table></figure>
-
-<p><code>+</code> 연산자는 언제 사용할까?</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x  = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열을 숫자로 타입 변환한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(+x); <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 부수 효과는 없다.</span></span><br><span class="line"><span class="built_in">console</span>.log(x);  <span class="comment">// &quot;1&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 불리언 값을 숫자로 타입 변환한다.</span></span><br><span class="line">x = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">console</span>.log(+x); <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 부수 효과는 없다.</span></span><br><span class="line"><span class="built_in">console</span>.log(x);  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 불리언 값을 숫자로 타입 변환한다.</span></span><br><span class="line">x = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">console</span>.log(+x); <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 부수 효과는 없다.</span></span><br><span class="line"><span class="built_in">console</span>.log(x);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열을 숫자로 타입 변환할 수 없으므로 NaN을 반환한다.</span></span><br><span class="line">x = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(+x); <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 부수 효과는 없다.</span></span><br><span class="line"><span class="built_in">console</span>.log(x);  <span class="comment">// &quot;Hello&quot;</span></span><br></pre></td></tr></table></figure>
-<p>숫자 타입으로 변환한 값을 생성해서 반환한다. 하지만 변수 값 자체를 바꾸지는 않는다.</p>
-<p><code>-</code> 연산자는 부호를 반전하거나 숫자 타입으로 변환한다. 하지만 변수 값 자체를 바꾸지는 않는다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 부호를 반전한다.</span></span><br><span class="line">-(<span class="number">-10</span>); <span class="comment">// -&gt; 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열을 숫자로 타입 변환한다.</span></span><br><span class="line">-<span class="string">&#x27;10&#x27;</span>; <span class="comment">// -&gt; -10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 불리언 값을 숫자로 타입 변환한다.</span></span><br><span class="line">-<span class="literal">true</span>; <span class="comment">// -&gt; -1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열은 숫자로 타입 변환할 수 없으므로 NaN을 반환한다.</span></span><br><span class="line">-<span class="string">&#x27;Hello&#x27;</span>; <span class="comment">// -&gt; NaN</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="문자열-연결-연산자"><a href="#문자열-연결-연산자" class="headerlink" title="문자열 연결 연산자"></a>문자열 연결 연산자</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열 연결 연산자</span></span><br><span class="line"><span class="number">1</span> + <span class="string">&#x27;2&#x27;</span>; <span class="comment">// -&gt; &#x27;12&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// true는 1로 타입 변환된다.</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">true</span>; <span class="comment">// -&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// false는 0으로 타입 변환된다.</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">false</span>; <span class="comment">// -&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// null은 0으로 타입 변환된다.</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">null</span>; <span class="comment">// -&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// undefined는 숫자로 타입 변환되지 않는다.</span></span><br><span class="line">+<span class="literal">undefined</span>;    <span class="comment">// -&gt; NaN</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">undefined</span>; <span class="comment">// -&gt; NaN</span></span><br></pre></td></tr></table></figure>
-<p>위와 같이 서로 연산할 수 없는 타입끼리 만나면 JS 엔진에 의해 암묵적 타입 변환(implicit coercion) 또는 타입 강제 변환(type coercion)이 일어난다.</p>
-<h3 id="비교-연산자"><a href="#비교-연산자" class="headerlink" title="비교 연산자"></a>비교 연산자</h3><p>비교 연산자(comparison operator)는 좌항과 우항의 피연산자를 비교한 다음 그 결과를 불리언 값으로 반환한다.</p>
-<p>동등비교(==) 연산자는 타입이 달라도 암묵적 타입 변환을 통해 비교된 값만 같으면 동등하다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;0&#x27;</span> == <span class="string">&#x27;&#x27;</span>; <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&#x27;&#x27;</span>;   <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&#x27;0&#x27;</span>;  <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&#x27;false&#x27;</span>;   <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&#x27;0&#x27;</span>;       <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">null</span>;      <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">undefined</span>; <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
-
-<p>일치 비교(===) 연산자는 좌항과 우항의 피연산자가 타입과 값이 모두 같은 경우에 true를 반환한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> === <span class="string">&#x27;5&#x27;</span>; <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
-
-<p>주의할 점!</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NaN은 자신과 일치하지 않는 유일한 값이다.</span></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>; <span class="comment">// -&gt; false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//isNaN 함수를 사용하자</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>); <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">10</span>);  <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">1</span> + <span class="literal">undefined</span>); <span class="comment">// -&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//0도 주의하자 JS는 음의 0, 양의 0 둘 다 있지만 타입과 같은 같다.</span></span><br><span class="line"><span class="number">0</span> === <span class="number">-0</span>; <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="number">0</span> == <span class="number">-0</span>;  <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
-<p>위 처럼 +0, -0은 같게 판단하고 NaN끼리는 다르다 그래서 <code>Object.is()</code>가 생겼다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-0</span> === +<span class="number">0</span>;         <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="number">-0</span>, +<span class="number">0</span>); <span class="comment">// -&gt; false</span></span><br><span class="line"></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>;         <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="literal">NaN</span>); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
-
-<p>부동등 비교 연산자(!=)와 불일치 비교 연산자(!==)는 다른지를 판단하는 개념이다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 부동등 비교(타입은 논외)</span></span><br><span class="line"><span class="number">5</span> != <span class="number">8</span>;   <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="number">5</span> != <span class="number">5</span>;   <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="number">5</span> != <span class="string">&#x27;5&#x27;</span>; <span class="comment">// -&gt; false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 불일치 비교(타입도 판단)</span></span><br><span class="line"><span class="number">5</span> !== <span class="number">8</span>;   <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="number">5</span> !== <span class="number">5</span>;   <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="number">5</span> !== <span class="string">&#x27;5&#x27;</span>; <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="논리-연산자"><a href="#논리-연산자" class="headerlink" title="논리 연산자"></a>논리 연산자</h3><p>논리 연산자(logical operator)는 우항과 좌항의 논리관계를 연산한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 논리합(||) 연산자, 하나만 true면 true</span></span><br><span class="line"><span class="literal">true</span> || <span class="literal">true</span>;   <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="literal">true</span> || <span class="literal">false</span>;  <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="literal">false</span> || <span class="literal">true</span>;  <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="literal">false</span> || <span class="literal">false</span>; <span class="comment">// -&gt; false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 논리곱(&amp;&amp;) 연산자, 모두 true여야 true</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;   <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">false</span>;  <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="literal">true</span>;  <span class="comment">// -&gt; false</span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="literal">false</span>; <span class="comment">// -&gt; false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 논리 부정(!) 연산자, 반대값을 출력</span></span><br><span class="line">!<span class="literal">true</span>;  <span class="comment">// -&gt; false</span></span><br><span class="line">!<span class="literal">false</span>; <span class="comment">// -&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// boolean값이 아닐 경우 암묵적 타입 변환</span></span><br><span class="line">!<span class="number">0</span>;       <span class="comment">// -&gt; true</span></span><br><span class="line">!<span class="string">&#x27;Hello&#x27;</span>; <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="지수-연산자"><a href="#지수-연산자" class="headerlink" title="지수 연산자"></a>지수 연산자</h3><p>좌항의 피연산자를 밑으로, 우항의 피연산자를 지수로 거듭 제곱하여 숫자 값을 반환한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> ** <span class="number">2</span>;   <span class="comment">// -&gt; 4</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">2.5</span>; <span class="comment">// -&gt; 5.65685424949238</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">0</span>;   <span class="comment">// -&gt; 1</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">-2</span>;  <span class="comment">// -&gt; 0.25</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//음수는 괄호로 묶어야한다.</span></span><br><span class="line">(<span class="number">-5</span>) ** <span class="number">2</span>; <span class="comment">// -&gt; 25</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//지수 연산자는 이항 연산자 중에서 우선순위가 가장 높다.</span></span><br><span class="line"><span class="number">2</span> * <span class="number">5</span> ** <span class="number">2</span>; <span class="comment">// -&gt; 50</span></span><br></pre></td></tr></table></figure>
-<p>참고 <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/">Fastcampus-frontend school</a><br>참고 도서: <cite>모던 자바스크립트 Deep Dive</cite></p>
-<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
-<li>C랑 Java랑 비슷하지만 새로 배우는 것도 있었다. 배움 앞에 겸손하자.</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1585,7 +1584,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
