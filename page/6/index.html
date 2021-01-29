@@ -145,6 +145,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/20/201120-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/20/201120-TIL/" class="post-title-link" itemprop="url">201120_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-20 21:01:27 / Modified: 21:52:03" itemprop="dateCreated datePublished" datetime="2020-11-20T21:01:27+09:00">2020-11-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="데이터-타입"><a href="#데이터-타입" class="headerlink" title="데이터 타입"></a>데이터 타입</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//이스케이프시퀀스도 좋지만 가독성이 안 좋다.</span></span><br><span class="line"><span class="keyword">var</span> string = <span class="string">&#x27;안녕\&#x27;하세요\&#x27; &#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//`(백틱)을 사용하는게 낫다.</span></span><br><span class="line"><span class="keyword">var</span> string = <span class="string">`안녕&#x27;하세요&#x27;`</span>; </span><br></pre></td></tr></table></figure>
+<p>변수가 아닌 값이 데이터 타입을 갖는다.</p>
+<p>변수는 남발하면 안 되고 신중하게 써야함. 많이 쓸 수록 에러 발생률도 비례해서 높아짐.</p>
+<h2 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 지수 연산자</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">2</span>;   <span class="comment">// -&gt; 4</span></span><br><span class="line"><span class="comment">// 제곱하는 메서드</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">2</span>);   <span class="comment">// -&gt; 4</span></span><br></pre></td></tr></table></figure>
+<p>부수 효과가 있는 연산자는 할당(<code>=</code> , <code>+=</code> …) 연산자, 증가/감소(<code>++</code>/ <code>--</code> ) 연산자, <code>delete</code> 연산자이다.</p>
+<h2 id="제어문"><a href="#제어문" class="headerlink" title="제어문"></a>제어문</h2><p>제어문은 논리적 흐름에서 벗어날 때가 많음 (가독성이 떨어짐)</p>
+<p>→ 가독성을 위해 제어문은 효율적이지만 대체 가능하다면 대체하는게 좋을 수 있음. (<code>forEach</code>, <code>map</code>, <code>filter()</code> …)</p>
+<h3 id="블록문"><a href="#블록문" class="headerlink" title="블록문"></a>블록문</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 블록문</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>관련 문들을 하나로 묶기 위함으로 사용한다.</li>
+<li>다른 언어는 블록문이 하나의 스코프이다.</li>
+<li>Javascript는 블록문이 독립된 스코프가 아니다.</li>
+<li>Javascript는 블록문을 함수가 아니면 하나의 스코프로 취급하지 않는다. (<code>var</code> 일 경우 블록문 외부에서도 사용 가능)</li>
+<li><code>let</code> 은 블록문 내에서 선언하면 해당 블록 안에서만 유효하다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;<span class="number">5</span>; i ++)&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    result += <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// *</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>; k &lt;<span class="number">5</span>; k ++)&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> star=<span class="string">&#x27;&#x27;</span> ;</span><br><span class="line">    star += <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(star); <span class="comment">// ReferenceError: star is not defined</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="1-직사각형-별찍기"><a href="#1-직사각형-별찍기" class="headerlink" title="1.직사각형 별찍기"></a>1.직사각형 별찍기</h3><p>문제 설명<br>이 문제에는 표준 입력으로 두 개의 정수 n과 m이 주어집니다.<br>별(*) 문자를 이용해 가로의 길이가 n, 세로의 길이가 m인 직사각형 형태를 출력해보세요.</p>
+<p>제한 조건<br>n과 m은 각각 1000 이하인 자연수입니다.</p>
+<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.setEncoding(<span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">process.stdin.on(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> n = data.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> a = <span class="built_in">Number</span>(n[<span class="number">0</span>]), b = <span class="built_in">Number</span>(n[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i&lt; b; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;a; j++)&#123;</span><br><span class="line">          <span class="keyword">var</span> result =<span class="string">&#x27;&#x27;</span></span><br><span class="line">          result= result + <span class="string">&#x27;*&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(result);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="감탄한-타인의-답안"><a href="#감탄한-타인의-답안" class="headerlink" title="감탄한 타인의 답안"></a>감탄한 타인의 답안</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.setEncoding(<span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">process.stdin.on(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> n = data.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> a = <span class="built_in">Number</span>(n[<span class="number">0</span>]), b = <span class="built_in">Number</span>(n[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">const</span> row = <span class="string">&#x27;*&#x27;</span>.repeat(a)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>; i &lt; b; i++)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(row)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
+<li>javascript에서 왜 계속 반복문 내부 변수가 밖에서도 사용 가능한가 이상했는데 역시 javascript 블록문은 독립된 스코프가 아니었다.</li>
+<li>javascript는 예상도 못한 점에서 달라서 생각보다 시행착오가 많이 생긴다.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/19/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98%EA%B3%BC-%EB%8B%A8%EC%B6%95-%ED%8F%89%EA%B0%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1535,112 +1631,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/04/201104-TIL-programmers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/04/201104-TIL-programmers/" class="post-title-link" itemprop="url">201104_TIL_programmers</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-04 19:22:14" itemprop="dateCreated datePublished" datetime="2020-11-04T19:22:14+09:00">2020-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 15:52:08" itemprop="dateModified" datetime="2020-11-26T15:52:08+09:00">2020-11-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="1-문자열을-정수로-바꾸기"><a href="#1-문자열을-정수로-바꾸기" class="headerlink" title="1.문자열을 정수로 바꾸기"></a>1.문자열을 정수로 바꾸기</h3><p>문제 설명<br>문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.</p>
-<p>제한 조건<br>s의 길이는 1 이상 5이하입니다.<br>s의 맨앞에는 부호(+, -)가 올 수 있습니다.<br>s는 부호와 숫자로만 이루어져있습니다.<br>s는 0으로 시작하지 않습니다.<br>입출력 예<br>예를들어 str이 1234이면 1234를 반환하고, -1234이면 -1234를 반환하면 됩니다.<br>str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력되는 경우는 없습니다.</p>
-<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> answer = <span class="built_in">parseInt</span>(s)</span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="감탄한-타인의-답안"><a href="#감탄한-타인의-답안" class="headerlink" title="감탄한 타인의 답안"></a>감탄한 타인의 답안</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strToInt</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str/<span class="number">1</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>정수로 연산할 경우 문자열이 정수로 형변환되는 것을 이용했다.</li>
-</ul>
-<h3 id="2-자릿수-더하기"><a href="#2-자릿수-더하기" class="headerlink" title="2.자릿수 더하기"></a>2.자릿수 더하기</h3><p>문제 설명<br>자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.<br>예를들어 N = 123이면 1 + 2 + 3 = 6을 return 하면 됩니다.</p>
-<p>제한사항<br>N의 범위 : 100,000,000 이하의 자연수<br>입출력 예<br>N    answer<br>123    6<br>987    24</p>
-<p>입출력 예 설명<br>입출력 예 #1<br>문제의 예시와 같습니다.</p>
-<p>입출력 예 #2<br>9 + 8 + 7 = 24이므로 24를 return 하면 됩니다.</p>
-<h4 id="나의-답-1"><a href="#나의-답-1" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = n.toString();</span><br><span class="line">    <span class="keyword">var</span> answer = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i &lt; num.length; i++)&#123;</span><br><span class="line">        answer += <span class="built_in">parseInt</span>(num[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="감탄한-타인의-답안-1"><a href="#감탄한-타인의-답안-1" class="headerlink" title="감탄한 타인의 답안"></a>감탄한 타인의 답안</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 쉬운방법</span></span><br><span class="line">    <span class="keyword">return</span> (n+<span class="string">&quot;&quot;</span>).split(<span class="string">&quot;&quot;</span>).reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc + <span class="built_in">parseInt</span>(curr), <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>split()</code>과 <code>reduce</code>를 사용하였다. 화살 함수의 사용법을 익힐 필요를 느낀다.</li>
-</ul>
-<h3 id="3-짝수와-홀수"><a href="#3-짝수와-홀수" class="headerlink" title="3. 짝수와 홀수"></a>3. 짝수와 홀수</h3><p>문제 설명<br>정수 num이 짝수일 경우 Even을 반환하고 홀수인 경우 Odd를 반환하는 함수, solution을 완성해주세요.</p>
-<p>제한 조건<br>num은 int 범위의 정수입니다.<br>0은 짝수입니다.<br>입출력 예<br>num    return<br>3    Odd<br>4    Even</p>
-<h4 id="나의-답-2"><a href="#나의-답-2" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = num%<span class="number">2</span></span><br><span class="line">    <span class="keyword">var</span> answer = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(result==<span class="number">0</span>) answer=<span class="string">&#x27;Even&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span> answer=<span class="string">&#x27;Odd&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="감탄한-타인의-답안-2"><a href="#감탄한-타인의-답안-2" class="headerlink" title="감탄한 타인의 답안"></a>감탄한 타인의 답안</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">evenOrOdd</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num % <span class="number">2</span> ? <span class="string">&quot;Odd&quot;</span> : <span class="string">&quot;Even&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>삼항연사자를 이용해 쉽게 구현했다. 알고는 있지만 익숙하지 않아서 사용하지 않았는데 익히면 확실히 편리할 것 같다.</li>
-</ul>
-<p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
-<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
-<li><p>연습문제 푸는게 재밌다. 어려워서 손도 못 대는 문제도 있지만 쉬운 것부터 차근차근 풀어나가자.</p>
-</li>
-<li><p>반응형 웹도 같이 공부하고있는데 점점 어렵다.. 좀 더 분석해봐야지.</p>
-</li>
-<li><p>이번주 남은 이틀도 ‘즐코’ 하자!</p>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1710,7 +1700,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
