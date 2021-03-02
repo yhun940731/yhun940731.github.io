@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="오늘 배운 것OSkernel컴퓨터 공학에서 말하는 OS는 커널(Kernel)이다. 시스템 콜은 OS의 기능을 사용할 수 있도록 커널이 제공해주는 함수 또는 명령이다. 프로그래밍 언어 별로 시스템 콜을 호출하는 API를 갖는다. 프로그램에서 커널 모드에서만 실행할 수 있는 기능을 사용해야할 경우, API를 통해 시스템 콜을 호출하게 되면 프로그램은 커널에 의">
+<meta property="og:type" content="article">
+<meta property="og:title" content="210302_TIL">
+<meta property="og:url" content="http://yhun940731.github.io/2021/03/02/210302-TIL/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="오늘 배운 것OSkernel컴퓨터 공학에서 말하는 OS는 커널(Kernel)이다. 시스템 콜은 OS의 기능을 사용할 수 있도록 커널이 제공해주는 함수 또는 명령이다. 프로그래밍 언어 별로 시스템 콜을 호출하는 API를 갖는다. 프로그램에서 커널 모드에서만 실행할 수 있는 기능을 사용해야할 경우, API를 통해 시스템 콜을 호출하게 되면 프로그램은 커널에 의">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-02T11:43:57.000Z">
+<meta property="article:modified_time" content="2021-03-02T11:55:08.166Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yhun940731.github.io/2021/03/02/210302-TIL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>210302_TIL | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/03/02/210302-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          210302_TIL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-02 20:43:57 / Modified: 20:55:08" itemprop="dateCreated datePublished" datetime="2021-03-02T20:43:57+09:00">2021-03-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><h3 id="kernel"><a href="#kernel" class="headerlink" title="kernel"></a>kernel</h3><p>컴퓨터 공학에서 말하는 OS는 커널(Kernel)이다.</p>
+<p>시스템 콜은 OS의 기능을 사용할 수 있도록 커널이 제공해주는 함수 또는 명령이다.</p>
+<p>프로그래밍 언어 별로 시스템 콜을 호출하는 API를 갖는다.</p>
+<p>프로그램에서 커널 모드에서만 실행할 수 있는 기능을 사용해야할 경우, API를 통해 시스템 콜을 호출하게 되면 프로그램은 커널에 의해서 커널 모드로 바뀌며 커널만 사용할 수 있는 명령어를 실행 후 사용자 모드로 돌아간다.</p>
+<h3 id="프로세스"><a href="#프로세스" class="headerlink" title="프로세스"></a>프로세스</h3><p>실행 중인 프로그램 = 프로세스</p>
+<p>실행 중인 프로그램은 메모리에 올려진 상태</p>
+<h4 id="Batch-Processing"><a href="#Batch-Processing" class="headerlink" title="Batch Processing"></a>Batch Processing</h4><p>순차적으로 프로그램을 실행한다.</p>
+<p>앞서 실행 중인 프로그램에 시간 소모가 많다면 효율이 떨어진다.</p>
+<h4 id="시분할-시스템-Time-Sharing"><a href="#시분할-시스템-Time-Sharing" class="headerlink" title="시분할 시스템(Time Sharing)"></a>시분할 시스템(Time Sharing)</h4><p>하나의 컴퓨터에서 <strong>다중 사용자 지원</strong>을 위해 CPU를 10ms 단위로 나눠서 각각의 프로세스들을 교체하며 처리한다.</p>
+<h4 id="멀티-태스킹"><a href="#멀티-태스킹" class="headerlink" title="멀티 태스킹"></a>멀티 태스킹</h4><p>개인 사용자가 실시간으로 다중 프로세스들을 동시에 처리하는 것 처럼 보이는 프로세스 스케쥴링 방식이다. (10~20ms 단위로 응용 프로그램을 바꾸며 실행한다.)</p>
+<h4 id="멀티-프로그래밍"><a href="#멀티-프로그래밍" class="headerlink" title="멀티 프로그래밍"></a>멀티 프로그래밍</h4><p>단위 시간 당 응용프로그램을 최대한 많이 실행시키는(최대한 CPU 활용) 프로세스 스케쥴링 기법이다. </p>
+<h4 id="메모리-계층"><a href="#메모리-계층" class="headerlink" title="메모리 계층"></a>메모리 계층</h4><p>Register - Cache - Memory - Disk</p>
+<p>메모리 계층에 따라 데이타 로드에 따른 시간이 다르다.</p>
+<p>Register가 가장 빠르며 HardDisk와 같은 저장매체가 가장 느리다.</p>
+<h4 id="멀티-프로그래밍과-Wait"><a href="#멀티-프로그래밍과-Wait" class="headerlink" title="멀티 프로그래밍과 Wait"></a>멀티 프로그래밍과 Wait</h4><p>위의 메모리 계층에 의해 발생하는 대기 시간에 따라 CPU 활용도를 극대화 하기 위해 사용하는 것이 멀티 프로그래밍 스케쥴링 알고리즘이다.</p>
+<p>Wait: 저장매체의 로드 대기 시간</p>
+<h4 id="멀티-태스킹과-멀티-프로세싱"><a href="#멀티-태스킹과-멀티-프로세싱" class="headerlink" title="멀티 태스킹과 멀티 프로세싱"></a>멀티 태스킹과 멀티 프로세싱</h4><p>멀티 태스킹은 단일 CPU에서 여러 프로세스를 스케쥴링하는 것이다.</p>
+<p>멀티 프로세싱은 여러 CPU가 하나의 프로그램을 병렬 처리하여 실행 속도를 극대화하는 것이다.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OS/" rel="tag"># OS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/19/210219-TIL/" rel="prev" title="210219_TIL">
+      <i class="fa fa-chevron-left"></i> 210219_TIL
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 배운 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OS"><span class="nav-number">1.1.</span> <span class="nav-text">OS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel"><span class="nav-number">1.1.1.</span> <span class="nav-text">kernel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4"><span class="nav-number">1.1.2.</span> <span class="nav-text">프로세스</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Batch-Processing"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Batch Processing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%8B%9C%EB%B6%84%ED%95%A0-%EC%8B%9C%EC%8A%A4%ED%85%9C-Time-Sharing"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">시분할 시스템(Time Sharing)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%80%ED%8B%B0-%ED%83%9C%EC%8A%A4%ED%82%B9"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">멀티 태스킹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%80%ED%8B%B0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">멀티 프로그래밍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%84%EC%B8%B5"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">메모리 계층</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%80%ED%8B%B0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-Wait"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">멀티 프로그래밍과 Wait</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%A9%80%ED%8B%B0-%ED%83%9C%EC%8A%A4%ED%82%B9%EA%B3%BC-%EB%A9%80%ED%8B%B0-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8B%B1"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">멀티 태스킹과 멀티 프로세싱</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
