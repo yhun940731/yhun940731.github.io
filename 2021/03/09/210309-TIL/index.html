@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="오늘 배운 것DBDDL12345678910111213141516171819202122232425# DDL : 데이터 정의어# CREATE, ALTER, DROP# DB와 테이블을 조작create database test;use test;select database();# alter : 데이터 베이스나 테이블 수정show variables like &amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="210309_TIL">
+<meta property="og:url" content="http://yhun940731.github.io/2021/03/09/210309-TIL/index.html">
+<meta property="og:site_name" content="Nyong&#39;s Blog">
+<meta property="og:description" content="오늘 배운 것DBDDL12345678910111213141516171819202122232425# DDL : 데이터 정의어# CREATE, ALTER, DROP# DB와 테이블을 조작create database test;use test;select database();# alter : 데이터 베이스나 테이블 수정show variables like &amp;quot">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-09T07:04:53.000Z">
+<meta property="article:modified_time" content="2021-03-09T07:56:10.374Z">
+<meta property="article:author" content="Nyong Choi">
+<meta property="article:tag" content="DB">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yhun940731.github.io/2021/03/09/210309-TIL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>210309_TIL | Nyong's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nyong's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/03/09/210309-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          210309_TIL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-09 16:04:53 / Modified: 16:56:10" itemprop="dateCreated datePublished" datetime="2021-03-09T16:04:53+09:00">2021-03-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="DB"><a href="#DB" class="headerlink" title="DB"></a>DB</h2><h3 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DDL : 데이터 정의어</span></span><br><span class="line"><span class="comment"># CREATE, ALTER, DROP</span></span><br><span class="line"><span class="comment"># DB와 테이블을 조작</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter : 데이터 베이스나 테이블 수정</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&quot;character_set_database&quot;</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">test</span> <span class="built_in">character</span> <span class="keyword">set</span> = utf8;</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter ADD : 테이블에서 컬럼 추가</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">add</span> age <span class="built_in">int</span>;</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter MODIFY : 테이블에서 컬럼 수정</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">modify</span> age <span class="built_in">char</span>(<span class="number">3</span>);</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># DROP : 데이터 베이스나 테이블 삭제</span></span><br><span class="line"><span class="keyword">truncate</span> money; <span class="comment"># 테이블 초기화</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> money;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> money;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># JOIN : 테이블과 테이블을 결합해서 출력하는 방법</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">user</span> (</span><br><span class="line">	user_id <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">default</span> <span class="literal">null</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> addr (</span><br><span class="line">	addr_id <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    addr <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">    user_id <span class="built_in">int</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">name</span>) <span class="keyword">values</span> (<span class="string">&quot;jin&quot;</span>), (<span class="string">&quot;po&quot;</span>), (<span class="string">&quot;alice&quot;</span>);</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> addr(addr, user_id) <span class="keyword">values</span> (<span class="string">&quot;seoul&quot;</span>, <span class="number">1</span>), (<span class="string">&quot;busan&quot;</span>, <span class="number">2</span>), (<span class="string">&quot;daegu&quot;</span>, <span class="number">4</span>), (<span class="string">&quot;seoul&quot;</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="comment"># INNER JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">join</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LEFT JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">left</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> addr.user_id, user.name, addr.addr <span class="keyword">from</span> addr <span class="keyword">left</span> <span class="keyword">join</span> <span class="keyword">user</span> <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="comment"># RIGHT JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">right</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> addr <span class="keyword">right</span> <span class="keyword">join</span> <span class="keyword">user</span> <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="comment"># world DB에서 국가코드, 도시이름, 국가이름, 국가인구, 도시인구 출력</span></span><br><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"><span class="keyword">select</span> code, city.name <span class="keyword">as</span> city_name, country.name <span class="keyword">as</span> country_name,</span><br><span class="line">	country.population <span class="keyword">as</span> country_pop, city.population <span class="keyword">as</span> city_pop,</span><br><span class="line">	<span class="keyword">round</span>(city.Population/country.population * <span class="number">100</span>, <span class="number">2</span>) <span class="keyword">as</span> rate</span><br><span class="line">    <span class="keyword">from</span> country <span class="keyword">join</span> city <span class="keyword">on</span> country.code = city.CountryCode <span class="keyword">having</span> rate &gt;= <span class="number">20</span> <span class="keyword">order</span> <span class="keyword">by</span> rate <span class="keyword">desc</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 국가별 언어별 사용 인구를 출력</span></span><br><span class="line"><span class="keyword">select</span> country.name, countrylanguage.language, <span class="keyword">round</span>(country.population * countrylanguage.percentage * <span class="number">0.01</span>) <span class="keyword">as</span> lp</span><br><span class="line">	<span class="keyword">from</span> country <span class="keyword">join</span> countrylanguage <span class="keyword">on</span> country.code = countrylanguage.CountryCode;</span><br><span class="line"></span><br><span class="line"><span class="comment"># INNER JOIN 시에 단축할 수 있음</span></span><br><span class="line"><span class="keyword">select</span> country.name, countrylanguage.language, <span class="keyword">round</span>(country.population * countrylanguage.percentage * <span class="number">0.01</span>) <span class="keyword">as</span> lp</span><br><span class="line">	<span class="keyword">from</span> country, countrylanguage <span class="keyword">where</span> country.code = countrylanguage.CountryCode;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 대륙별 사용언어의 수를 출력</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span>(country.continent), <span class="keyword">count</span>(countrylanguage.language)</span><br><span class="line"><span class="keyword">from</span> country <span class="keyword">join</span> countrylanguage <span class="keyword">on</span> country.code = countrylanguage.CountryCode</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> continent;</span><br></pre></td></tr></table></figure>
+
+<h3 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNION : 두개의 쿼리를 실행하고 나온 결과를 합쳐주는 방법</span></span><br><span class="line"><span class="comment"># 중복된 데이터를 제거하여 출력한다</span></span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">union</span> <span class="keyword">all</span> <span class="keyword">select</span> addr <span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr </span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> addr </span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> addr.user_id, user.name, addr.addr </span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">right</span> <span class="keyword">join</span> addr </span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="sub-Query"><a href="#sub-Query" class="headerlink" title="sub Query"></a>sub Query</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sub query : 쿼리안에 쿼리가 있는 문법</span></span><br><span class="line"><span class="comment"># select, from, where</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># select : 전체 나라수, 전체 도시수, 전체 언어수 출력 (한개의 row로)</span></span><br><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> country) <span class="keyword">as</span> total_country,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> city) <span class="keyword">as</span> total_city,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span>(<span class="keyword">language</span>)) <span class="keyword">from</span> countrylanguage) <span class="keyword">as</span> total_language</span><br><span class="line"><span class="keyword">from</span> dual;</span><br><span class="line"></span><br><span class="line"><span class="comment"># FROM : 800만 이상이 되는 도시의 국가코드, 국가이름, 도시이름, 도시인구수 출력</span></span><br><span class="line"><span class="comment"># JOIN만 사용</span></span><br><span class="line"><span class="comment"># join은 테이블 끼리의 join을 먼저 실행하기 때문에 모든 조합을 만들고 조건에 따라 filter함</span></span><br><span class="line"><span class="keyword">select</span> country.code, country.name, city.name, city.population</span><br><span class="line"><span class="keyword">from</span> city <span class="keyword">join</span> country <span class="keyword">on</span> city.countrycode = country.code <span class="keyword">having</span> city.population &gt;= <span class="number">800</span> * <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># sub query 사용</span></span><br><span class="line"><span class="comment"># join과 다르게 처음부터 조건에 맞는 조합만을 만들기 때문에 서브 쿼리문을 잘 활용하면 효율적인 SQL문 작성이 가능하다.</span></span><br><span class="line"><span class="keyword">select</span> country.code, country.name, city.name, city.population</span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> countrycode, <span class="keyword">name</span>, population <span class="keyword">from</span> city <span class="keyword">where</span> population &gt;= <span class="number">800</span> * <span class="number">10000</span>) <span class="keyword">as</span> city</span><br><span class="line"><span class="keyword">join</span> country <span class="keyword">on</span> city.countrycode = country.code <span class="keyword">having</span> city.population &gt;= <span class="number">800</span> * <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># where : 900만 이상의 인구가 있는 도시의 국가코드, 국가이름, 대통령 이름 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, headofstate <span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> code <span class="keyword">in</span> (<span class="keyword">select</span> countrycode <span class="keyword">from</span> city <span class="keyword">where</span> population &gt;= <span class="number">900</span>*<span class="number">10000</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="ANY-ALL"><a href="#ANY-ALL" class="headerlink" title="ANY / ALL"></a>ANY / ALL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ANY(OR) / ALL(AND)</span></span><br><span class="line"><span class="comment"># 한국이나 브라질 보다 인구수가 많은 국가의 국가코드, 국가이름, 인구수 출력</span></span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, population</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> population &gt; <span class="keyword">ANY</span> (</span><br><span class="line">	<span class="keyword">select</span> population <span class="keyword">from</span> country <span class="keyword">where</span> code <span class="keyword">in</span> (<span class="string">&quot;KOR&quot;</span>, <span class="string">&quot;BRA&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DB/" rel="tag"># DB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/05/210305-TIL/" rel="prev" title="210305_TIL">
+      <i class="fa fa-chevron-left"></i> 210305_TIL
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 배운 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DB"><span class="nav-number">1.1.</span> <span class="nav-text">DB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DDL"><span class="nav-number">1.1.1.</span> <span class="nav-text">DDL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JOIN"><span class="nav-number">1.1.2.</span> <span class="nav-text">JOIN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UNION"><span class="nav-number">1.1.3.</span> <span class="nav-text">UNION</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sub-Query"><span class="nav-number">1.1.4.</span> <span class="nav-text">sub Query</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ANY-ALL"><span class="nav-number">1.1.5.</span> <span class="nav-text">ANY &#x2F; ALL</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nyong Choi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nyong Choi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
