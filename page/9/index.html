@@ -176,7 +176,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-21 19:43:06" itemprop="dateModified" datetime="2020-10-21T19:43:06+09:00">2020-10-21</time>
+                <time title="Modified: 2021-05-02 00:47:03" itemprop="dateModified" datetime="2021-05-02T00:47:03+09:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,7 +208,10 @@
 </li>
 <li><p>Layout 배치 시 논리적 순서도 중요하다. 고전적인 <code>&lt;table&gt;&lt;/table&gt;</code> 등을 사용하여 Layout을 배치하지 말자.</p>
 </li>
-<li><h2 id="Layout을-배치할-시-논리적-의미론적으로-문서를-작성하여야-한다"><a href="#Layout을-배치할-시-논리적-의미론적으로-문서를-작성하여야-한다" class="headerlink" title="Layout을 배치할 시 논리적, 의미론적으로 문서를 작성하여야 한다."></a>Layout을 배치할 시 논리적, 의미론적으로 문서를 작성하여야 한다.</h2><img width="50%" alt="naverLogin" src="https://user-images.githubusercontent.com/56425514/96450370-12ae5d00-1251-11eb-9bba-f42ac193bcd6.PNG">
+<li><p>Layout을 배치할 시 논리적, 의미론적으로 문서를 작성하여야 한다.</p>
+<hr>
+<img width="50%" alt="naverLogin" src="https://user-images.githubusercontent.com/56425514/96450370-12ae5d00-1251-11eb-9bba-f42ac193bcd6.PNG">
+
 </li>
 </ul>
 <hr>
@@ -235,8 +238,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<ul>
 <li><p>CSS를 활용할 시 CSS의 종속(Cascading), 상속, 우선순위 등을 알고 사용해야한다.(유지보수, 확장, 직관성 중요)</p>
 </li>
 <li><p><code>&lt;div&gt;&lt;/div&gt;</code>, <code>&lt;a&gt;</code> 등 의미론적이지 않은 태그에 <code>role</code> 속성을 부여하여 의미론적으로 사용하기도 한다.<br>(개인적으로는 최대한 의미론적으로 알맞고 정해진 태그를 사용하는게 좋을 것 같다.)</p>
@@ -337,7 +338,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 15:49:03" itemprop="dateModified" datetime="2020-11-26T15:49:03+09:00">2020-11-26</time>
+                <time title="Modified: 2021-05-02 00:46:49" itemprop="dateModified" datetime="2021-05-02T00:46:49+09:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -369,21 +370,25 @@
 </li>
 </ul>
 <h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>git으로 버전을 관리한다는 뜻으로 숨겨진 로컬 저장소 .git이 생성된다.</li>
 <li>폴더 하나에 하나의 로컬 저장소만 만들 수 있다.</li>
 </ul>
 <h3 id="remote-add"><a href="#remote-add" class="headerlink" title="remote add"></a>remote add</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add &#123;별명&#125; &#123;URL&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>GitHub 저장소 주소를 로컬 저장소에 알려주는 명령어이다.</li>
 </ul>
 <h3 id="add"><a href="#add" class="headerlink" title="add"></a>add</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>git commit</code>으로 묶을 원하는 파일들을 선택하는 과정이다.</li>
 <li><code>git add .</code>일 경우 전체 파일 선택.</li>
 <li><code>git status</code>를 통해 상태 확인.</li>
 </ul>
 <h3 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit &#123;URL&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>commit은 작성,변경한 내용의 덩어리(버전)를 말한다.</li>
 <li><code>git add</code>를 통해 준비한 내용을 버전으로 묶어준다.</li>
@@ -392,18 +397,21 @@
 <li><code>git status</code> / <code>git status</code> 를 통해 상태 확인.</li>
 </ul>
 <h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Hub에 저장된 원경저장소를 받아오는 명령어이다.</li>
 <li>.git 폴더도 자동으로 같이 생긴다.</li>
 <li>명령어 마지막에 .을 입력하면 현재 폴더로 불러온다.</li>
 </ul>
 <h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push &#123;별명&#125; master(main)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>commit 업로드하는 명령어이다.</li>
 <li>add -&gt; commit -&gt; push의 과정을 거친다.</li>
 <li>push는 권한이 있어야함.</li>
 </ul>
 <h3 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>원격저장소에 저장된 새로운 커밋을 받아오는 명령어이다.</li>
 </ul>
@@ -466,7 +474,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-20 11:39:35" itemprop="dateModified" datetime="2020-10-20T11:39:35+09:00">2020-10-20</time>
+                <time title="Modified: 2021-05-02 00:52:49" itemprop="dateModified" datetime="2021-05-02T00:52:49+09:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -493,7 +501,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Hello, there. This is my First post with Hexo.   </p>
+          <p>Hello, there. This is my First post with Hexo.</p>
 
       
     </div>
