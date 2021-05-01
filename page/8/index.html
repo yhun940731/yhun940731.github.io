@@ -1282,7 +1282,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-22 16:47:06" itemprop="dateModified" datetime="2020-11-22T16:47:06+09:00">2020-11-22</time>
+                <time title="Modified: 2021-05-02 00:36:33" itemprop="dateModified" datetime="2021-05-02T00:36:33+09:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1312,7 +1312,7 @@
 
 </li>
 </ul>
-<p>참고: [W3C]](<a target="_blank" rel="noopener" href="https://www.w3.org/">https://www.w3.org/</a>)</p>
+<p>참고: <a target="_blank" rel="noopener" href="https://www.w3.org/">W3C</a></p>
 <ul>
 <li>위 목록을 보면 navigation이 중제목으로 설정된 것을 볼 수 있다.</li>
 <li><code>&lt;nav&gt;</code>태그를 이용할 때는 중제목 하위 요소를 <code>&lt;div&gt;</code>로 묶어준다.</li>
@@ -1324,20 +1324,24 @@
 <h5 id="display-none-display-hidden"><a href="#display-none-display-hidden" class="headerlink" title="display: none, display: hidden"></a><code>display: none</code>, <code>display: hidden</code></h5><ul>
 <li>위 방법은 좋지 않다. 이 속성을 사용할 경우 가시적으로는 차이점이 없으나 개체 자체를 없애거나 숨기기 때문에 의미론적이나 접근성이 좋지 못 하다.(스크린리더 등 보조기능 사용할 시)</li>
 </ul>
-<h5 id="position과-offset-사용"><a href="#position과-offset-사용" class="headerlink" title="position과 offset 사용"></a>position과 offset 사용</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>: -<span class="number">9999px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="position과-offset-사용"><a href="#position과-offset-사용" class="headerlink" title="position과 offset 사용"></a>position과 offset 사용</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">9999px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>위와 같은 방법을 사용하면 스크린리더 등을 사용할 시 정상적인 스크롤 이동과 화면 이동 단계에 지장을 주게된다. -9999px 떨어진 콘텐츠를 찾아 좌표값이 이동하기 때문이다.</li>
 </ul>
 <h5 id="a11y-hidden-사용"><a href="#a11y-hidden-사용" class="headerlink" title=".a11y-hidden 사용"></a>.a11y-hidden 사용</h5><ul>
-<li><p>가장 좋은 방법은 숨겨주는 기능을 부여할 class의 보편적인 네이밍이다. 다른 것으로는 <code>.readable-hidden</code>, <code>offsreen</code> 등으로 쓰인다.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a11y-hidden</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">    <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(<span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>) <span class="comment">/*x, y, z*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>가장 좋은 방법은 숨겨주는 기능을 부여할 class의 보편적인 네이밍이다. 다른 것으로는 <code>.readable-hidden</code>, <code>offsreen</code> 등으로 쓰인다.</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a11y-hidden</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(<span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>, <span class="number">0</span> <span class="number">0</span>); <span class="comment">/*x, y, z*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p><code>width</code>와 <code>height</code>를 최소값으로 주고 <code>overflow: hidden</code> 값을 줘 내부 콘텐츠를 보이지 않게 만들어 주는 것이다.</p>
 </li>
 <li><p><code>width</code>와 <code>height</code>가 1px 인 것은 이유가 있다. 0px일 경우 크기가 없기 때문에 스크린리더 같은 보조 도구가 존재하지 않는 콘텐츠로 넘겨버린다.</p>
 </li>
 <li><p>때문에 1px를 주는 것인데, 이때 문제점은 1px이라도 가시적으로 보일 수 밖에 없다.</p>
 </li>
-<li><p>이것을 위해 <code>clip-path: polygon(0 0, 0 0, 0 0);</code>를 사용한다. <code>clip-path</code>에 대한 이해와 계산을 돕는 페이지는 <a target="_blank" rel="noopener" href="https://bennettfeely.com/clippy/">bennettfeely</a> 과 같다.</p>
+<li><p>이것을 위해 <code>clip-path: polygon(0 0, 0 0, 0 0);</code>를 사용한다. <code>clip-path</code>에 대한 이해와 계산을 돕는 페이지는 <a target="_blank" rel="noopener" href="https://bennettfeely.com/clippy/">bennettfeely</a> 이다.</p>
 </li>
 <li><p>참고로 <code>opacity: 0</code>을 생각할 수 있지만 불행이도 이것 또한 모바일 환경에서 읽혀지지 않는 이슈가 있었다.</p>
 </li>
@@ -1358,25 +1362,27 @@
 <li><p><code>cursor: pointer;</code>속성을 사용하면 <code>:hover</code> 등의 가상 클래스 사용시 마우스 포인터를 바꿔줄 수 있다.</p>
 </li>
 <li><p>윤곽체를 만들고 싶다면 <code>text-shadow</code>를 이용하자!</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>, -<span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>; <span class="comment">/*윤곽체 처럼 보이게 하기*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>, -<span class="number">1px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#000</span>, <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#000</span>; <span class="comment">/*윤곽체 처럼 보이게 하기*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p><code>display: inline-block</code>에서 부모 요소 크기 문제로 block이 수직으로 쌓인다면 <code>white space: nowrap;</code>을 사용해보자!</p>
 </li>
 <li><p>중첩되는 offset 값이 걱정이라면 초기값으로 되돌리는 <code>initial</code> 속성값을 사용해보자.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.offset-initial</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 </li>
 </ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.offset-initial</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="Git-관련"><a href="#Git-관련" class="headerlink" title="Git 관련"></a>Git 관련</h2><ul>
 <li>Git push -f는 코드 변경 이력을 덮어쓴다. 원격 저장소의 변경 이력을 나의 개인적인 변경이력으로 덮어씌우며 되돌릴 수 없다. 개인 프로젝트라면 상관 없지만 협업일 경우 함부로 입력해서는 안 된다.</li>
 </ul>
 <h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
 <li><p>nav바를 포함 박스 콘텐츠를 꾸미고 싶을 때 box-shadow, background로 꾸미면 자연스럽고 예쁘게 꾸밀 수 있다.</p>
 </li>
-<li><p>CSS로 꾸밀 때 그라데이션 효과를 체험해 보고 CSS 적용 코드를 복사해 올 수 있다. [colorzilla]](<a target="_blank" rel="noopener" href="https://www.colorzilla.com/gradient-editor/">https://www.colorzilla.com/gradient-editor/</a>)</p>
+<li><p>CSS로 꾸밀 때 그라데이션 효과를 체험해 보고 CSS 적용 코드를 복사해 올 수 있다. <a target="_blank" rel="noopener" href="https://www.colorzilla.com/gradient-editor/">colorzilla</a></p>
 </li>
-<li><p>[CodePen](<a target="_blank" rel="noopener" href="https://codepen.io/">https://Codepen.io</a> /)에 가면 다양한 코드와 기발한 꾸밈 요소를 볼 수 있다.</p>
+<li><p><a target="_blank" rel="noopener" href="https://codepen.io/">CodePen</a> 에 가면 다양한 코드와 기발한 꾸밈 요소를 볼 수 있다.</p>
 </li>
 </ul>
 <h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
@@ -1440,7 +1446,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-22 16:47:06" itemprop="dateModified" datetime="2020-11-22T16:47:06+09:00">2020-11-22</time>
+                <time title="Modified: 2021-05-02 00:35:05" itemprop="dateModified" datetime="2021-05-02T00:35:05+09:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1464,14 +1470,15 @@
 
       
           <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="가운데-정렬"><a href="#가운데-정렬" class="headerlink" title="가운데 정렬"></a>가운데 정렬</h2><ul>
-<li><p>margin 값을 양쪽에 auto를 줘서 정해진 width값을 가운데로 몰아 넣기(해당 요소에 적용)</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">940px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>flex를 활용한 콘텐츠 가운데 정렬(부모 요소에 적용)</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-flow</span>: column nowrap;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>margin 값을 양쪽에 auto를 줘서 정해진 width값을 가운데로 몰아 넣기(해당 요소에 적용)</li>
 </ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">940px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>flex를 활용한 콘텐츠 가운데 정렬(부모 요소에 적용)</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>: column nowrap;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="BFC-block-Format-context"><a href="#BFC-block-Format-context" class="headerlink" title="BFC(block Format context)"></a>BFC(block Format context)</h2><ul>
 <li><p>블록 박스의 레이아웃이 발생하는 지점과 플로팅 요소의 상호작용 범위를 결정하는 범위.</p>
 </li>
@@ -1485,7 +1492,7 @@
 </li>
 <li><p>개인적으로 BFC는 <code>float</code>이나 <code>position</code>의 특정 속성 값으로 새로운 body 성격의 영역을 만들어줘 부유하거나 위치를 옮기려는 박스 요소의 상태, 재배치할 수 있는 영역 정도로 이해하였다.</p>
 </li>
-<li><p>참고: [BFC]](<a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context">https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context</a>)</p>
+<li><p>참고: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context">BFC</a></p>
 </li>
 </ul>
 <h2 id="float-해제"><a href="#float-해제" class="headerlink" title="float 해제"></a>float 해제</h2><ol>
@@ -1514,7 +1521,8 @@
 <li>부모요소 내부에 <code>clear: both</code> 속성을 품는 <code>div</code>를 첨부하여 float을 해제한다.</li>
 <li>clear를 위한 의미없는 블록이 생기기 때문에 의미론적으로 좋지 않다.</li>
 </ul>
-<h3 id="가상요소를-이용한-clear-속성으로-float-해제"><a href="#가상요소를-이용한-clear-속성으로-float-해제" class="headerlink" title="가상요소를 이용한 clear 속성으로 float 해제"></a>가상요소를 이용한 clear 속성으로 float 해제</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="가상요소를-이용한-clear-속성으로-float-해제"><a href="#가상요소를-이용한-clear-속성으로-float-해제" class="headerlink" title="가상요소를 이용한 clear 속성으로 float 해제"></a>가상요소를 이용한 clear 속성으로 float 해제</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>overflow와 비슷하게 자연스럽게 float을 해제해줌.</li>
 <li>하지만 상위 요소에서 flex 사용 시 콘텐츠로 인식된다.</li>
@@ -1532,8 +1540,11 @@
 </li>
 </ul>
 <h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
-<li><p>HTML에서 font-size를 지정한 뒤 하위 요소에서 font-size를 em / rem단위로 적용하면 전체적인 font-size변경이 필요할 시 html의 font-size만 바꿔 전체에 영향을 줄 수 있어 관리가 용의하다.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    font-size: 1.5rem; //html font-size값에 따라 유동적으로 바뀜</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>HTML에서 font-size를 지정한 뒤 하위 요소에서 font-size를 em / rem단위로 적용하면 전체적인 font-size변경이 필요할 시 html의 font-size만 바꿔 전체에 영향을 줄 수 있어 관리가 용의하다.</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  font-size: 1.5rem; //html font-size값에 따라 유동적으로 바뀜</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p>float된 box끼리 겹치게 되면 box 내부 inline 요소는 영역 밖으로 밀려난다.</p>
 </li>
 <li><p>Reflow가 적게 발생해야 비용이 좋다. -&gt; youtube “gecko reflow visualization” 검색 참고</p>
