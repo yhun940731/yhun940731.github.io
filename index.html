@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-06-17 19:41:30 / Modified: 19:45:44" itemprop="dateCreated datePublished" datetime="2021-06-17T19:41:30+09:00">2021-06-17</time>
+              <time title="Created: 2021-06-17 19:41:30 / Modified: 19:52:22" itemprop="dateCreated datePublished" datetime="2021-06-17T19:41:30+09:00">2021-06-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -209,6 +209,11 @@
 <ul>
 <li>테스트 케이스에 변수가 너무 많았다.</li>
 <li>문제를 잘 읽고 여러가지 예외 사항을 고려하자.</li>
+</ul>
+<h4 id="감탄한-타인의-답"><a href="#감탄한-타인의-답" class="headerlink" title="감탄한 타인의 답"></a>감탄한 타인의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n, lost, reserve</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    n -</span><br><span class="line">    lost.filter(<span class="function">(<span class="params">a</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> b = reserve.find(<span class="function">(<span class="params">r</span>) =&gt;</span> <span class="built_in">Math</span>.abs(r - a) &lt;= <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span> (!b) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      reserve = reserve.filter(<span class="function">(<span class="params">r</span>) =&gt;</span> r !== b);</span><br><span class="line">    &#125;).length</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>자괴감이 든다……………나도 저런 코드를 위해 열심히 열코 즐코..</li>
 </ul>
 <p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
