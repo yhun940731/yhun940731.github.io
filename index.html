@@ -145,6 +145,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/17/210617-TIL-programmers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/17/210617-TIL-programmers/" class="post-title-link" itemprop="url">210617_TIL_programmers</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-06-17 19:41:30 / Modified: 19:45:44" itemprop="dateCreated datePublished" datetime="2021-06-17T19:41:30+09:00">2021-06-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="체육복"><a href="#체육복" class="headerlink" title="체육복"></a>체육복</h3><p>문제 설명</p>
+<p>점심시간에 도둑이 들어, 일부 학생이 체육복을 도난당했습니다. 다행히 여벌 체육복이 있는 학생이 이들에게 체육복을 빌려주려 합니다.<br>학생들의 번호는 체격 순으로 매겨져 있어, 바로 앞번호의 학생이나 바로 뒷번호의 학생에게만 체육복을 빌려줄 수 있습니다.<br>예를 들어, 4번 학생은 3번 학생이나 5번 학생에게만 체육복을 빌려줄 수 있습니다. 체육복이 없으면 수업을 들을 수 없기 때문에 체육복을 적절히 빌려 최대한 많은 학생이 체육수업을 들어야 합니다.</p>
+<p>전체 학생의 수 n,<br>체육복을 도난당한 학생들의 번호가 담긴 배열 lost,<br>여벌의 체육복을 가져온 학생들의 번호가 담긴 배열 reserve가 매개변수로 주어질 때,<br>체육수업을 들을 수 있는 학생의 최댓값을 return 하도록 solution 함수를 작성해주세요.</p>
+<p>제한사항</p>
+<ul>
+<li>전체 학생의 수는 2명 이상 30명 이하입니다.</li>
+<li>체육복을 도난당한 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.</li>
+<li>여벌의 체육복을 가져온 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.</li>
+<li>여벌 체육복이 있는 학생만 다른 학생에게 체육복을 빌려줄 수 있습니다.</li>
+<li>여벌 체육복을 가져온 학생이 체육복을 도난당했을 수 있습니다. 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 다른 학생에게는 체육복을 빌려줄 수 없습니다.</li>
+</ul>
+<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n, lost, reserve</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> students = n - lost.length;</span><br><span class="line"></span><br><span class="line">  lost.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line">  reserve.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; lost.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> idx = reserve.indexOf(lost[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (idx !== <span class="number">-1</span>) &#123;</span><br><span class="line">      students += <span class="number">1</span>;</span><br><span class="line">      lost.splice(i, <span class="number">1</span>);</span><br><span class="line">      reserve.splice(idx, <span class="number">1</span>);</span><br><span class="line">      i--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; lost.length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; reserve.length; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (</span><br><span class="line">        reserve[j] === lost[i] ||</span><br><span class="line">        reserve[j] - <span class="number">1</span> === lost[i] ||</span><br><span class="line">        reserve[j] + <span class="number">1</span> === lost[i]</span><br><span class="line">      ) &#123;</span><br><span class="line">        students += <span class="number">1</span>;</span><br><span class="line">        reserve.splice(j, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> students;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(solution(<span class="number">5</span>, [<span class="number">2</span>, <span class="number">4</span>], [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>])); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>테스트 케이스에 변수가 너무 많았다.</li>
+<li>문제를 잘 읽고 여러가지 예외 사항을 고려하자.</li>
+</ul>
+<p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/16/210616-TIL-programmers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -933,98 +1019,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/03/02/210302-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/02/210302-TIL/" class="post-title-link" itemprop="url">210302_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-02 20:43:57" itemprop="dateCreated datePublished" datetime="2021-03-02T20:43:57+09:00">2021-03-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-02 00:50:43" itemprop="dateModified" datetime="2021-05-02T00:50:43+09:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><h3 id="kernel"><a href="#kernel" class="headerlink" title="kernel"></a>kernel</h3><p>컴퓨터 공학에서 말하는 OS는 커널(Kernel)이다.</p>
-<p>시스템 콜은 OS의 기능을 사용할 수 있도록 커널이 제공해주는 함수 또는 명령이다.</p>
-<p>프로그래밍 언어 별로 시스템 콜을 호출하는 API를 갖는다.</p>
-<p>프로그램에서 커널 모드에서만 실행할 수 있는 기능을 사용해야할 경우, API를 통해 시스템 콜을 호출하게 되면 프로그램은 커널에 의해서 커널 모드로 바뀌며 커널만 사용할 수 있는 명령어를 실행 후 사용자 모드로 돌아간다.</p>
-<h3 id="프로세스"><a href="#프로세스" class="headerlink" title="프로세스"></a>프로세스</h3><p>실행 중인 프로그램 = 프로세스</p>
-<p>실행 중인 프로그램은 메모리에 올려진 상태</p>
-<h4 id="Batch-Processing"><a href="#Batch-Processing" class="headerlink" title="Batch Processing"></a>Batch Processing</h4><p>순차적으로 프로그램을 실행한다.</p>
-<p>앞서 실행 중인 프로그램에 시간 소모가 많다면 효율이 떨어진다.</p>
-<h4 id="시분할-시스템-Time-Sharing"><a href="#시분할-시스템-Time-Sharing" class="headerlink" title="시분할 시스템(Time Sharing)"></a>시분할 시스템(Time Sharing)</h4><p>하나의 컴퓨터에서 <strong>다중 사용자 지원</strong>을 위해 CPU를 10ms 단위로 나눠서 각각의 프로세스들을 교체하며 처리한다.</p>
-<h4 id="멀티-태스킹"><a href="#멀티-태스킹" class="headerlink" title="멀티 태스킹"></a>멀티 태스킹</h4><p>개인 사용자가 실시간으로 다중 프로세스들을 동시에 처리하는 것 처럼 보이는 프로세스 스케쥴링 방식이다. (10~20ms 단위로 응용 프로그램을 바꾸며 실행한다.)</p>
-<h4 id="멀티-프로그래밍"><a href="#멀티-프로그래밍" class="headerlink" title="멀티 프로그래밍"></a>멀티 프로그래밍</h4><p>단위 시간 당 응용프로그램을 최대한 많이 실행시키는(최대한 CPU 활용) 프로세스 스케쥴링 기법이다.</p>
-<h4 id="메모리-계층"><a href="#메모리-계층" class="headerlink" title="메모리 계층"></a>메모리 계층</h4><p>Register - Cache - Memory - Disk</p>
-<p>메모리 계층에 따라 데이타 로드에 따른 시간이 다르다.</p>
-<p>Register가 가장 빠르며 HardDisk와 같은 저장매체가 가장 느리다.</p>
-<h4 id="멀티-프로그래밍과-Wait"><a href="#멀티-프로그래밍과-Wait" class="headerlink" title="멀티 프로그래밍과 Wait"></a>멀티 프로그래밍과 Wait</h4><p>위의 메모리 계층에 의해 발생하는 대기 시간에 따라 CPU 활용도를 극대화 하기 위해 사용하는 것이 멀티 프로그래밍 스케쥴링 알고리즘이다.</p>
-<p>Wait: 저장매체의 로드 대기 시간</p>
-<h4 id="멀티-태스킹과-멀티-프로세싱"><a href="#멀티-태스킹과-멀티-프로세싱" class="headerlink" title="멀티 태스킹과 멀티 프로세싱"></a>멀티 태스킹과 멀티 프로세싱</h4><p>멀티 태스킹은 단일 CPU에서 여러 프로세스를 스케쥴링하는 것이다.</p>
-<p>멀티 프로세싱은 여러 CPU가 하나의 프로그램을 병렬 처리하여 실행 속도를 극대화하는 것이다.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1094,7 +1088,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

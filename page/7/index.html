@@ -145,6 +145,132 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/22/%EC%9B%90%EC%8B%9C%EA%B0%92%EA%B3%BC-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%B9%84%EA%B5%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/22/%EC%9B%90%EC%8B%9C%EA%B0%92%EA%B3%BC-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%B9%84%EA%B5%90/" class="post-title-link" itemprop="url">원시값과 객체의 비교</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-22 20:12:45" itemprop="dateCreated datePublished" datetime="2020-11-22T20:12:45+09:00">2020-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-02 00:51:45" itemprop="dateModified" datetime="2021-05-02T00:51:45+09:00">2021-05-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="원시값과-객체의-비교"><a href="#원시값과-객체의-비교" class="headerlink" title="원시값과 객체의 비교"></a>원시값과 객체의 비교</h2><p>원시 타입과 객체 타입은 크게 세 가지 측면에서 다르다.</p>
+<ol>
+<li>원시 타입의 값은 변경 불가능한 값(immutable value)이다. 객체(참조) 타입의 값은 변경 가능한 값(mutable value)이다.</li>
+<li>원시값을 변수에 할당하면 변수(확보된 메모리 공간)에는 실제 값이 저장된다. 객체를 변수에 할당하면 변수에는 참조값이 저장된다.</li>
+<li>원시값을 갖는 변수를 다른 변수에 할당하면 원본의 원시값이 복사되어 전달된다. 이를 값에 의한 전달(pass by value)이라 한다. 객체를 가리키는 변수를 다른 변수에 할당하면 원본의 참조값이 복사되어 전달된다. 이를 참조에 의한 전달(pass by reference)이라 한다.</li>
+</ol>
+<h2 id="원시값"><a href="#원시값" class="headerlink" title="원시값"></a>원시값</h2><p>원시값은 변경 불가 값, 읽기 전용 값이다. 원시값의 이러한 특성을 불변성(immutability)이라 한다. 때문에 원시값은 데이터의 신뢰성을 보장한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const 키워드를 사용해 선언한 변수는 재할당이 금지된다. 상수는 재할당이 금지된 변수일 뿐이다.</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// const 키워드를 사용해 선언한 변수에 할당한 원시값(상수)은 변경할 수 없다.</span></span><br><span class="line"><span class="comment">// 하지만 const 키워드를 사용해 선언한 변수에 할당한 객체는 변경할 수 있다.</span></span><br><span class="line">o.a = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o); <span class="comment">// &#123;a: 1&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>원시값을 할당한 변수에 새로운 값을 재할당하면 메모리 공간에 저장되어 있는 원시값을 변경하는 것이 아니라 새로운 메모리 공간 확보 후 재할당한 원시값을 저장하고 변수는 새롭게 재할당한 원시값을 가리킨다.</p>
+<p>문자열도 원시값이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;string&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열은 유사 배열이므로 배열과 유사하게 인덱스를 사용해 각 문자에 접근할 수 있다.</span></span><br><span class="line"><span class="comment">// 하지만 문자열은 원시값이므로 변경할 수 없다. 이때 에러가 발생하지 않는다.</span></span><br><span class="line">str[<span class="number">0</span>] = <span class="string">&quot;S&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
+
+<p>변수에 새로운 문자열을 재할당하는 것은 물론 가능하다. 이는 기존 문자열을 변경하는 것이 아니라 새로운 문자열을 새롭게 할당하는 것이기 때문이다.</p>
+<h2 id="객체"><a href="#객체" class="headerlink" title="객체"></a>객체</h2><p>객체는 프로퍼티의 개수가 정해져 있지 않으며, 동적으로 추가되고 삭제할 수 있다. 또한 프로퍼티의 값에도 제약이 없다. 따라서 객체는 원시값과 같이 확보해야 할 메모리 공간의 크기를 사전에 정해 둘 수 없다.<br>객체를 생성하고 프로퍼티에 접근하는 것도 원시값과 비교할 때 비용이 많이 드는 일이다. 따라서 객체는 원시값과는 다른 방식으로 동작하도록 설계되어 있다.</p>
+<h3 id="javascript-객체-관리-방식"><a href="#javascript-객체-관리-방식" class="headerlink" title="javascript 객체 관리 방식"></a>javascript 객체 관리 방식</h3><ul>
+<li><p>자바스크립트 객체는 프로퍼티 키를 인덱스로 사용하는 해시 테이블이라고 생각할 수 있다.</p>
+</li>
+<li><p>자바, C++ 같은 클래스 기반 객체지향 프로그래밍 언어는 사전에 정의된 클래스를 기반으로 객체(인스턴스)를 생성한다. 객체를 생성하기 이전에 이미 프로퍼티와 메서드가 정해져 있으며 그대로 객체를 생성한다. 객체가 생성된 이후에는 프로퍼티를 삭제하거나 추가할 수 없다.</p>
+</li>
+<li><p>자바스크립트는 클래스 없이 객체를 생성할 수 있으며 객체가 생성된 이후라도 동적으로 프로퍼티와 메서드를 추가할 수 있다. 이는 사용하기 매우 편리하지만 성능 면에서는 이론적으로 클래스 기반 객체지향 프로그래밍 언어의 객체보다 생성과 프로퍼티 접근에 비용이 더 많이 드는 비효율적인 방식이다.</p>
+</li>
+<li><p>따라서 V8 자바스크립트 엔진에서는 프로퍼티에 접근하기 위해 동적 탐색(dynamic lookup) 대신 히든 클래스(hidden class)라는 방식을 사용해 C++ 객체의 프로퍼티에 접근하는 정도의 성능을 보장한다. 히든 클래스는 자바와 같이 고정된 객체 레이아웃(클래스)과 유사하게 동작한다.</p>
+</li>
+</ul>
+<p>히든 클래스에는 다음과 같은 특징이 있습니다.</p>
+<ul>
+<li>객체는 반드시 하나의 히든 클래스를 참조한다.</li>
+<li>히든 클래스는 각 프로퍼티에 대해 메모리 오프셋을 가지고 있다.</li>
+<li>동적으로 새로운 프로퍼티가 만들어질 때, 혹은 기존 프로퍼티가 삭제되거나 기존 프로퍼티의 데이터 타입이 바뀔 때는 신규 히든 클래스가 생성되며, 신규 히든 클래스는 기존 프로퍼티에 대한 정보를 유지하면서 추가적으로 새 프로퍼티의 오프셋을 가지게 된다.</li>
+<li>히든 클래스는 프로퍼티에 대해 변경이 발생했을 때 참조해야 하는 히든 클래스에 대한 정보를 갖는다.</li>
+<li>객체에 새로운 프로퍼티가 만들어지면, 현재 참조하고 있는 히든 클래스의 전환 정보를 확인한 후, 현재 프로퍼티에 대한 변경이 전환 정보의 조건과 일치하면, 객체의 참조 히든 클래스를 조건에 명시된 히든 클래스로 변경시킨다.</li>
+</ul>
+<h3 id="변경-가능한-값"><a href="#변경-가능한-값" class="headerlink" title="변경 가능한 값"></a>변경 가능한 값</h3><p>객체(참조) 타입의 값, 즉 객체는 변경 가능한 값(mutable value)이다.<br>객체를 할당한 변수가 기억하는 메모리 주소를 통해 메모리 공간에 접근하면 참조값(reference value)에 접근할 수 있다. 참조값은 생성된 객체가 저장된 메모리 공간의 주소, 그 자체이며 참조값을 통해 실제 객체에 접근한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 할당이 이뤄지는 시점에 객체 리터럴이 해석되고, 그 결과 객체가 생성된다.</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&quot;Lee&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 변수에 저장되어 있는 참조값으로 실제 객체에 접근해서 그 객체를 반환한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: &quot;Lee&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>객체를 할당한 변수의 경우 “변수는 객체를 참조하고 있다” 또는 “변수는 객체를 가리키고(point) 있다”라고 표현한다.</p>
+</li>
+<li><p>객체는 크기가 매우 클 수도 있고, 원시값처럼 크기가 일정하지도 않으며, 프로퍼티 값이 객체일 수도 있어서 복사(deep copy)해서 생성하는 비용이 많이 들기 때문에 메모리의 효율적 소비가 어렵고 성능이 나빠진다. 따라서 메모리를 효율적으로 사용하고 객체를 복사해 생성하는 비용을 절약하여 성능을 향상시키기 위해 객체는 변경 가능한 값으로 설계되어 있다. 메모리 사용의 효율성과 성능을 위해 어느 정도의 구조적인 단점을 감안한 설계라고 할 수 있다.</p>
+</li>
+<li><p>객체는 이러한 구조적 단점에 따른 부작용이 있다. 그것은 원시값과는 다르게 여러 개의 식별자가 하나의 객체를 공유할 수 있다는 것이다.</p>
+</li>
+</ul>
+<p>얕은 복사(shallow copy)와 깊은 복사(deep copy)<br>객체를 프로퍼티 값으로 갖는 객체의 경우 얕은 복사는 한 단계까지만 복사하는 것을 말하고 깊은 복사는 객체에 중첩되어 있는 객체까지 모두 복사하는 것을 말한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: <span class="number">2</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  f() &#123;&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 얕은 복사</span></span><br><span class="line"><span class="keyword">let</span> c = &#123; ...o &#125;; <span class="comment">// &quot;35. 스프레드 문법&quot; 참고</span></span><br><span class="line"><span class="built_in">console</span>.log(o === c); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(o.a === c.a); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 얕은 복사</span></span><br><span class="line">c = <span class="built_in">Object</span>.assign(&#123;&#125;, o);</span><br><span class="line"><span class="built_in">console</span>.log(o === c); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(o.a === c.a); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JSON.parse와 JSON.stringify를 사용한 깊은 복사</span></span><br><span class="line">c = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(o));</span><br><span class="line"><span class="built_in">console</span>.log(o === c); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(o.a === c.a); <span class="comment">// false</span></span><br><span class="line"><span class="comment">// 메서드가 사라진다!</span></span><br><span class="line"><span class="built_in">console</span>.log(c.f); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// lodash의 cloneDeep을 사용한 깊은 복사</span></span><br><span class="line"><span class="comment">// &quot;npm install lodash&quot;로 lodash를 설치한 후, Node.js 환경에서 실행</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&quot;lodash&quot;</span>);</span><br><span class="line"></span><br><span class="line">c = _.cloneDeep(o);</span><br><span class="line"><span class="built_in">console</span>.log(o === c); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(o.a === c.a); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(c.f); <span class="comment">// f</span></span><br></pre></td></tr></table></figure>
+
+<p>얕은 복사와 깊은 복사로 생성된 객체는 원본과는 다른 객체다. 즉, 원본과 복사본은 참조값이 다른 별개의 객체다. 하지만 얕은 복사는 객체에 중첩되어 있는 객체의 경우 참조값을 복사하고 깊은 복사는 객체에 중첩되어 있는 객체까지 모두 복사해서 원시값처럼 완전한 복사본을 만든다는 차이가 있다.</p>
+<p>원본과 사본은 저장된 메모리 주소는 다르지만 동일한 참조값을 갖는다. 다시 말해, 원본과 사본 모두 동일한 객체를 가리킨다. 이것은 하나의 객체를 공유한다는 것을 의미한다. 따라서 어느 한쪽에서 객체를 변경하면 서로 영향을 주고받는다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&quot;Lee&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 참조값을 복사(얕은 복사). copy와 person은 동일한 참조값을 갖는다.</span></span><br><span class="line"><span class="keyword">var</span> copy = person;</span><br><span class="line"></span><br><span class="line"><span class="comment">// copy와 person은 동일한 객체를 참조한다.</span></span><br><span class="line"><span class="built_in">console</span>.log(copy === person); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// copy를 통해 객체를 변경한다.</span></span><br><span class="line">copy.name = <span class="string">&quot;Kim&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person을 통해 객체를 변경한다.</span></span><br><span class="line">person.address = <span class="string">&quot;Seoul&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// copy와 person은 동일한 객체를 가리킨다.</span></span><br><span class="line"><span class="comment">// 따라서 어느 한쪽에서 객체를 변경하면 서로 영향을 주고 받는다.</span></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: &quot;Kim&quot;, address: &quot;Seoul&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(copy); <span class="comment">// &#123;name: &quot;Kim&quot;, address: &quot;Seoul&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>참고 <a target="_blank" rel="noopener" href="https://engineering.linecorp.com/ko/blog/v8-hidden-class/">LINE Engineering</a><br>참고 도서: <cite>모던 자바스크립트 Deep Dive</cite></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/22/%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1505,152 +1631,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2020/11/16/201116-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/16/201116-TIL/" class="post-title-link" itemprop="url">201116_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-16 21:45:53" itemprop="dateCreated datePublished" datetime="2020-11-16T21:45:53+09:00">2020-11-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-02 00:48:32" itemprop="dateModified" datetime="2021-05-02T00:48:32+09:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="JavaScript의-역사"><a href="#JavaScript의-역사" class="headerlink" title="JavaScript의 역사"></a>JavaScript의 역사</h3><ul>
-<li><p>1995년 웹페이지의 보조적인 기능을 수행(웹서버 실행, HTML/CSS 랜더링 등)하기 위한 브라우저에서 동작하는 경량 프로그래밍 언어로 탄생하였다.</p>
-</li>
-<li><p>처음 이름은 ‘모카’에서 ‘라이브스크립트’로 변경했다가 1996년 12월 최종적으로 ‘JavaScript’로 명명되었다.</p>
-</li>
-<li><p>1996년 8월 마이크로소프트의 JScript가 IE 3.0에 탑재되면서 JavaScript와의 표준화에 실패하고 자사 브라우저 사장 점유율 높이려고 치킨게임을 시작했고 이로 인해 크로스 브라우징 이슈가 끝없이 발생했다.</p>
-</li>
-<li><p>1996년 11월 모든 브라우저 정상 작동을 위한 ECMA 인터내셔널에 JavaScript의 표준화를 요청하며 1997년 7월 ECMA-262라는 JavaScript 초판(ECMAScript 1)사양이 완성되었고, 1999년 ECMAScript3, 2009년 ECMAScript5가 HTML5와 함께 출현하며 표준 사양이 되었다.</p>
-</li>
-<li><p>2015년 출시한 ECMAScript 6에는 화살표 함수, 클래스, 모듈 같은 범용 프로그래밍 언어에 적합한 기능들이 추가되며 큰 변화가 생겼다.</p>
-</li>
-<li><p>현재 JavaScript는 모든 브라우저의 표준 프로그래밍 언어가 되었다.</p>
-</li>
-<li><p>ECMAScript 2020가 현재 표준 사양이다. javaScript에 대한 표준이다. 브라우저에서 지원하는 alert() 같은 함수는 포함되지 않는 브라우저 node.js에서 모두 동작하는 순수한 엔진에 대한 표준이다.</p>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.ecma-international.org/ecma-262/11.0/index.html#sec-intro">ECMAScript 2020 사양</a></p>
-<h3 id="Ajax-등장"><a href="#Ajax-등장" class="headerlink" title="Ajax 등장"></a>Ajax 등장</h3><ul>
-<li><p>1999년, 자바스크립트를 이용해 서버와 브라우저가 비동기(asynchronous) 방식으로 데이터를 교환할 수 있는 통신 기능인 Ajax(Asynchronous Javascript And XML)가 등장했다.</p>
-</li>
-<li><p>비동기통신 발명 이전에는 완전한 HTML 코드 자체를 서버로부터 받아 웹페이지 전체를 랜더링하고 이후 화면 전환이 필요하면 다시 완전한 HTML 코드 자체를 받아 웹페이지 전체를 새로 랜더링했다.</p>
-</li>
-<li><p>위와 같은 방식으로 랜더링을 하게 되면 변경할 필요가 없는 부분까지 전송 받아 다시 랜더링했기 때문에 불필요한 데이터 통신이 발생하였고 이로 인해 화면 전환 시 화면이 깜빡거리는 현상이 발생한다. 하지만 이는 어쩔 수 없는 웹페이지의 한계로 받아들여졌었다.</p>
-</li>
-<li><p>Ajax는 웹페이지에서 화면전환이 필요한 부분만 서버로부터 받아 부분만 랜더링하는 방식이다. 이로서 빠른 성능과 부드러운 화면 전환이 가능해졌다.</p>
-</li>
-</ul>
-<h3 id="V8-JavaScript-엔진"><a href="#V8-JavaScript-엔진" class="headerlink" title="V8 JavaScript 엔진"></a>V8 JavaScript 엔진</h3><ul>
-<li>2008년 웹 애플리케이션을 구축하려는 요구에 부합하는 빠른 성능을 가진 구글의 V8 JavaScript 엔진이 등장했다.</li>
-<li>V8 엔진은 JavaScript로 데스크톱 애플리케이션과 유사한 UX를 제공할 수 있는 가능성을 보여주며 웹 애플리케이션 프로그래밍 언어로 정착하였다.</li>
-</ul>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><ul>
-<li>node.js는 2009년 브라우저의 JavaScript 엔진에서만 동작하던 JavaScript 이외의 환경에서도 동작할 수 있도록 독립시킨 JavaScript 실행 환경이다.</li>
-<li>JavaScript는 Node.js를 통해 서버 사이드 애플리케이션 개발에서도 사용할 수 있는 범용 프로그래밍 언어가 되었다. JavaScript는 프런트엔드 영역은 물론 백엔드 영역까지 아우르는 웹 프로그래밍 언어의 표준으로 자리 잡고 있다.</li>
-</ul>
-<h3 id="SPA-Single-Page-Application"><a href="#SPA-Single-Page-Application" class="headerlink" title="SPA (Single Page Application)"></a>SPA (Single Page Application)</h3><ul>
-<li>SPA는 한번의 전체 페이지 로드 이후에는 데이터 요청만으로 부분을 변경하여 사용하는 Application을 뜻한다.</li>
-<li>언뜻보면 Ajax 같은 비동기 방식과의 다른점을 찾아 볼 수 없지만 ‘라우팅’이란 개념으로 다르게 된다. 기존 Ajax의 경우 화면을 구성해도 동일한 페이지에서 구성했기 때문에 히스토리가 남지 않고 뒤로가기나 해당 페이지 즐겨찾기가 불가능하다. 하지만 ‘라우팅’을 이용하는 SPA는 <code>index#menu1#submenu1</code> 같이 해쉬태그와 해쉬값에 맞는 페이지를 실행하기 때문에 한페이지 내에서 여러 페이지 구성이 가능하다.</li>
-<li>SPA가 대중화되면서 Angular, React, Vue.js, Svelte 등 다양한 SPA 프레임워크/라이브러리가 많이 사용되고 있다.</li>
-<li>하지만 초기 구동 속도가 상대적으로 느리며 SEO(검색최적화)에 취약한 것이 단점이다.</li>
-</ul>
-<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><h3 id="interpreter-vs-compile"><a href="#interpreter-vs-compile" class="headerlink" title="interpreter vs compile"></a>interpreter vs compile</h3><ul>
-<li>프로그래밍 언어에는 interpreter 언어와 compile 언어가 있다.</li>
-<li>참고로 자바스크립트 엔진은 원래 interpreter 언어지만 일부 소스 코드는 컴파일하고 실행한다. 두 언어의 장점을 결합해 비교적 처리 속도가 느린 인터프리터의 단점을 해결했다.</li>
-<li>현재는 컴파일러와 인터프리터의 기술적 구분이 점차 모호해져 가는 추세다.</li>
-</ul>
-<h4 id="interpreter"><a href="#interpreter" class="headerlink" title="interpreter"></a>interpreter</h4><ul>
-<li>interpreter 언어는 코드가 실행되는 단계인 런타임에 문 단위로 바이트코드(가상 머신에서 실행하도록 만드는 바이너리 코드)로 변환 후 실행한다.</li>
-<li>위와 같은 이유로 실행 파일이 생성되지 않는다. 때문에 코드가 실행될 때마다 인터프리트 과정이 반복 수행된다.</li>
-<li>언어 특징 때문에 실행 중 에러 발생 시 더 이상 실행이 이뤄지지 않는다.</li>
-<li>구문에 대한 해석과 실행이 동시에 이뤄지기 때문에 별도의 실행파일이 존재하지 않는다.</li>
-<li>컴파일이 없기 때문에 신속하게 동작한다.</li>
-<li>대표적으로 HTML, CSS, JavaScript, Python 등이 있다.</li>
-</ul>
-<h4 id="compile"><a href="#compile" class="headerlink" title="compile"></a>compile</h4><ul>
-<li>compile 언어는 interpreter 언어와 다르게 소스코드를 전부 해석하고 수집한 후 머신 코드(CPU가 바로 실행할 수 있는 기계어)로 재구성하여 실행한다.</li>
-<li>실행 파일이 생성된다. 때문에 컴파일은 실행에 앞서 단 한번만 수행된다.</li>
-<li>전체 코드를 변환 후 에러를 보고한다. 이렇기 때문에 보안측에서는 interpreter 언어보다 취약하다.</li>
-<li>컴파일 언어는 한번 컴파일하게 되면 실행 파일이 생성되며 실행파일은 interpreter 언어보다 빠르다.</li>
-<li>대표적으로 C, C++, JAVA 등이 있다.</li>
-</ul>
-<h3 id="픽셀-절대-단위일까-상대-단위일까"><a href="#픽셀-절대-단위일까-상대-단위일까" class="headerlink" title="픽셀 절대 단위일까, 상대 단위일까?"></a>픽셀 절대 단위일까, 상대 단위일까?</h3><ul>
-<li>픽셀은 viewport에서 표현 가능한 최소 단위이다. 픽셀은 그렇다면 절대 단위인가?</li>
-<li>하지만 같은 최대 해상도(픽셀 수가 척도인 출력 정도)를 가진 다른 크기의 디바이스 1px의 값의 절대적인 수치는 다르다. 다르게 말하면 픽셀은 디바이스 해상도에 따라 상대적인 크기를 갖는다.</li>
-<li>1픽셀은 모든 디바이스에서 1픽셀이지만 디바이스마다 갖는 1픽셀의 크기는 다르다.</li>
-<li>모니터의 1px과 빔프로젝트로 보는 1px을 생각하면 감이 잡힐지 모른다. 모니터에서 10px 크기의 상자와 모니터와 연결된 빔프로젝트로 보는 10px 크기의 상자는 분명 다를 것이다.</li>
-<li>위처럼 디바이스 별로 픽셀의 크기는 제각각이기 때문에 픽셀을 기준으로 하는 단위는 명확하지 않다. 따라서 대부분의 브라우저는 1px을 1/96 인치의 절대단위로 인식한다.</li>
-</ul>
-<h1 id="오늘-느낀-것"><a href="#오늘-느낀-것" class="headerlink" title="오늘 느낀 것"></a>오늘 느낀 것</h1><ul>
-<li>사상누각 되지 말자. 모든 것은 기본기가 탄탄해야한다. 결과만 보고 달리다가 기본기를 잃으면 무너지는 것은 시간 문제다.</li>
-<li>그런 의미로 오늘은 개론을 공부했다.</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1720,7 +1700,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
