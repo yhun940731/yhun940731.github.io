@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"yhun940731.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="오늘 한 것공부한 javaScript 코딩 문제예산문제 설명 S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다. 그러나, 전체 예산이 정해져 있기 때문에 모든 부서의 물품을 구매해 줄 수는 없습니다. 그래서 최대한 많은 부서의 물품을 구매해 줄 수 있도록 하려고 합니다. 물품을 구매해 줄 때는 각 부">
+  <meta name="description" content="오늘 한 것Git Issue Render 컴포넌트 진행git API를 가져와서 렌더하는 페이지를 만들고 있다. 처음에는 바닐라로 시작했지만 오늘 typeScript로 바꿨다.template을 지정하지 않고 CRA를 생성했기 때문에 npm install --save typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom">
 <meta property="og:type" content="article">
 <meta property="og:title" content="210622_TIL">
 <meta property="og:url" content="http://yhun940731.github.io/2021/06/22/210622-TIL/index.html">
 <meta property="og:site_name" content="Nyong&#39;s Blog">
-<meta property="og:description" content="오늘 한 것공부한 javaScript 코딩 문제예산문제 설명 S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다. 그러나, 전체 예산이 정해져 있기 때문에 모든 부서의 물품을 구매해 줄 수는 없습니다. 그래서 최대한 많은 부서의 물품을 구매해 줄 수 있도록 하려고 합니다. 물품을 구매해 줄 때는 각 부">
+<meta property="og:description" content="오늘 한 것Git Issue Render 컴포넌트 진행git API를 가져와서 렌더하는 페이지를 만들고 있다. 처음에는 바닐라로 시작했지만 오늘 typeScript로 바꿨다.template을 지정하지 않고 CRA를 생성했기 때문에 npm install --save typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-21T15:33:22.000Z">
-<meta property="article:modified_time" content="2021-06-21T16:05:59.702Z">
+<meta property="article:modified_time" content="2021-06-21T18:06:50.382Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="typeScript">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yhun940731.github.io/2021/06/22/210622-TIL/">
@@ -176,7 +178,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-06-22 00:33:22 / Modified: 01:05:59" itemprop="dateCreated datePublished" datetime="2021-06-22T00:33:22+09:00">2021-06-22</time>
+              <time title="Created: 2021-06-22 00:33:22 / Modified: 03:06:50" itemprop="dateCreated datePublished" datetime="2021-06-22T00:33:22+09:00">2021-06-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -184,11 +186,19 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                  <a href="/categories/React/typeScript/" itemprop="url" rel="index"><span itemprop="name">typeScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/typeScript/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/typeScript/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -203,7 +213,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="예산"><a href="#예산" class="headerlink" title="예산"></a>예산</h3><p>문제 설명</p>
+        <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="Git-Issue-Render-컴포넌트-진행"><a href="#Git-Issue-Render-컴포넌트-진행" class="headerlink" title="Git Issue Render 컴포넌트 진행"></a>Git Issue Render 컴포넌트 진행</h2><p>git API를 가져와서 렌더하는 페이지를 만들고 있다. 처음에는 바닐라로 시작했지만 오늘 typeScript로 바꿨다.<br>template을 지정하지 않고 CRA를 생성했기 때문에 <code>npm install --save typescript @types/node @types/react @types/react-dom @types/jest</code>로 npm 설치 후 진행하였다.</p>
+<h3 id="typeScript-Generic"><a href="#typeScript-Generic" class="headerlink" title="typeScript Generic"></a>typeScript Generic</h3><p><code>tsconfig.json</code>로 수정하고 기존 만든 바닐라 js를 타입 지정하며 ts로 변환 중에, 바닐라 때 만들었던 <code>useFectDate</code> 커스텀 훅이 가장 말썽이었어서 기록한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> STATUS = &#123;</span><br><span class="line">  idle: <span class="string">&quot;idle&quot;</span>,</span><br><span class="line">  pending: <span class="string">&quot;pending&quot;</span>,</span><br><span class="line">  resolved: <span class="string">&quot;resolved&quot;</span>,</span><br><span class="line">  rejected: <span class="string">&quot;rejected&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; idle, pending, resolved, rejected &#125; = STATUS;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">useFetchData</span>(<span class="params">api</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [status, setStatus] = useState(idle);</span><br><span class="line">  <span class="keyword">const</span> [error, setError] = useState(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> [data, setData] = useState(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setStatus(idle);</span><br><span class="line">    setError(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> fetchData = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">      setStatus(pending);</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(api);</span><br><span class="line">        <span class="keyword">const</span> json = <span class="keyword">await</span> response.json();</span><br><span class="line">        setStatus(resolved);</span><br><span class="line">        setData(json);</span><br><span class="line">        <span class="built_in">console</span>.log(json);</span><br><span class="line">      &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        setStatus(rejected);</span><br><span class="line">        setError(error);</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    fetchData(api);</span><br><span class="line">  &#125;, [api]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [status, error, data];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>본래 js에서 이 커스텀 훅은 api를 통해 결과를 반환하는 훅이다.</li>
+<li>다양한 api 통신에서 사용하기 위해 만들었으며 당연히 반환값 인수로 주어지는 api에 따라 다르다.</li>
+</ul>
+<p>typeScript로 변환하는 과정에서 제일 문제였던 부분은 반환값이 api에 따라 다르다는 것이다.<br>간만에 ts를 사용하다 보니까 우왕좌왕하며 커스텀 훅을 반환 결과에 따라 만들어야되나 고민 중 Generic이 생각나서 해결할 수 있었다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; error &#125; <span class="keyword">from</span> <span class="string">&quot;constant/type&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> STATUS = &#123;</span><br><span class="line">  idle: <span class="string">&quot;idle&quot;</span>,</span><br><span class="line">  pending: <span class="string">&quot;pending&quot;</span>,</span><br><span class="line">  resolved: <span class="string">&quot;resolved&quot;</span>,</span><br><span class="line">  rejected: <span class="string">&quot;rejected&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; idle, pending, resolved, rejected &#125; = STATUS;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">useFetchData</span>&lt;<span class="title">T</span>&gt;&gt;(<span class="params">api: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [status, setStatus] = useState&lt;<span class="built_in">string</span>&gt;(idle);</span><br><span class="line">  <span class="keyword">const</span> [error, setError] = useState&lt;error | <span class="literal">null</span>&gt;(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> [data, setData] = useState&lt;T | <span class="literal">null</span>&gt;(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setStatus(idle);</span><br><span class="line">    setError(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> fetchData = <span class="keyword">async</span> (api: <span class="built_in">string</span>) =&gt; &#123;</span><br><span class="line">      setStatus(pending);</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(api);</span><br><span class="line">        <span class="keyword">const</span> json = <span class="keyword">await</span> response.json();</span><br><span class="line">        setStatus(resolved);</span><br><span class="line">        setData(json);</span><br><span class="line">        <span class="built_in">console</span>.log(json);</span><br><span class="line">      &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        setStatus(rejected);</span><br><span class="line">        setError(error);</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    fetchData(api);</span><br><span class="line">  &#125;, [api]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [status, error, data] <span class="keyword">as</span> [<span class="built_in">string</span>, error | <span class="literal">null</span>, T | <span class="literal">null</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>또한 <code>FetchData()</code>에서 js에서는 가변인자 함수로 사용했지만 typeScript는 가변인자 함수가 불가능한 것 같다.</li>
+<li>간만에 typeScript를 사용하니까 다시 헷갈린다. 꾸준히 하자 꾸준히!</li>
+</ul>
+<h2 id="코딩-테스트-연습"><a href="#코딩-테스트-연습" class="headerlink" title="코딩 테스트 연습"></a>코딩 테스트 연습</h2><h3 id="예산"><a href="#예산" class="headerlink" title="예산"></a>예산</h3><p>문제 설명</p>
 <p>S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다. 그러나, 전체 예산이 정해져 있기 때문에 모든 부서의 물품을 구매해 줄 수는 없습니다. 그래서 최대한 많은 부서의 물품을 구매해 줄 수 있도록 하려고 합니다.</p>
 <p>물품을 구매해 줄 때는 각 부서가 신청한 금액만큼을 모두 지원해 줘야 합니다. 예를 들어 1,000원을 신청한 부서에는 정확히 1,000원을 지원해야 하며, 1,000원보다 적은 금액을 지원해 줄 수는 없습니다.</p>
 <p>부서별로 신청한 금액이 들어있는 배열 d와 예산 budget이 매개변수로 주어질 때, 최대 몇 개의 부서에 물품을 지원할 수 있는지 return 하도록 solution 함수를 완성해주세요.</p>
@@ -231,6 +256,8 @@
           <div class="post-tags">
               <a href="/tags/javaScript/" rel="tag"># javaScript</a>
               <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/typeScript/" rel="tag"># typeScript</a>
+              <a href="/tags/React/" rel="tag"># React</a>
           </div>
 
         
@@ -301,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B3%B5%EB%B6%80%ED%95%9C-javaScript-%EC%BD%94%EB%94%A9-%EB%AC%B8%EC%A0%9C"><span class="nav-number">1.1.</span> <span class="nav-text">공부한 javaScript 코딩 문제</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%98%88%EC%82%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">예산</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%82%98%EC%9D%98-%EB%8B%B5"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">나의 답</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%98%A4%EB%8A%98-%ED%95%9C-%EA%B2%83"><span class="nav-number">1.</span> <span class="nav-text">오늘 한 것</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Issue-Render-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%A7%84%ED%96%89"><span class="nav-number">1.1.</span> <span class="nav-text">Git Issue Render 컴포넌트 진행</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typeScript-Generic"><span class="nav-number">1.1.1.</span> <span class="nav-text">typeScript Generic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%97%B0%EC%8A%B5"><span class="nav-number">1.2.</span> <span class="nav-text">코딩 테스트 연습</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%98%88%EC%82%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">예산</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%82%98%EC%9D%98-%EB%8B%B5"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">나의 답</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -320,7 +347,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
