@@ -145,7 +145,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/21/210621-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/22/210622-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -159,7 +159,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/21/210621-TIL-programmers/" class="post-title-link" itemprop="url">210621_TIL_programmers</a>
+            <a href="/2021/06/22/210622-TIL/" class="post-title-link" itemprop="url">210622_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-06-21 21:20:01 / Modified: 22:04:00" itemprop="dateCreated datePublished" datetime="2021-06-21T21:20:01+09:00">2021-06-21</time>
+              <time title="Created: 2021-06-22 00:33:22 / Modified: 01:05:59" itemprop="dateCreated datePublished" datetime="2021-06-22T00:33:22+09:00">2021-06-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -179,6 +179,104 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="예산"><a href="#예산" class="headerlink" title="예산"></a>예산</h3><p>문제 설명</p>
+<p>S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다. 그러나, 전체 예산이 정해져 있기 때문에 모든 부서의 물품을 구매해 줄 수는 없습니다. 그래서 최대한 많은 부서의 물품을 구매해 줄 수 있도록 하려고 합니다.</p>
+<p>물품을 구매해 줄 때는 각 부서가 신청한 금액만큼을 모두 지원해 줘야 합니다. 예를 들어 1,000원을 신청한 부서에는 정확히 1,000원을 지원해야 하며, 1,000원보다 적은 금액을 지원해 줄 수는 없습니다.</p>
+<p>부서별로 신청한 금액이 들어있는 배열 d와 예산 budget이 매개변수로 주어질 때, 최대 몇 개의 부서에 물품을 지원할 수 있는지 return 하도록 solution 함수를 완성해주세요.</p>
+<p>제한사항</p>
+<ul>
+<li>d는 부서별로 신청한 금액이 들어있는 배열이며, 길이(전체 부서의 개수)는 1 이상 100 이하입니다.</li>
+<li>d의 각 원소는 부서별로 신청한 금액을 나타내며, 부서별 신청 금액은 1 이상 100,000 이하의 자연수입니다.</li>
+<li>budget은 예산을 나타내며, 1 이상 10,000,000 이하의 자연수입니다.</li>
+</ul>
+<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for문 사용</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solutionFor</span>(<span class="params">d, budget</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  d.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (cnt = <span class="number">0</span>; cnt &lt; d.length; cnt++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (budget - sum &gt;= d[cnt]) &#123;</span><br><span class="line">      sum += d[cnt];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">return</span> cnt;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.reduce 사용</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solutionReduce</span>(<span class="params">d, budget</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> cnt = <span class="number">0</span>;</span><br><span class="line">  d.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b).reduce(<span class="function">(<span class="params">acc, cur</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (budget - acc &gt;= cur) &#123;</span><br><span class="line">      cnt++;</span><br><span class="line">      <span class="keyword">return</span> acc + cur;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> acc;</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.filter 사용</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solutionFilter</span>(<span class="params">d, budget</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line">    .sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b)</span><br><span class="line">    .filter(<span class="function">(<span class="params">v</span>) =&gt;</span> (budget - v &gt;= <span class="number">0</span> ? ((budget -= v), <span class="literal">true</span>) : <span class="literal">false</span>)).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(solutionFor([<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>], <span class="number">9</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(solutionReduce([<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>], <span class="number">9</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(solutionFilter([<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>], <span class="number">9</span>)); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>가볍게 풀만한 문제</li>
+</ul>
+<p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/21/210621-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/21/210621-TIL/" class="post-title-link" itemprop="url">210621_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-21 21:20:01" itemprop="dateCreated datePublished" datetime="2021-06-21T21:20:01+09:00">2021-06-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 00:59:21" itemprop="dateModified" datetime="2021-06-22T00:59:21+09:00">2021-06-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -255,7 +353,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/20/210620-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/20/210620-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -269,7 +367,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/20/210620-TIL-programmers/" class="post-title-link" itemprop="url">210620_TIL_programmers</a>
+            <a href="/2021/06/20/210620-TIL/" class="post-title-link" itemprop="url">210620_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -278,10 +376,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-06-20 20:25:18 / Modified: 20:27:03" itemprop="dateCreated datePublished" datetime="2021-06-20T20:25:18+09:00">2021-06-20</time>
+              <time title="Created: 2021-06-20 20:25:18" itemprop="dateCreated datePublished" datetime="2021-06-20T20:25:18+09:00">2021-06-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 00:59:49" itemprop="dateModified" datetime="2021-06-22T00:59:49+09:00">2021-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -289,6 +393,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -336,7 +444,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/17/210617-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/17/210617-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -350,7 +458,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/17/210617-TIL-programmers/" class="post-title-link" itemprop="url">210617_TIL_programmers</a>
+            <a href="/2021/06/17/210617-TIL/" class="post-title-link" itemprop="url">210617_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -359,10 +467,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-06-17 19:41:30 / Modified: 20:44:35" itemprop="dateCreated datePublished" datetime="2021-06-17T19:41:30+09:00">2021-06-17</time>
+              <time title="Created: 2021-06-17 19:41:30" itemprop="dateCreated datePublished" datetime="2021-06-17T19:41:30+09:00">2021-06-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 01:00:13" itemprop="dateModified" datetime="2021-06-22T01:00:13+09:00">2021-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -370,6 +484,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -456,7 +574,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/16/210616-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/16/210616-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -470,7 +588,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/16/210616-TIL-programmers/" class="post-title-link" itemprop="url">210616_TIL_programmers</a>
+            <a href="/2021/06/16/210616-TIL/" class="post-title-link" itemprop="url">210616_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -479,10 +597,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-06-16 19:21:37 / Modified: 19:33:17" itemprop="dateCreated datePublished" datetime="2021-06-16T19:21:37+09:00">2021-06-16</time>
+              <time title="Created: 2021-06-16 19:21:37" itemprop="dateCreated datePublished" datetime="2021-06-16T19:21:37+09:00">2021-06-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 01:00:24" itemprop="dateModified" datetime="2021-06-22T01:00:24+09:00">2021-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -490,6 +614,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -540,7 +668,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/14/210614-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/14/210614-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -554,7 +682,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/14/210614-TIL-programmers/" class="post-title-link" itemprop="url">210614_TIL_programmers</a>
+            <a href="/2021/06/14/210614-TIL/" class="post-title-link" itemprop="url">210614_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -563,10 +691,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-06-14 17:12:53 / Modified: 17:45:22" itemprop="dateCreated datePublished" datetime="2021-06-14T17:12:53+09:00">2021-06-14</time>
+              <time title="Created: 2021-06-14 17:12:53" itemprop="dateCreated datePublished" datetime="2021-06-14T17:12:53+09:00">2021-06-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 01:00:36" itemprop="dateModified" datetime="2021-06-22T01:00:36+09:00">2021-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -574,6 +708,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -637,7 +775,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/05/210505-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/05/210505-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -651,7 +789,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/05/210505-TIL-programmers/" class="post-title-link" itemprop="url">210505_TIL_programmers</a>
+            <a href="/2021/05/05/210505-TIL/" class="post-title-link" itemprop="url">210505_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -660,10 +798,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-05-05 18:24:24 / Modified: 18:29:37" itemprop="dateCreated datePublished" datetime="2021-05-05T18:24:24+09:00">2021-05-05</time>
+              <time title="Created: 2021-05-05 18:24:24" itemprop="dateCreated datePublished" datetime="2021-05-05T18:24:24+09:00">2021-05-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 01:00:48" itemprop="dateModified" datetime="2021-06-22T01:00:48+09:00">2021-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -671,6 +815,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -726,7 +874,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/04/210504-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/04/210504-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -740,7 +888,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/04/210504-TIL-programmers/" class="post-title-link" itemprop="url">210504_TIL_programmers</a>
+            <a href="/2021/05/04/210504-TIL/" class="post-title-link" itemprop="url">210504_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -749,10 +897,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-05-04 15:21:48 / Modified: 16:07:43" itemprop="dateCreated datePublished" datetime="2021-05-04T15:21:48+09:00">2021-05-04</time>
+              <time title="Created: 2021-05-04 15:21:48" itemprop="dateCreated datePublished" datetime="2021-05-04T15:21:48+09:00">2021-05-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 01:01:00" itemprop="dateModified" datetime="2021-06-22T01:01:00+09:00">2021-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -760,6 +914,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -838,7 +996,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/02/210502-TIL-programmers/">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/02/210502-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -852,7 +1010,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/02/210502-TIL-programmers/" class="post-title-link" itemprop="url">210502_TIL_programmers</a>
+            <a href="/2021/05/02/210502-TIL/" class="post-title-link" itemprop="url">210502_TIL</a>
         </h2>
 
         <div class="post-meta">
@@ -861,10 +1019,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-05-02 00:30:24 / Modified: 00:50:56" itemprop="dateCreated datePublished" datetime="2021-05-02T00:30:24+09:00">2021-05-02</time>
+              <time title="Created: 2021-05-02 00:30:24" itemprop="dateCreated datePublished" datetime="2021-05-02T00:30:24+09:00">2021-05-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 01:01:10" itemprop="dateModified" datetime="2021-06-22T01:01:10+09:00">2021-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -872,6 +1036,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
                 </span>
             </span>
 
@@ -1008,94 +1176,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/03/09/210309-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/09/210309-TIL/" class="post-title-link" itemprop="url">210309_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-09 16:04:53" itemprop="dateCreated datePublished" datetime="2021-03-09T16:04:53+09:00">2021-03-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-02 00:50:51" itemprop="dateModified" datetime="2021-05-02T00:50:51+09:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="DB"><a href="#DB" class="headerlink" title="DB"></a>DB</h2><h3 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DDL : 데이터 정의어</span></span><br><span class="line"><span class="comment"># CREATE, ALTER, DROP</span></span><br><span class="line"><span class="comment"># DB와 테이블을 조작</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter : 데이터 베이스나 테이블 수정</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&quot;character_set_database&quot;</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">test</span> <span class="built_in">character</span> <span class="keyword">set</span> = utf8;</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter ADD : 테이블에서 컬럼 추가</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">add</span> age <span class="built_in">int</span>;</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter MODIFY : 테이블에서 컬럼 수정</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">modify</span> age <span class="built_in">char</span>(<span class="number">3</span>);</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># DROP : 데이터 베이스나 테이블 삭제</span></span><br><span class="line"><span class="keyword">truncate</span> money; <span class="comment"># 테이블 초기화</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> money;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> money;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># JOIN : 테이블과 테이블을 결합해서 출력하는 방법</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">user</span> (</span><br><span class="line">	user_id <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">default</span> <span class="literal">null</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> addr (</span><br><span class="line">	addr_id <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    addr <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">    user_id <span class="built_in">int</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">name</span>) <span class="keyword">values</span> (<span class="string">&quot;jin&quot;</span>), (<span class="string">&quot;po&quot;</span>), (<span class="string">&quot;alice&quot;</span>);</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> addr(addr, user_id) <span class="keyword">values</span> (<span class="string">&quot;seoul&quot;</span>, <span class="number">1</span>), (<span class="string">&quot;busan&quot;</span>, <span class="number">2</span>), (<span class="string">&quot;daegu&quot;</span>, <span class="number">4</span>), (<span class="string">&quot;seoul&quot;</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="comment"># INNER JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">join</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LEFT JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">left</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> addr.user_id, user.name, addr.addr <span class="keyword">from</span> addr <span class="keyword">left</span> <span class="keyword">join</span> <span class="keyword">user</span> <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="comment"># RIGHT JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">right</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> addr <span class="keyword">right</span> <span class="keyword">join</span> <span class="keyword">user</span> <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="comment"># world DB에서 국가코드, 도시이름, 국가이름, 국가인구, 도시인구 출력</span></span><br><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"><span class="keyword">select</span> code, city.name <span class="keyword">as</span> city_name, country.name <span class="keyword">as</span> country_name,</span><br><span class="line">	country.population <span class="keyword">as</span> country_pop, city.population <span class="keyword">as</span> city_pop,</span><br><span class="line">	<span class="keyword">round</span>(city.Population/country.population * <span class="number">100</span>, <span class="number">2</span>) <span class="keyword">as</span> rate</span><br><span class="line">    <span class="keyword">from</span> country <span class="keyword">join</span> city <span class="keyword">on</span> country.code = city.CountryCode <span class="keyword">having</span> rate &gt;= <span class="number">20</span> <span class="keyword">order</span> <span class="keyword">by</span> rate <span class="keyword">desc</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 국가별 언어별 사용 인구를 출력</span></span><br><span class="line"><span class="keyword">select</span> country.name, countrylanguage.language, <span class="keyword">round</span>(country.population * countrylanguage.percentage * <span class="number">0.01</span>) <span class="keyword">as</span> lp</span><br><span class="line">	<span class="keyword">from</span> country <span class="keyword">join</span> countrylanguage <span class="keyword">on</span> country.code = countrylanguage.CountryCode;</span><br><span class="line"></span><br><span class="line"><span class="comment"># INNER JOIN 시에 단축할 수 있음</span></span><br><span class="line"><span class="keyword">select</span> country.name, countrylanguage.language, <span class="keyword">round</span>(country.population * countrylanguage.percentage * <span class="number">0.01</span>) <span class="keyword">as</span> lp</span><br><span class="line">	<span class="keyword">from</span> country, countrylanguage <span class="keyword">where</span> country.code = countrylanguage.CountryCode;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 대륙별 사용언어의 수를 출력</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span>(country.continent), <span class="keyword">count</span>(countrylanguage.language)</span><br><span class="line"><span class="keyword">from</span> country <span class="keyword">join</span> countrylanguage <span class="keyword">on</span> country.code = countrylanguage.CountryCode</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> continent;</span><br></pre></td></tr></table></figure>
-
-<h3 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNION : 두개의 쿼리를 실행하고 나온 결과를 합쳐주는 방법</span></span><br><span class="line"><span class="comment"># 중복된 데이터를 제거하여 출력한다</span></span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">union</span> <span class="keyword">all</span> <span class="keyword">select</span> addr <span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> addr.user_id, user.name, addr.addr</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">right</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
-
-<h3 id="sub-Query"><a href="#sub-Query" class="headerlink" title="sub Query"></a>sub Query</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sub query : 쿼리안에 쿼리가 있는 문법</span></span><br><span class="line"><span class="comment"># select, from, where</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># select : 전체 나라수, 전체 도시수, 전체 언어수 출력 (한개의 row로)</span></span><br><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> country) <span class="keyword">as</span> total_country,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> city) <span class="keyword">as</span> total_city,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span>(<span class="keyword">language</span>)) <span class="keyword">from</span> countrylanguage) <span class="keyword">as</span> total_language</span><br><span class="line"><span class="keyword">from</span> dual;</span><br><span class="line"></span><br><span class="line"><span class="comment"># FROM : 800만 이상이 되는 도시의 국가코드, 국가이름, 도시이름, 도시인구수 출력</span></span><br><span class="line"><span class="comment"># JOIN만 사용</span></span><br><span class="line"><span class="comment"># join은 테이블 끼리의 join을 먼저 실행하기 때문에 모든 조합을 만들고 조건에 따라 filter함</span></span><br><span class="line"><span class="keyword">select</span> country.code, country.name, city.name, city.population</span><br><span class="line"><span class="keyword">from</span> city <span class="keyword">join</span> country <span class="keyword">on</span> city.countrycode = country.code <span class="keyword">having</span> city.population &gt;= <span class="number">800</span> * <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># sub query 사용</span></span><br><span class="line"><span class="comment"># join과 다르게 처음부터 조건에 맞는 조합만을 만들기 때문에 서브 쿼리문을 잘 활용하면 효율적인 SQL문 작성이 가능하다.</span></span><br><span class="line"><span class="keyword">select</span> country.code, country.name, city.name, city.population</span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> countrycode, <span class="keyword">name</span>, population <span class="keyword">from</span> city <span class="keyword">where</span> population &gt;= <span class="number">800</span> * <span class="number">10000</span>) <span class="keyword">as</span> city</span><br><span class="line"><span class="keyword">join</span> country <span class="keyword">on</span> city.countrycode = country.code <span class="keyword">having</span> city.population &gt;= <span class="number">800</span> * <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># where : 900만 이상의 인구가 있는 도시의 국가코드, 국가이름, 대통령 이름 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, headofstate <span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> code <span class="keyword">in</span> (<span class="keyword">select</span> countrycode <span class="keyword">from</span> city <span class="keyword">where</span> population &gt;= <span class="number">900</span>*<span class="number">10000</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="ANY-ALL"><a href="#ANY-ALL" class="headerlink" title="ANY / ALL"></a>ANY / ALL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ANY(OR) / ALL(AND)</span></span><br><span class="line"><span class="comment"># 한국이나 브라질 보다 인구수가 많은 국가의 국가코드, 국가이름, 인구수 출력</span></span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, population</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> population &gt; <span class="keyword">ANY</span> (</span><br><span class="line">	<span class="keyword">select</span> population <span class="keyword">from</span> country <span class="keyword">where</span> code <span class="keyword">in</span> (<span class="string">&quot;KOR&quot;</span>, <span class="string">&quot;BRA&quot;</span>));</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1161,16 +1245,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

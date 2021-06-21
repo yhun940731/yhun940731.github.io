@@ -145,6 +145,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/03/09/210309-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/09/210309-TIL/" class="post-title-link" itemprop="url">210309_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-09 16:04:53" itemprop="dateCreated datePublished" datetime="2021-03-09T16:04:53+09:00">2021-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-02 00:50:51" itemprop="dateModified" datetime="2021-05-02T00:50:51+09:00">2021-05-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="DB"><a href="#DB" class="headerlink" title="DB"></a>DB</h2><h3 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DDL : 데이터 정의어</span></span><br><span class="line"><span class="comment"># CREATE, ALTER, DROP</span></span><br><span class="line"><span class="comment"># DB와 테이블을 조작</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter : 데이터 베이스나 테이블 수정</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&quot;character_set_database&quot;</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">test</span> <span class="built_in">character</span> <span class="keyword">set</span> = utf8;</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter ADD : 테이블에서 컬럼 추가</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">add</span> age <span class="built_in">int</span>;</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># alter MODIFY : 테이블에서 컬럼 수정</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">modify</span> age <span class="built_in">char</span>(<span class="number">3</span>);</span><br><span class="line">desc user;</span><br><span class="line"></span><br><span class="line"><span class="comment"># DROP : 데이터 베이스나 테이블 삭제</span></span><br><span class="line"><span class="keyword">truncate</span> money; <span class="comment"># 테이블 초기화</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> money;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> money;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># JOIN : 테이블과 테이블을 결합해서 출력하는 방법</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">user</span> (</span><br><span class="line">	user_id <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">default</span> <span class="literal">null</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> addr (</span><br><span class="line">	addr_id <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    addr <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">    user_id <span class="built_in">int</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">name</span>) <span class="keyword">values</span> (<span class="string">&quot;jin&quot;</span>), (<span class="string">&quot;po&quot;</span>), (<span class="string">&quot;alice&quot;</span>);</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> addr(addr, user_id) <span class="keyword">values</span> (<span class="string">&quot;seoul&quot;</span>, <span class="number">1</span>), (<span class="string">&quot;busan&quot;</span>, <span class="number">2</span>), (<span class="string">&quot;daegu&quot;</span>, <span class="number">4</span>), (<span class="string">&quot;seoul&quot;</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="comment"># INNER JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">join</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LEFT JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">left</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> addr.user_id, user.name, addr.addr <span class="keyword">from</span> addr <span class="keyword">left</span> <span class="keyword">join</span> <span class="keyword">user</span> <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="comment"># RIGHT JOIN</span></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">right</span> <span class="keyword">join</span> addr <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr <span class="keyword">from</span> addr <span class="keyword">right</span> <span class="keyword">join</span> <span class="keyword">user</span> <span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="comment"># world DB에서 국가코드, 도시이름, 국가이름, 국가인구, 도시인구 출력</span></span><br><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"><span class="keyword">select</span> code, city.name <span class="keyword">as</span> city_name, country.name <span class="keyword">as</span> country_name,</span><br><span class="line">	country.population <span class="keyword">as</span> country_pop, city.population <span class="keyword">as</span> city_pop,</span><br><span class="line">	<span class="keyword">round</span>(city.Population/country.population * <span class="number">100</span>, <span class="number">2</span>) <span class="keyword">as</span> rate</span><br><span class="line">    <span class="keyword">from</span> country <span class="keyword">join</span> city <span class="keyword">on</span> country.code = city.CountryCode <span class="keyword">having</span> rate &gt;= <span class="number">20</span> <span class="keyword">order</span> <span class="keyword">by</span> rate <span class="keyword">desc</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 국가별 언어별 사용 인구를 출력</span></span><br><span class="line"><span class="keyword">select</span> country.name, countrylanguage.language, <span class="keyword">round</span>(country.population * countrylanguage.percentage * <span class="number">0.01</span>) <span class="keyword">as</span> lp</span><br><span class="line">	<span class="keyword">from</span> country <span class="keyword">join</span> countrylanguage <span class="keyword">on</span> country.code = countrylanguage.CountryCode;</span><br><span class="line"></span><br><span class="line"><span class="comment"># INNER JOIN 시에 단축할 수 있음</span></span><br><span class="line"><span class="keyword">select</span> country.name, countrylanguage.language, <span class="keyword">round</span>(country.population * countrylanguage.percentage * <span class="number">0.01</span>) <span class="keyword">as</span> lp</span><br><span class="line">	<span class="keyword">from</span> country, countrylanguage <span class="keyword">where</span> country.code = countrylanguage.CountryCode;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 대륙별 사용언어의 수를 출력</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span>(country.continent), <span class="keyword">count</span>(countrylanguage.language)</span><br><span class="line"><span class="keyword">from</span> country <span class="keyword">join</span> countrylanguage <span class="keyword">on</span> country.code = countrylanguage.CountryCode</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> continent;</span><br></pre></td></tr></table></figure>
+
+<h3 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNION : 두개의 쿼리를 실행하고 나온 결과를 합쳐주는 방법</span></span><br><span class="line"><span class="comment"># 중복된 데이터를 제거하여 출력한다</span></span><br><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">union</span> <span class="keyword">all</span> <span class="keyword">select</span> addr <span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> user.user_id, user.name, addr.addr</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> addr.user_id, user.name, addr.addr</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">right</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="sub-Query"><a href="#sub-Query" class="headerlink" title="sub Query"></a>sub Query</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sub query : 쿼리안에 쿼리가 있는 문법</span></span><br><span class="line"><span class="comment"># select, from, where</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># select : 전체 나라수, 전체 도시수, 전체 언어수 출력 (한개의 row로)</span></span><br><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> country) <span class="keyword">as</span> total_country,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> city) <span class="keyword">as</span> total_city,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span>(<span class="keyword">language</span>)) <span class="keyword">from</span> countrylanguage) <span class="keyword">as</span> total_language</span><br><span class="line"><span class="keyword">from</span> dual;</span><br><span class="line"></span><br><span class="line"><span class="comment"># FROM : 800만 이상이 되는 도시의 국가코드, 국가이름, 도시이름, 도시인구수 출력</span></span><br><span class="line"><span class="comment"># JOIN만 사용</span></span><br><span class="line"><span class="comment"># join은 테이블 끼리의 join을 먼저 실행하기 때문에 모든 조합을 만들고 조건에 따라 filter함</span></span><br><span class="line"><span class="keyword">select</span> country.code, country.name, city.name, city.population</span><br><span class="line"><span class="keyword">from</span> city <span class="keyword">join</span> country <span class="keyword">on</span> city.countrycode = country.code <span class="keyword">having</span> city.population &gt;= <span class="number">800</span> * <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># sub query 사용</span></span><br><span class="line"><span class="comment"># join과 다르게 처음부터 조건에 맞는 조합만을 만들기 때문에 서브 쿼리문을 잘 활용하면 효율적인 SQL문 작성이 가능하다.</span></span><br><span class="line"><span class="keyword">select</span> country.code, country.name, city.name, city.population</span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> countrycode, <span class="keyword">name</span>, population <span class="keyword">from</span> city <span class="keyword">where</span> population &gt;= <span class="number">800</span> * <span class="number">10000</span>) <span class="keyword">as</span> city</span><br><span class="line"><span class="keyword">join</span> country <span class="keyword">on</span> city.countrycode = country.code <span class="keyword">having</span> city.population &gt;= <span class="number">800</span> * <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># where : 900만 이상의 인구가 있는 도시의 국가코드, 국가이름, 대통령 이름 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, headofstate <span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> code <span class="keyword">in</span> (<span class="keyword">select</span> countrycode <span class="keyword">from</span> city <span class="keyword">where</span> population &gt;= <span class="number">900</span>*<span class="number">10000</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="ANY-ALL"><a href="#ANY-ALL" class="headerlink" title="ANY / ALL"></a>ANY / ALL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ANY(OR) / ALL(AND)</span></span><br><span class="line"><span class="comment"># 한국이나 브라질 보다 인구수가 많은 국가의 국가코드, 국가이름, 인구수 출력</span></span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, population</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> population &gt; <span class="keyword">ANY</span> (</span><br><span class="line">	<span class="keyword">select</span> population <span class="keyword">from</span> country <span class="keyword">where</span> code <span class="keyword">in</span> (<span class="string">&quot;KOR&quot;</span>, <span class="string">&quot;BRA&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/03/05/210305-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -931,95 +1015,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/01/25/210125-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/25/210125-TIL/" class="post-title-link" itemprop="url">210125_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-25 16:54:38" itemprop="dateCreated datePublished" datetime="2021-01-25T16:54:38+09:00">2021-01-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-02 00:50:25" itemprop="dateModified" datetime="2021-05-02T00:50:25+09:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="타이머"><a href="#타이머" class="headerlink" title="타이머"></a>타이머</h2><p>JS 엔진은 싱글 스레드이기 때문에 호출 스케쥴링은 브라우저의 역할이다.</p>
-<h3 id="setTimeout-clearTimeout"><a href="#setTimeout-clearTimeout" class="headerlink" title="setTimeout / clearTimeout"></a>setTimeout / clearTimeout</h3><p>브라우저, NodeJs가 호출하는 호스트 객체이다.</p>
-<p>setTimeout은 항상 timerId를 반환한다. 이 함수를 이용해서 다른 반환값을 받는 것은 불가능하기 때문에 콜백함수를 통한 행위를 위해 사용해야한다.</p>
-<p>반환하는 timerId는 clearTimeout, clearInterval에 사용된다.</p>
-<p><strong>간단한 타이머</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;display&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;start&quot;</span>&gt;</span>start<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;stop&quot;</span>&gt;</span>stop<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;reset&quot;</span>&gt;</span>reset<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> num = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> timerId = <span class="literal">null</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> $start = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.start&quot;</span>);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> $stop = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.stop&quot;</span>);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> $reset = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.reset&quot;</span>);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> $display = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.display&quot;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">      $start.onclick = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (timerId) <span class="keyword">return</span>;</span></span><br><span class="line"><span class="javascript">        timerId = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line">          num += 1;</span><br><span class="line">          $display.textContent = num;</span><br><span class="line">        &#125;, 100);</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line"><span class="javascript">      $stop.onclick = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">clearInterval</span>(timerId);</span></span><br><span class="line"><span class="javascript">        timerId = <span class="literal">null</span>;</span></span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line"><span class="javascript">      $reset.onclick = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (timerId) <span class="built_in">clearInterval</span>(timerId);</span></span><br><span class="line">        num = 0;</span><br><span class="line">        $display.textContent = 0;</span><br><span class="line"><span class="javascript">        timerId = <span class="literal">null</span>;</span></span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="비동기-프로그래밍"><a href="#비동기-프로그래밍" class="headerlink" title="비동기 프로그래밍"></a>비동기 프로그래밍</h2><p>싱글 스레드인 JS엔진은 콜 스택이 하나뿐이기 때문에 시간이 걸리는 테스크를 처리할 때는 동기 처리방식으로 동작하기 때문에 처리 중인 테스크가 종료될 때까지 블로킹이 발생한다.</p>
-<p>위에서 기술한 타이머 함수는 비동기로 동작한다. 커피를 주문하고(비동기 처리되는 함수) 주문벨(프로미스)이 울리기 전까지 다른 행위를 하는 것과 비슷하다.</p>
-<p>타이머 함수 외에도 이벤트핸들러 또한 태스크 큐를 통해 실행된다. 때문에 테스크 큐를 이벤트 큐라고도 부른다. 이외에도 자바스크립트에서 호출하는 것이 아닌 브라우저가 호출하는 모든 태스크는 태스크 큐를 통해서 콜 스택에 들어온다.</p>
-<p>함수 코드 중에 비동기로 동작하는 부분이 있다면 비동기 함수이다.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1085,16 +1084,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
