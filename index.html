@@ -145,6 +145,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/23/210623-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/23/210623-TIL/" class="post-title-link" itemprop="url">210623_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-06-23 00:16:37 / Modified: 00:36:00" itemprop="dateCreated datePublished" datetime="2021-06-23T00:16:37+09:00">2021-06-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="코딩-테스트-연습"><a href="#코딩-테스트-연습" class="headerlink" title="코딩 테스트 연습"></a>코딩 테스트 연습</h2><h3 id="약수의-개수와-덧셈"><a href="#약수의-개수와-덧셈" class="headerlink" title="약수의 개수와 덧셈"></a>약수의 개수와 덧셈</h3><p>문제 설명</p>
+<p>두 정수 left와 right가 매개변수로 주어집니다. left부터 right까지의 모든 수들 중에서, 약수의 개수가 짝수인 수는 더하고, 약수의 개수가 홀수인 수는 뺀 수를 return 하도록 solution 함수를 완성해주세요.</p>
+<p>제한사항</p>
+<ul>
+<li>1 ≤ left ≤ right ≤ 1,000</li>
+</ul>
+<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i % j === <span class="number">0</span>) cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    cnt % <span class="number">2</span> === <span class="number">0</span> ? (sum += i) : (sum -= i);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>삼항 조건 연산자가 편하긴 한데, if..else 문을 쓰는게 더 직관적인지 애매하다.</li>
+<li>쉬운 문제</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> num = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i % j === <span class="number">0</span>) cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    num.push([i, cnt]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> num.reduce(</span><br><span class="line">    (acc, cur) =&gt; (cur[<span class="number">1</span>] % <span class="number">2</span> === <span class="number">0</span> ? acc + cur[<span class="number">0</span>] : acc - cur[<span class="number">0</span>]),</span><br><span class="line">    <span class="number">0</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>배열 메서드 연습하고 싶어서 꼬아서 놀았다. 의미없다.</li>
+</ul>
+<h4 id="감탄한-타인의-답"><a href="#감탄한-타인의-답" class="headerlink" title="감탄한 타인의 답"></a>감탄한 타인의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> answer = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Number</span>.isInteger(<span class="built_in">Math</span>.sqrt(i))) &#123;</span><br><span class="line">      answer -= i;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      answer += i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>제곱수(자연수를 제곱해 구해지는 수)의 약수 개수는 항상 홀수이다…같은 수를 두번 곱한 경우의 짝이 없는 약수가 1개 생기기 때문…수학 상식도 재밌다..</li>
+</ul>
+<p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/06/22/210622-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1107,98 +1202,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/03/11/210311-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/11/210311-TIL/" class="post-title-link" itemprop="url">210311_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-11 14:08:26" itemprop="dateCreated datePublished" datetime="2021-03-11T14:08:26+09:00">2021-03-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-02 00:50:53" itemprop="dateModified" datetime="2021-05-02T00:50:53+09:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="Snippet"><a href="#Snippet" class="headerlink" title="Snippet"></a>Snippet</h2><p><a target="_blank" rel="noopener" href="https://snippet-generator.app/">https://snippet-generator.app/</a></p>
-<p>설정 → 사용자 코드조각 → html 등 언어 설정 → json 형식으로 붙여넣기</p>
-<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="컴포넌트-네이밍-컨벤션"><a href="#컴포넌트-네이밍-컨벤션" class="headerlink" title="컴포넌트 네이밍 컨벤션"></a>컴포넌트 네이밍 컨벤션</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTML <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span>&gt;</span>HTML 버튼 요소<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">React Component (JSX)</span><br><span class="line">&lt;Button&gt;React 버튼 요소&lt;/Button&gt;</span><br></pre></td></tr></table></figure>
-
-<p>TitleCase 문법 사용을 권장</p>
-<h3 id="React-ver-17"><a href="#React-ver-17" class="headerlink" title="React ver 17"></a>React ver 17</h3><p>React 17 버전부터는 함수 컴포넌트에 대해 <code>import React</code>를 할 필요가 없다. 다만 class 컴포넌트에 대해서는<code>class UploadButton extends React.Component</code> 와 같은 경우를 위해 <code>import React</code>해야한다.</p>
-<h3 id="SVG-Format"><a href="#SVG-Format" class="headerlink" title="SVG Format"></a>SVG Format</h3><p>SVG는 코드로 이루어진 이미지 디자인 포멧이다. 디자인 포멧이지만 XML과 유사한 코드로 이뤄져있다. 그렇기 때문에 서버 통신에서 가장 큰 용량 중 하나를 차지하는 이미지 파일에 대한 사용을 줄이고 재사용이 가능해진다.</p>
-<h3 id="타입-검사"><a href="#타입-검사" class="headerlink" title="타입 검사"></a>타입 검사</h3><h4 id="JS-타입-검사"><a href="#JS-타입-검사" class="headerlink" title="JS 타입 검사"></a>JS 타입 검사</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 데이터 타입 검사 유틸리티 함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validType</span>(<span class="params">dataType, typeString</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="built_in">Object</span>.prototype.toString.call(dataType).slice(<span class="number">8</span>, <span class="number">-1</span>).toLowerCase() ===</span><br><span class="line">    typeString</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>Object.prototype.toString.call(dataType)</code> 를 사용하면 정확한 타입을 알 수 있다. (Array, function, null 등이 object로 출력되는 <code>type of</code> 보다 직관적이다.</p>
-<h4 id="React-타입-검사"><a href="#React-타입-검사" class="headerlink" title="React 타입 검사"></a>React 타입 검사</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 타입 검사를 위한 객체</span></span><br><span class="line"><span class="keyword">const</span> PropTypes = &#123;</span><br><span class="line">  string(props, propName, componentName) &#123;</span><br><span class="line">    <span class="keyword">const</span> value = props[propName];</span><br><span class="line">    <span class="keyword">const</span> valueType = <span class="keyword">typeof</span> value;</span><br><span class="line">    <span class="keyword">const</span> expectedType = <span class="string">&quot;string&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (valueType !== expectedType) &#123;</span><br><span class="line">      <span class="keyword">const</span> errorMessage = <span class="string">`<span class="subst">$&#123;componentName&#125;</span> 컴포넌트에 전달 된 <span class="subst">$&#123;propName&#125;</span>은</span></span><br><span class="line"><span class="string">      <span class="subst">$&#123;expectedType&#125;</span> 데이터 유형이 전달되어야 하나,</span></span><br><span class="line"><span class="string">      실제 전달된 속성 값 데이터 유형은 <span class="subst">$&#123;valueType&#125;</span>입니다. 확인해주세요.`</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(errorMessage);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -------------------------------------------------------------------------- */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">SVGIcon</span>(<span class="params">&#123; src, alt, className, ...restProps &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;img</span><br><span class="line">      src=&#123;<span class="string">`<span class="subst">$&#123;src&#125;</span>.svg`</span>&#125;</span><br><span class="line">      alt=&#123;alt&#125;</span><br><span class="line">      className=&#123;<span class="string">`icon <span class="subst">$&#123;className&#125;</span>`</span>.trim()&#125;</span><br><span class="line">      &#123;...restProps&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SVGIcon.defaultProps = &#123;</span><br><span class="line">  className: <span class="string">&quot;&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// React 컴포넌트는 React에 의해</span></span><br><span class="line"><span class="comment">// 전달 속성(props)의 타입을 검사할 수 있는</span></span><br><span class="line"><span class="comment">// propTypes 속성을 제공합니다.</span></span><br><span class="line">SVGIcon.propTypes = &#123;</span><br><span class="line">  src: PropTypes.string,</span><br><span class="line">  <span class="comment">// alt()&#123;&#125;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>하지만 이미 React에서 제공하는 타입 검사 <code>prop-types</code>가 있다.</p>
-<h4 id="prop-types"><a href="#prop-types" class="headerlink" title="prop-types"></a>prop-types</h4><p><code>npm i -D prop-types</code> 로 설치할 수 있다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; string, number, bool &#125; <span class="keyword">from</span> <span class="string">&quot;prop-types&quot;</span>;</span><br><span class="line"></span><br><span class="line">SVGIcon.propTypes = &#123;</span><br><span class="line">  src: string.isRequired, <span class="comment">//필수</span></span><br><span class="line">  alt: string,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1268,7 +1271,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
