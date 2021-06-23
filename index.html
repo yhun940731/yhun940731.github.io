@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-06-23 00:16:37 / Modified: 03:56:18" itemprop="dateCreated datePublished" datetime="2021-06-23T00:16:37+09:00">2021-06-23</time>
+              <time title="Created: 2021-06-23 00:16:37 / Modified: 14:27:35" itemprop="dateCreated datePublished" datetime="2021-06-23T00:16:37+09:00">2021-06-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,6 +275,22 @@
 </ul>
 <h4 id="나의-답-3"><a href="#나의-답-3" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">arr, divisor</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> answer = arr.filter(<span class="function">(<span class="params">v</span>) =&gt;</span> v % divisor === <span class="number">0</span>).sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> answer.length ? answer : [<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(solution([<span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">10</span>], <span class="number">5</span>)); <span class="comment">// [5, 10]</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="3진법-뒤집기"><a href="#3진법-뒤집기" class="headerlink" title="3진법 뒤집기"></a>3진법 뒤집기</h3><p>문제 설명</p>
+<p>자연수 n이 매개변수로 주어집니다. n을 3진법 상에서 앞뒤로 뒤집은 후, 이를 다시 10진법으로 표현한 수를 return 하도록 solution 함수를 완성해주세요.</p>
+<p>제한사항</p>
+<ul>
+<li>n은 1 이상 100,000,000 이하인 자연수입니다.</li>
+</ul>
+<h4 id="나의-답-4"><a href="#나의-답-4" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> num = n.toString(<span class="number">3</span>).split(<span class="string">&quot;&quot;</span>).reverse().join(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="comment">// const num = [...n.toString(3)].reverse().join(&quot;&quot;);</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(num, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(solution(<span class="number">45</span>)); <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>내장함수로 간단히 해결</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> answer = [];</span><br><span class="line">  <span class="keyword">while</span> (n !== <span class="number">0</span>) &#123;</span><br><span class="line">    answer.unshift(n % <span class="number">3</span>);</span><br><span class="line">    n = <span class="built_in">Math</span>.floor(n / <span class="number">3</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer.reduce(<span class="function">(<span class="params">acc, v, i</span>) =&gt;</span> acc + v * <span class="built_in">Math</span>.pow(<span class="number">3</span>, i), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>내장 함수 없이 계산도 가능하다.</li>
+</ul>
 <p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
 
