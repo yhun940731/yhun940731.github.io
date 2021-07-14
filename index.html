@@ -145,6 +145,106 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/07/14/210714-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/14/210714-TIL/" class="post-title-link" itemprop="url">210714_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-07-14 23:12:41 / Modified: 23:29:08" itemprop="dateCreated datePublished" datetime="2021-07-14T23:12:41+09:00">2021-07-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="코딩-테스트-연습"><a href="#코딩-테스트-연습" class="headerlink" title="코딩 테스트 연습"></a>코딩 테스트 연습</h2><h3 id="신규-아이디-추천"><a href="#신규-아이디-추천" class="headerlink" title="신규 아이디 추천"></a>신규 아이디 추천</h3><p>문제 설명</p>
+<p>다음과 같이 7단계의 순차적인 처리 과정을 통해 신규 유저가 입력한 아이디가 카카오 아이디 규칙에 맞는 지 검사하고 규칙에 맞지 않은 경우 규칙에 맞는 새로운 아이디를 추천해 주려고 합니다.<br>신규 유저가 입력한 아이디가 new_id 라고 한다면,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1단계 new_id의 모든 대문자를 대응되는 소문자로 치환합니다.</span><br><span class="line">2단계 new_id에서 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.)를 제외한 모든 문자를 제거합니다.</span><br><span class="line">3단계 new_id에서 마침표(.)가 2번 이상 연속된 부분을 하나의 마침표(.)로 치환합니다.</span><br><span class="line">4단계 new_id에서 마침표(.)가 처음이나 끝에 위치한다면 제거합니다.</span><br><span class="line">5단계 new_id가 빈 문자열이라면, new_id에 &quot;a&quot;를 대입합니다.</span><br><span class="line">6단계 new_id의 길이가 16자 이상이면, new_id의 첫 15개의 문자를 제외한 나머지 문자들을 모두 제거합니다.</span><br><span class="line">      만약 제거 후 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.</span><br><span class="line">7단계 new_id의 길이가 2자 이하라면, new_id의 마지막 문자를 new_id의 길이가 3이 될 때까지</span><br></pre></td></tr></table></figure>
+
+<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">new_id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> first = new_id.toLowerCase();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> second = first.replace(<span class="regexp">/[^\w-.]/g</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> third = second.replace(<span class="regexp">/\.&#123;2,&#125;/g</span>, <span class="string">&quot;.&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> fourth = third.replace(<span class="regexp">/^\.|\.$/g</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> fifth = !fourth.length ? <span class="string">&quot;a&quot;</span> : fourth;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> sixth = fifth.slice(<span class="number">0</span>, <span class="number">15</span>).replace(<span class="regexp">/^\.|\.$/g</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> seventh =</span><br><span class="line">    sixth.length &gt; <span class="number">2</span> ? sixth : sixth + sixth.slice(<span class="number">-1</span>).repeat(<span class="number">3</span> - sixth.length);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> seventh;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">solution(<span class="string">&quot;...!@BaT#*..y.abcdefghijklm&quot;</span>); <span class="comment">// &quot;bat.y.abcdefghi&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>정규식만 엄청 썼다.. 어렵지는 않지만 복잡한 정규식 규칙을 찾느라 애썼다.</li>
+</ul>
+<h4 id="감탄한-타인의-답"><a href="#감탄한-타인의-답" class="headerlink" title="감탄한 타인의 답"></a>감탄한 타인의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">new_id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> answer = new_id</span><br><span class="line">    .toLowerCase() <span class="comment">// 1</span></span><br><span class="line">    .replace(<span class="regexp">/[^\w-_.]/g</span>, <span class="string">&quot;&quot;</span>) <span class="comment">// 2</span></span><br><span class="line">    .replace(<span class="regexp">/\.+/g</span>, <span class="string">&quot;.&quot;</span>) <span class="comment">// 3</span></span><br><span class="line">    .replace(<span class="regexp">/^\.|\.$/g</span>, <span class="string">&quot;&quot;</span>) <span class="comment">// 4</span></span><br><span class="line">    .replace(<span class="regexp">/^$/</span>, <span class="string">&quot;a&quot;</span>) <span class="comment">// 5</span></span><br><span class="line">    .slice(<span class="number">0</span>, <span class="number">15</span>)</span><br><span class="line">    .replace(<span class="regexp">/\.$/</span>, <span class="string">&quot;&quot;</span>); <span class="comment">// 6</span></span><br><span class="line">  <span class="keyword">const</span> len = answer.length;</span><br><span class="line">  <span class="keyword">return</span> len &gt; <span class="number">2</span> ? answer : answer + answer.charAt(len - <span class="number">1</span>).repeat(<span class="number">3</span> - len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>대체적으로 비슷했지만 체이닝으로 간결하다.</li>
+<li>개인적으로 변수에 할당함으로써 순차에 대한 명확한 표현이 있는 내 코드가 더 좋다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> solution = <span class="function">(<span class="params">new_id</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> id = new_id</span><br><span class="line">    .toLowerCase()</span><br><span class="line">    .replace(<span class="regexp">/[^\w\d-_.]/g</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    .replace(<span class="regexp">/\.&#123;2,&#125;/g</span>, <span class="string">&quot;.&quot;</span>)</span><br><span class="line">    .replace(<span class="regexp">/^\.|\.$/g</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    .padEnd(<span class="number">1</span>, <span class="string">&quot;a&quot;</span>)</span><br><span class="line">    .slice(<span class="number">0</span>, <span class="number">15</span>)</span><br><span class="line">    .replace(<span class="regexp">/^\.|\.$/g</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> id.padEnd(<span class="number">3</span>, id[id.length - <span class="number">1</span>]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>String.prototype.padEnd()</code>는 처음 알았다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// str.padEnd(targetLength [, padString])</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;Breaded Mushrooms&#x27;</span>.padEnd(<span class="number">25</span>, <span class="string">&#x27;.&#x27;</span>)); <span class="comment">// &quot;Breaded Mushrooms........&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;200&#x27;</span>.padEnd(<span class="number">5</span>); <span class="comment">// &quot;200  &quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;abc&quot;</span>.padEnd(<span class="number">10</span>); <span class="comment">// &quot;abc       &quot;</span></span><br><span class="line"><span class="string">&quot;abc&quot;</span>.padEnd(<span class="number">10</span>, <span class="string">&quot;foo&quot;</span>); <span class="comment">// &quot;abcfoofoof&quot;</span></span><br><span class="line"><span class="string">&quot;abc&quot;</span>.padEnd(<span class="number">6</span>, <span class="string">&quot;123456&quot;</span>); <span class="comment">// &quot;abc123&quot;</span></span><br><span class="line"><span class="string">&quot;abc&quot;</span>.padEnd(<span class="number">1</span>); <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>targetLenth</code>는 목표 문자열 길이이다. 문자열이 원하는 길이 보다 짧다면 두 번째 매개변수에 문자열을 넣어서 원하는 길이만큼 채울 수 있다. 두 번째 매개변수는 옵션으로 넣지않으면 공백문자가 기본값.</li>
+<li>문제에서 <code>5단계 빈 문자열이라면 &#39;a&#39;를 채워넣는 부분</code>은 목표 문자열 길이가 1이며, 길이 1까지 <code>a</code>를 채워넣고 싶기 때문에 <code>.padEnd(1, &quot;a&quot;)</code>로 표현한다.</li>
+</ul>
+</li>
+</ul>
+<p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/07/13/210713-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1202,105 +1302,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/05/210505-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/05/210505-TIL/" class="post-title-link" itemprop="url">210505_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-05 18:24:24" itemprop="dateCreated datePublished" datetime="2021-05-05T18:24:24+09:00">2021-05-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-22 01:00:48" itemprop="dateModified" datetime="2021-06-22T01:00:48+09:00">2021-06-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="비밀지도"><a href="#비밀지도" class="headerlink" title="비밀지도"></a>비밀지도</h3><p>문제 설명</p>
-<p>네오는 평소 프로도가 비상금을 숨겨놓는 장소를 알려줄 비밀지도를 손에 넣었다. 그런데 이 비밀지도는 숫자로 암호화되어 있어 위치를 확인하기 위해서는 암호를 해독해야 한다. 다행히 지도 암호를 해독할 방법을 적어놓은 메모도 함께 발견했다.</p>
-<ol>
-<li>지도는 한 변의 길이가 n인 정사각형 배열 형태로, 각 칸은 “공백”(“ “) 또는 “벽”(“#”) 두 종류로 이루어져 있다.</li>
-<li>전체 지도는 두 장의 지도를 겹쳐서 얻을 수 있다. 각각 “지도 1”과 “지도 2”라고 하자. 지도 1 또는 지도 2 중 어느 하나라도 벽인 부분은 전체 지도에서도 벽이다. 지도 1과 지도 2에서 모두 공백인 부분은 전체 지도에서도 공백이다.</li>
-<li>“지도 1”과 “지도 2”는 각각 정수 배열로 암호화되어 있다.</li>
-<li>암호화된 배열은 지도의 각 가로줄에서 벽 부분을 1, 공백 부분을 0으로 부호화했을 때 얻어지는 이진수에 해당하는 값의 배열이다.</li>
-</ol>
-<p>입출력 예</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">매개변수	값</span><br><span class="line">n	5</span><br><span class="line">arr1	[9, 20, 28, 18, 11]</span><br><span class="line">arr2	[30, 1, 21, 17, 28]</span><br><span class="line">출력	[&quot;#####&quot;,&quot;# # #&quot;, &quot;### #&quot;, &quot;# ##&quot;, &quot;#####&quot;]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">매개변수	값</span><br><span class="line">n	6</span><br><span class="line">arr1	[46, 33, 33 ,22, 31, 50]</span><br><span class="line">arr2	[27 ,56, 19, 14, 14, 10]</span><br><span class="line">출력	[&quot;######&quot;, &quot;### #&quot;, &quot;## ##&quot;, &quot; #### &quot;, &quot; #####&quot;, &quot;### # &quot;]</span><br></pre></td></tr></table></figure>
-
-<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n, arr1, arr2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arrOr = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    arrOr.push(arr1[i] | arr2[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> binaryMap = arrOr</span><br><span class="line">    .map(<span class="function">(<span class="params">v</span>) =&gt;</span> v.toString(<span class="number">2</span>))</span><br><span class="line">    .map(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; length &#125; = v.length;</span><br><span class="line">      <span class="keyword">if</span> (length !== n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n - length; i++) &#123;</span><br><span class="line">          v = <span class="string">&quot;0&quot;</span> + v;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> v;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> binaryMap.map(<span class="function">(<span class="params">v</span>) =&gt;</span></span><br><span class="line">    v</span><br><span class="line">      .split(<span class="string">&quot;&quot;</span>)</span><br><span class="line">      .map(<span class="function">(<span class="params">char</span>) =&gt;</span> (char === <span class="string">&quot;1&quot;</span> ? <span class="string">&quot;#&quot;</span> : <span class="string">&quot; &quot;</span>))</span><br><span class="line">      .join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(solution(<span class="number">6</span>, [<span class="number">46</span>, <span class="number">33</span>, <span class="number">33</span>, <span class="number">22</span>, <span class="number">31</span>, <span class="number">50</span>], [<span class="number">27</span>, <span class="number">56</span>, <span class="number">19</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">10</span>]));</span><br><span class="line"><span class="comment">// [&quot;######&quot;, &quot;### #&quot;, &quot;## ##&quot;, &quot; #### &quot;, &quot; #####&quot;, &quot;### # &quot;]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>2진수로 변환 시 꼭 n 자리 수가 아닐 수 있다는 걸 간과했었다.</li>
-</ul>
-<h4 id="감탄한-타인의-답"><a href="#감탄한-타인의-답" class="headerlink" title="감탄한 타인의 답"></a>감탄한 타인의 답</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n, arr1, arr2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr1.map(<span class="function">(<span class="params">v, i</span>) =&gt;</span></span><br><span class="line">    addZero(n, (v | arr2[i]).toString(<span class="number">2</span>)).replace(<span class="regexp">/1|0/g</span>, <span class="function">(<span class="params">a</span>) =&gt;</span></span><br><span class="line">      +a ? <span class="string">&quot;#&quot;</span> : <span class="string">&quot; &quot;</span></span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> addZero = <span class="function">(<span class="params">n, s</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>.repeat(n - s.length) + s;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1370,7 +1371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

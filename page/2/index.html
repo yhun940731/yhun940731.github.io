@@ -145,6 +145,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/05/210505-TIL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nyong Choi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nyong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/05/210505-TIL/" class="post-title-link" itemprop="url">210505_TIL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-05 18:24:24" itemprop="dateCreated datePublished" datetime="2021-05-05T18:24:24+09:00">2021-05-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-22 01:00:48" itemprop="dateModified" datetime="2021-06-22T01:00:48+09:00">2021-06-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="공부한-javaScript-코딩-문제"><a href="#공부한-javaScript-코딩-문제" class="headerlink" title="공부한 javaScript 코딩 문제"></a>공부한 javaScript 코딩 문제</h2><h3 id="비밀지도"><a href="#비밀지도" class="headerlink" title="비밀지도"></a>비밀지도</h3><p>문제 설명</p>
+<p>네오는 평소 프로도가 비상금을 숨겨놓는 장소를 알려줄 비밀지도를 손에 넣었다. 그런데 이 비밀지도는 숫자로 암호화되어 있어 위치를 확인하기 위해서는 암호를 해독해야 한다. 다행히 지도 암호를 해독할 방법을 적어놓은 메모도 함께 발견했다.</p>
+<ol>
+<li>지도는 한 변의 길이가 n인 정사각형 배열 형태로, 각 칸은 “공백”(“ “) 또는 “벽”(“#”) 두 종류로 이루어져 있다.</li>
+<li>전체 지도는 두 장의 지도를 겹쳐서 얻을 수 있다. 각각 “지도 1”과 “지도 2”라고 하자. 지도 1 또는 지도 2 중 어느 하나라도 벽인 부분은 전체 지도에서도 벽이다. 지도 1과 지도 2에서 모두 공백인 부분은 전체 지도에서도 공백이다.</li>
+<li>“지도 1”과 “지도 2”는 각각 정수 배열로 암호화되어 있다.</li>
+<li>암호화된 배열은 지도의 각 가로줄에서 벽 부분을 1, 공백 부분을 0으로 부호화했을 때 얻어지는 이진수에 해당하는 값의 배열이다.</li>
+</ol>
+<p>입출력 예</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">매개변수	값</span><br><span class="line">n	5</span><br><span class="line">arr1	[9, 20, 28, 18, 11]</span><br><span class="line">arr2	[30, 1, 21, 17, 28]</span><br><span class="line">출력	[&quot;#####&quot;,&quot;# # #&quot;, &quot;### #&quot;, &quot;# ##&quot;, &quot;#####&quot;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">매개변수	값</span><br><span class="line">n	6</span><br><span class="line">arr1	[46, 33, 33 ,22, 31, 50]</span><br><span class="line">arr2	[27 ,56, 19, 14, 14, 10]</span><br><span class="line">출력	[&quot;######&quot;, &quot;### #&quot;, &quot;## ##&quot;, &quot; #### &quot;, &quot; #####&quot;, &quot;### # &quot;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="나의-답"><a href="#나의-답" class="headerlink" title="나의 답"></a>나의 답</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n, arr1, arr2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arrOr = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    arrOr.push(arr1[i] | arr2[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> binaryMap = arrOr</span><br><span class="line">    .map(<span class="function">(<span class="params">v</span>) =&gt;</span> v.toString(<span class="number">2</span>))</span><br><span class="line">    .map(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; length &#125; = v.length;</span><br><span class="line">      <span class="keyword">if</span> (length !== n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n - length; i++) &#123;</span><br><span class="line">          v = <span class="string">&quot;0&quot;</span> + v;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> v;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> binaryMap.map(<span class="function">(<span class="params">v</span>) =&gt;</span></span><br><span class="line">    v</span><br><span class="line">      .split(<span class="string">&quot;&quot;</span>)</span><br><span class="line">      .map(<span class="function">(<span class="params">char</span>) =&gt;</span> (char === <span class="string">&quot;1&quot;</span> ? <span class="string">&quot;#&quot;</span> : <span class="string">&quot; &quot;</span>))</span><br><span class="line">      .join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(solution(<span class="number">6</span>, [<span class="number">46</span>, <span class="number">33</span>, <span class="number">33</span>, <span class="number">22</span>, <span class="number">31</span>, <span class="number">50</span>], [<span class="number">27</span>, <span class="number">56</span>, <span class="number">19</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">10</span>]));</span><br><span class="line"><span class="comment">// [&quot;######&quot;, &quot;### #&quot;, &quot;## ##&quot;, &quot; #### &quot;, &quot; #####&quot;, &quot;### # &quot;]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2진수로 변환 시 꼭 n 자리 수가 아닐 수 있다는 걸 간과했었다.</li>
+</ul>
+<h4 id="감탄한-타인의-답"><a href="#감탄한-타인의-답" class="headerlink" title="감탄한 타인의 답"></a>감탄한 타인의 답</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">n, arr1, arr2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr1.map(<span class="function">(<span class="params">v, i</span>) =&gt;</span></span><br><span class="line">    addZero(n, (v | arr2[i]).toString(<span class="number">2</span>)).replace(<span class="regexp">/1|0/g</span>, <span class="function">(<span class="params">a</span>) =&gt;</span></span><br><span class="line">      +a ? <span class="string">&quot;#&quot;</span> : <span class="string">&quot; &quot;</span></span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> addZero = <span class="function">(<span class="params">n, s</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>.repeat(n - s.length) + s;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>출처: <a target="_blank" rel="noopener" href="https://programmers.co.kr/">programmers</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/05/04/210504-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -954,106 +1053,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yhun940731.github.io/2021/02/01/210201-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Nyong Choi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nyong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/01/210201-TIL/" class="post-title-link" itemprop="url">210201_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-01 17:02:23" itemprop="dateCreated datePublished" datetime="2021-02-01T17:02:23+09:00">2021-02-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-02 00:50:35" itemprop="dateModified" datetime="2021-05-02T00:50:35+09:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-배운-것"><a href="#오늘-배운-것" class="headerlink" title="오늘 배운 것"></a>오늘 배운 것</h1><h2 id="프로미스"><a href="#프로미스" class="headerlink" title="프로미스"></a>프로미스</h2><p>비동기 처리로 발생한은 콜백헬과 에러처리에 대한 어려움으로 ES6에서 프로미스가 등장하였다.</p>
-<p>콜백을 사용한 GET 비동기 함수</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GET 요청을 위한 비동기 함수</span></span><br><span class="line"><span class="keyword">const</span> get = <span class="function">(<span class="params">url, callback</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.open(<span class="string">&quot;GET&quot;</span>, url);</span><br><span class="line">  xhr.send();</span><br><span class="line"></span><br><span class="line">  xhr.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">      <span class="comment">// 서버의 응답을 콜백 함수에 전달하면서 호출하여 응답에 대한 후속 처리를 한다.</span></span><br><span class="line">      callback(<span class="built_in">JSON</span>.parse(xhr.response));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">`<span class="subst">$&#123;xhr.status&#125;</span> <span class="subst">$&#123;xhr.statusText&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">&quot;https://jsonplaceholder.typicode.com&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// id가 1인 post의 userId를 취득</span></span><br><span class="line">get(<span class="string">`<span class="subst">$&#123;url&#125;</span>/posts/1`</span>, <span class="function">(<span class="params">&#123; userId &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(userId); <span class="comment">// 1</span></span><br><span class="line">  <span class="comment">// post의 userId를 사용하여 user 정보를 취득</span></span><br><span class="line">  get(<span class="string">`<span class="subst">$&#123;url&#125;</span>/users/<span class="subst">$&#123;userId&#125;</span>`</span>, <span class="function">(<span class="params">userInfo</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(userInfo); <span class="comment">// &#123;id: 1, name: &quot;Leanne Graham&quot;, username: &quot;Bret&quot;,...&#125;</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>프로미스와 후속처리 메서드를 사용한 GET 메서드</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GET 요청을 위한 비동기 함수</span></span><br><span class="line"><span class="keyword">const</span> get = <span class="function">(<span class="params">url, callback</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">&#x27;GET&#x27;</span>, url);</span><br><span class="line">    xhr.send();</span><br><span class="line"></span><br><span class="line">    xhr.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="comment">// 서버의 응답을 콜백 함수에 전달하면서 호출하여 응답에 대한 후속 처리를 한다.</span></span><br><span class="line">        resolve(<span class="built_in">JSON</span>.parse(xhr.response));</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="keyword">new</span> Erro(xhr.status));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">&#x27;https://jsonplaceholder.typicode.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 후속처리 메서드 then도 결국 콜백을 사용하게 된다.</span></span><br><span class="line">get(<span class="string">`<span class="subst">$&#123;url&#125;</span>/posts/1`</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">&#123; userId &#125;</span>) =&gt;</span> get(<span class="string">`<span class="subst">$&#123;url&#125;</span>/users/<span class="subst">$&#123;userId&#125;</span>`</span>));</span><br><span class="line">  .then(<span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure>
-
-<p>후속처리 메서드는 일의 순서 대로 작성하는 것이 가독성이 좋다.</p>
-<p>프로미스는 프로미스 객체를 반환하기 때문에 <code>return</code> 값이 프로미스 객체라면 바로 반환이 가능하지만 아니라면 프로미스 객체를 생성하여 값을 설정하고 넘긴다.</p>
-<p>위의 경우 <code>console.log</code> 메서드가 중간에서 후속처리를했었다면 명시적으로 반환값을 넘기지 않으면 프로미스에 <code>undefined</code> 값을 설정하고 반환한다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">get(<span class="string">`<span class="subst">$&#123;url&#125;</span>/posts/1`</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">post</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(post); <span class="comment">// 1</span></span><br><span class="line">    <span class="keyword">return</span> post;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">&#123; userId &#125;</span>) =&gt;</span> get(<span class="string">`<span class="subst">$&#123;url&#125;</span>/users/<span class="subst">$&#123;userId&#125;</span>`</span>));</span><br></pre></td></tr></table></figure>
-
-<h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> requestData1 = <span class="function">() =&gt;</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="number">1</span>), <span class="number">3000</span>));</span><br><span class="line"><span class="keyword">const</span> requestData2 = <span class="function">() =&gt;</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="number">2</span>), <span class="number">2000</span>));</span><br><span class="line"><span class="keyword">const</span> requestData3 = <span class="function">() =&gt;</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="number">3</span>), <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 세 개의 비동기 처리를 순차적으로 처리</span></span><br><span class="line"><span class="keyword">const</span> res = [];</span><br><span class="line">requestData1()</span><br><span class="line">  .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    res.push(data);</span><br><span class="line">    <span class="keyword">return</span> requestData2();</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    res.push(data);</span><br><span class="line">    <span class="keyword">return</span> requestData3();</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    res.push(data);</span><br><span class="line">    <span class="built_in">console</span>.log(res); <span class="comment">// [1, 2, 3] ⇒ 약 6초 소요</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
-
-<p>위는 직렬 처리로 총 6초가 소요된다. 위와 같은 후속처리 체이닝은 위에서 작성한 GET 메서드와 같은 순차적인 처리가 필요할 때 사용하며 순차적인 처리가 필요한 경우가 아니라면 병렬 처리한다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> requestData1 = <span class="function">() =&gt;</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="number">1</span>), <span class="number">3000</span>));</span><br><span class="line"><span class="keyword">const</span> requestData2 = <span class="function">() =&gt;</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="number">2</span>), <span class="number">2000</span>));</span><br><span class="line"><span class="keyword">const</span> requestData3 = <span class="function">() =&gt;</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="number">3</span>), <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([requestData1(), requestData2(), requestData3()])</span><br><span class="line">  .then(<span class="built_in">console</span>.log) <span class="comment">// [ 1, 2, 3 ] ⇒ 약 3초 소요</span></span><br><span class="line">  .catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
-
-<p>위는 <strong>병렬 처리</strong>로 동시에 시작하기 때문에 총 3초가 소요된다. 병렬 처리가 훨씬 효율적이기 때문에 <code>Promise.all</code>을 사용해야한다.</p>
-<p><code>all</code> 메서드는 프로미스 객체로 이루어진 배열(이터러블)객체에 담아서 사용한다. 결과값으로 배열에 각 프로미스 객체의 결과값인 프로미스 객체가 순서대로 담기기 때문에 <code>then</code> 메서드로 받아야한다.</p>
-<p>all 메서드에서 하나라도 rejected될 경우 모두 error 처리된다.</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> githubIds = [<span class="string">&quot;jeresig&quot;</span>, <span class="string">&quot;ahejlsberg&quot;</span>, <span class="string">&quot;ungmo2&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all(</span><br><span class="line">  githubIds.map(<span class="function">(<span class="params">id</span>) =&gt;</span> promiseGet(<span class="string">`https://api.github.com/users/<span class="subst">$&#123;id&#125;</span>`</span>))</span><br><span class="line">)</span><br><span class="line">  <span class="comment">// [Promise, Promise, Promise] =&gt; Promise [userInfo, userInfo, userInfo]</span></span><br><span class="line">  .then(<span class="function">(<span class="params">users</span>) =&gt;</span> users.map(<span class="function">(<span class="params">user</span>) =&gt;</span> user.name))</span><br><span class="line">  <span class="comment">// [userInfo, userInfo, userInfo] =&gt; Promise [&#x27;John Resig&#x27;, &#x27;Anders Hejlsberg&#x27;, &#x27;Ungmo Lee&#x27;]</span></span><br><span class="line">  .then(<span class="built_in">console</span>.log)</span><br><span class="line">  .catch(<span class="built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
-
-<p>all 메서드는 위와 같은 GET으로 여러 값을 받을 때 사용할 수 있다.</p>
-<h3 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled"></a>Promise.allSettled</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.allSettled([</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="number">1</span>), <span class="number">2000</span>)),</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">_, reject</span>) =&gt;</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;Error!&quot;</span>)), <span class="number">1000</span>)</span><br><span class="line">  ),</span><br><span class="line">]).then(<span class="built_in">console</span>.log);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123;status: &quot;fulfilled&quot;, value: 1&#125;,</span></span><br><span class="line"><span class="comment">  &#123;status: &quot;rejected&quot;, reason: Error: Error! at &lt;anonymous&gt;:3:54&#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>모든 Settled 상태(fulfilled, rejected)를 반환한다.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yhun940731">Nyong’s GitHub</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1123,7 +1122,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
