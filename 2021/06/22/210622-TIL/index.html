@@ -22,13 +22,13 @@
 
   <meta name="description" content="오늘 한 것Git Issue Render 컴포넌트 진행git API를 가져와서 렌더하는 페이지를 만들고 있다. 처음에는 바닐라로 시작했지만 오늘 typeScript로 바꿨다.template을 지정하지 않고 CRA를 생성했기 때문에 npm install --save typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom">
 <meta property="og:type" content="article">
-<meta property="og:title" content="210622_TIL">
+<meta property="og:title" content="210622_TIL(TypeScript(Generic), 심심풀이 코딩 문제)">
 <meta property="og:url" content="http://yhun940731.github.io/2021/06/22/210622-TIL/index.html">
 <meta property="og:site_name" content="Nyong&#39;s Blog">
 <meta property="og:description" content="오늘 한 것Git Issue Render 컴포넌트 진행git API를 가져와서 렌더하는 페이지를 만들고 있다. 처음에는 바닐라로 시작했지만 오늘 typeScript로 바꿨다.template을 지정하지 않고 CRA를 생성했기 때문에 npm install --save typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-21T15:33:22.000Z">
-<meta property="article:modified_time" content="2021-06-21T18:06:50.382Z">
+<meta property="article:modified_time" content="2021-09-30T11:24:54.685Z">
 <meta property="article:author" content="Nyong Choi">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content="algorithm">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>210622_TIL | Nyong's Blog</title>
+  <title>210622_TIL(TypeScript(Generic), 심심풀이 코딩 문제) | Nyong's Blog</title>
   
 
 
@@ -167,7 +167,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          210622_TIL
+          210622_TIL(TypeScript(Generic), 심심풀이 코딩 문제)
         </h1>
 
         <div class="post-meta">
@@ -176,10 +176,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-06-22 00:33:22 / Modified: 03:06:50" itemprop="dateCreated datePublished" datetime="2021-06-22T00:33:22+09:00">2021-06-22</time>
+              <time title="Created: 2021-06-22 00:33:22" itemprop="dateCreated datePublished" datetime="2021-06-22T00:33:22+09:00">2021-06-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-30 20:24:54" itemprop="dateModified" datetime="2021-09-30T20:24:54+09:00">2021-09-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -214,7 +220,7 @@
 
       
         <h1 id="오늘-한-것"><a href="#오늘-한-것" class="headerlink" title="오늘 한 것"></a>오늘 한 것</h1><h2 id="Git-Issue-Render-컴포넌트-진행"><a href="#Git-Issue-Render-컴포넌트-진행" class="headerlink" title="Git Issue Render 컴포넌트 진행"></a>Git Issue Render 컴포넌트 진행</h2><p>git API를 가져와서 렌더하는 페이지를 만들고 있다. 처음에는 바닐라로 시작했지만 오늘 typeScript로 바꿨다.<br>template을 지정하지 않고 CRA를 생성했기 때문에 <code>npm install --save typescript @types/node @types/react @types/react-dom @types/jest</code>로 npm 설치 후 진행하였다.</p>
-<h3 id="typeScript-Generic"><a href="#typeScript-Generic" class="headerlink" title="typeScript Generic"></a>typeScript Generic</h3><p><code>tsconfig.json</code>로 수정하고 기존 만든 바닐라 js를 타입 지정하며 ts로 변환 중에, 바닐라 때 만들었던 <code>useFectDate</code> 커스텀 훅이 가장 말썽이었어서 기록한다.</p>
+<h3 id="typeScript-Generic"><a href="#typeScript-Generic" class="headerlink" title="typeScript Generic"></a>typeScript Generic</h3><p><code>tsconfig.json</code>로 수정하고 기존 만든 바닐라 js를 타입 지정하며 ts로 변환 중에, 바닐라 때 만들었던 <code>useFetchDate</code> 커스텀 훅이 가장 말썽이었어서 기록한다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> STATUS = &#123;</span><br><span class="line">  idle: <span class="string">&quot;idle&quot;</span>,</span><br><span class="line">  pending: <span class="string">&quot;pending&quot;</span>,</span><br><span class="line">  resolved: <span class="string">&quot;resolved&quot;</span>,</span><br><span class="line">  rejected: <span class="string">&quot;rejected&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; idle, pending, resolved, rejected &#125; = STATUS;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">useFetchData</span>(<span class="params">api</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [status, setStatus] = useState(idle);</span><br><span class="line">  <span class="keyword">const</span> [error, setError] = useState(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> [data, setData] = useState(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setStatus(idle);</span><br><span class="line">    setError(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> fetchData = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">      setStatus(pending);</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(api);</span><br><span class="line">        <span class="keyword">const</span> json = <span class="keyword">await</span> response.json();</span><br><span class="line">        setStatus(resolved);</span><br><span class="line">        setData(json);</span><br><span class="line">        <span class="built_in">console</span>.log(json);</span><br><span class="line">      &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        setStatus(rejected);</span><br><span class="line">        setError(error);</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    fetchData(api);</span><br><span class="line">  &#125;, [api]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [status, error, data];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -266,12 +272,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/21/210621-TIL/" rel="prev" title="210621_TIL">
-      <i class="fa fa-chevron-left"></i> 210621_TIL
+    <a href="/2021/06/21/210621-TIL/" rel="prev" title="210621_TIL(심심풀이 코딩 문제)">
+      <i class="fa fa-chevron-left"></i> 210621_TIL(심심풀이 코딩 문제)
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/06/23/210623-TIL/" rel="next" title="210623_TIL">
-      210623_TIL <i class="fa fa-chevron-right"></i>
+    <a href="/2021/06/23/210623-TIL/" rel="next" title="210623_TIL(심심풀이 코딩 문제)">
+      210623_TIL(심심풀이 코딩 문제) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
